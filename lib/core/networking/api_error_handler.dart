@@ -3,8 +3,6 @@ import 'package:dio/dio.dart';
 import 'api_constants.dart';
 import 'api_error_model.dart';
 
-
-
 // TODO: wallahy I will refactor this .. Omar Ahmed
 enum DataSource {
   NO_CONTENT,
@@ -72,102 +70,149 @@ extension DataSourceExtension on DataSource {
     switch (this) {
       case DataSource.NO_CONTENT:
         return ApiErrorModel(
-            code:  ResponseCode.NO_CONTENT, message: ResponseMessage.NO_CONTENT);
+          status: ResponseCode.NO_CONTENT,
+          title: ResponseMessage.NO_CONTENT,
+          errors: {'message': ResponseMessage.NO_CONTENT}, // مثال
+        );
       case DataSource.BAD_REQUEST:
         return ApiErrorModel(
-            code:  ResponseCode.BAD_REQUEST,
-            message: ResponseMessage.BAD_REQUEST);
+          status: ResponseCode.BAD_REQUEST,
+          title: ResponseMessage.BAD_REQUEST,
+          errors: {
+            'message': [ResponseMessage.BAD_REQUEST]
+          }, // مثال
+        );
       case DataSource.FORBIDDEN:
         return ApiErrorModel(
-            code:  ResponseCode.FORBIDDEN, message: ResponseMessage.FORBIDDEN);
+          status: ResponseCode.FORBIDDEN,
+          title: ResponseMessage.FORBIDDEN,
+          errors: {
+            'message': [ResponseMessage.FORBIDDEN]
+          },
+        );
       case DataSource.UNAUTORISED:
         return ApiErrorModel(
-            code:  ResponseCode.UNAUTORISED,
-            message: ResponseMessage.UNAUTORISED);
+          status: ResponseCode.UNAUTORISED,
+          title: ResponseMessage.UNAUTORISED,
+          errors: {
+            'message': [ResponseMessage.UNAUTORISED]
+          },
+        );
       case DataSource.NOT_FOUND:
         return ApiErrorModel(
-            code:  ResponseCode.NOT_FOUND, message: ResponseMessage.NOT_FOUND);
+          status: ResponseCode.NOT_FOUND,
+          title: ResponseMessage.NOT_FOUND,
+          errors: {
+            'message': [ResponseMessage.NOT_FOUND]
+          },
+        );
       case DataSource.INTERNAL_SERVER_ERROR:
         return ApiErrorModel(
-            code:  ResponseCode.INTERNAL_SERVER_ERROR,
-            message: ResponseMessage.INTERNAL_SERVER_ERROR);
+          status: ResponseCode.INTERNAL_SERVER_ERROR,
+          title: ResponseMessage.INTERNAL_SERVER_ERROR,
+          errors: {
+            'message': [ResponseMessage.INTERNAL_SERVER_ERROR]
+          },
+        );
       case DataSource.CONNECT_TIMEOUT:
         return ApiErrorModel(
-            code:  ResponseCode.CONNECT_TIMEOUT,
-            message: ResponseMessage.CONNECT_TIMEOUT);
+          status: ResponseCode.CONNECT_TIMEOUT,
+          title: ResponseMessage.CONNECT_TIMEOUT,
+          errors: {
+            'message': [ResponseMessage.CONNECT_TIMEOUT]
+          },
+        );
       case DataSource.CANCEL:
         return ApiErrorModel(
-            code:  ResponseCode.CANCEL, message: ResponseMessage.CANCEL);
+          status: ResponseCode.CANCEL,
+          title: ResponseMessage.CANCEL,
+          errors: {
+            'message': [ResponseMessage.CANCEL]
+          },
+        );
       case DataSource.RECIEVE_TIMEOUT:
         return ApiErrorModel(
-            code:  ResponseCode.RECIEVE_TIMEOUT,
-            message: ResponseMessage.RECIEVE_TIMEOUT);
+          status: ResponseCode.RECIEVE_TIMEOUT,
+          title: ResponseMessage.RECIEVE_TIMEOUT,
+          errors: {
+            'message': [ResponseMessage.RECIEVE_TIMEOUT]
+          },
+        );
       case DataSource.SEND_TIMEOUT:
         return ApiErrorModel(
-            code:  ResponseCode.SEND_TIMEOUT,
-            message: ResponseMessage.SEND_TIMEOUT);
+          status: ResponseCode.SEND_TIMEOUT,
+          title: ResponseMessage.SEND_TIMEOUT,
+          errors: {
+            'message': [ResponseMessage.SEND_TIMEOUT]
+          },
+        );
       case DataSource.CACHE_ERROR:
         return ApiErrorModel(
-            code:  ResponseCode.CACHE_ERROR,
-            message: ResponseMessage.CACHE_ERROR);
+          status: ResponseCode.CACHE_ERROR,
+          title: ResponseMessage.CACHE_ERROR,
+          errors: {
+            'message': [ResponseMessage.CACHE_ERROR]
+          },
+        );
       case DataSource.NO_INTERNET_CONNECTION:
         return ApiErrorModel(
-            code:  ResponseCode.NO_INTERNET_CONNECTION,
-            message: ResponseMessage.NO_INTERNET_CONNECTION);
+          status: ResponseCode.NO_INTERNET_CONNECTION,
+          title: ResponseMessage.NO_INTERNET_CONNECTION,
+          errors: {
+            'message': [ResponseMessage.NO_INTERNET_CONNECTION]
+          },
+        );
       case DataSource.DEFAULT:
         return ApiErrorModel(
-            code:  ResponseCode.DEFAULT, message: ResponseMessage.DEFAULT);
+          status: ResponseCode.DEFAULT,
+          title: ResponseMessage.DEFAULT,
+          errors: {
+            'message': [ResponseMessage.DEFAULT]
+          },
+        );
     }
   }
 }
 
-class ErrorHandler implements Exception {
-  late ApiErrorModel apiErrorModel;
-
-  ErrorHandler.handle(dynamic error) {
+class ApiErrorHandler {
+  static ApiErrorModel handle(dynamic error) {
     if (error is DioException) {
-      // dio error so its an error from response of the API or from dio itself
-      apiErrorModel = _handleError(error);
+      switch (error.type) {
+        case DioExceptionType.connectionTimeout:
+          return ApiErrorModel(errors: {'message': 'Connection Timeout'});
+        case DioExceptionType.sendTimeout:
+          return ApiErrorModel(errors: {'message': 'Send Timeout'});
+        case DioExceptionType.receiveTimeout:
+          return ApiErrorModel(errors: {'message': 'Receive Timeout'});
+        case DioExceptionType.badResponse:
+          if (error.response != null &&
+              error.response?.statusCode != null &&
+              error.response?.statusMessage != null) {
+            return ApiErrorModel.fromJson(error.response!.data);
+          } else {
+            return ApiErrorModel(errors: {'message': 'Bad Response'});
+          }
+        case DioExceptionType.badCertificate:
+          return ApiErrorModel(errors: {'message': 'Bad Certificate'});
+        case DioExceptionType.cancel:
+          return ApiErrorModel(errors: {'message': 'Request Cancelled'});
+        case DioExceptionType.connectionError:
+          return ApiErrorModel(errors: {'message': 'Connection Error'});
+        default:
+          return ApiErrorModel(errors: {'message': 'Unknown Error'});
+      }
     } else {
-      // default error
-      apiErrorModel = DataSource.DEFAULT.getFailure();
+      return ApiErrorModel(errors: {'message': 'Something went wrong'});
     }
   }
 }
+ApiErrorModel _handleError( dynamic data) {
+  return ApiErrorModel(
+    status: data['status'], 
+    title: data['message'],
+    errors: data['errors'],
 
-ApiErrorModel _handleError(DioException error) {
-  switch (error.type) {
-    case DioExceptionType.connectionTimeout:
-      return DataSource.CONNECT_TIMEOUT.getFailure();
-    case DioExceptionType.sendTimeout:
-      return DataSource.SEND_TIMEOUT.getFailure();
-    case DioExceptionType.receiveTimeout:
-      return DataSource.RECIEVE_TIMEOUT.getFailure();
-    case DioExceptionType.badResponse:
-      if (error.response != null &&
-          error.response?.statusCode != null &&
-          error.response?.statusMessage != null) {
-        return ApiErrorModel.fromJson(error.response!.data);
-      } else {
-        return DataSource.DEFAULT.getFailure();
-      }
-    case DioExceptionType.unknown:
-      if (error.response != null &&
-          error.response?.statusCode != null &&
-          error.response?.statusMessage != null) {
-        return ApiErrorModel.fromJson(error.response!.data);
-      } else {
-        return DataSource.DEFAULT.getFailure();
-      }
-    case DioExceptionType.cancel:
-      return DataSource.CANCEL.getFailure();
-    case DioExceptionType.connectionError:
-      return DataSource.DEFAULT.getFailure();
-    case DioExceptionType.badCertificate:
-      return DataSource.DEFAULT.getFailure();
-    case DioExceptionType.badResponse:
-      return DataSource.DEFAULT.getFailure();
-  }
+  );
 }
 
 class ApiInternalStatus {

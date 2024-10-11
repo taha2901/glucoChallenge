@@ -27,32 +27,19 @@ class DioFactory {
 
   static void addDioHeaders() async {
     dio?.options.headers = {
-      'lang': 'en',
       'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization':
-          '${await SharedPrefHelper.getString(SharedPrefKeys.userToken)}',
+      // 'content-type': 'multipart/form-data',
+      'content-type': 'application/json',
+      'Authorization': 
+          'Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}',
     };
   }
 
-  // static void setTokenIntoHeaderAfterLogin(String token) {
-  //   dio?.options.headers = {
-  //     'lang': 'en',
-  //     'Authorization': '$token',
-  //   };
-  // }
-
-  static void setTokenIntoHeaderAfterLogin(String? token) {
-    if (token != null) {
-      dio?.options.headers = {
-        'lang': 'en',
-        'Authorization': '$token',
-      };
-      print("Token set in headers: $token");
-    } else {
-      dio?.options.headers.remove('Authorization');
-      print("Authorization header removed");
-    }
+  static void setTokenIntoHeaderAfterLogin(String token) {
+    dio?.options.headers = {
+      'content-type': 'application/json',
+      'Authorization': 'Bearer $token',
+    };
   }
 
   static void addDioInterceptor() {

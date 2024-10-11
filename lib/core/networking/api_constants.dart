@@ -1,9 +1,9 @@
 class ApiConstants {
-  static const String apiBaseUrl = 'https://student.valuxapps.com/api/';
+  static const String apiBaseUrl = 'http://diabetes.runasp.net/api/';
 
-  static const String login = 'login';
+  static const String login = 'Auth/Login';
 
-  static const String register = 'register';
+  static const String register = 'Auth/register';
 
   static const String categories = 'categories';
 
