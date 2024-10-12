@@ -41,6 +41,8 @@ dependencies:
   smooth_page_indicator: ^1.2.0+3
   flutter_localizations:
     sdk: flutter
+  freezed: ^2.5.7
+  image_picker: ^1.0.0
 
 dev_dependencies:
   flutter_test:

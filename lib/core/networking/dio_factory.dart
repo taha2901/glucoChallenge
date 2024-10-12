@@ -1,10 +1,9 @@
 import 'package:challenge/core/helpers/constants.dart';
+import 'package:challenge/core/helpers/shared_pref_helper.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import '../helpers/shared_pref_helper.dart';
 
 class DioFactory {
-  /// private constructor as I don't want to allow creating an instance of this class
   DioFactory._();
 
   static Dio? dio;
@@ -17,7 +16,6 @@ class DioFactory {
       dio!
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
-      addDioHeaders();
       addDioInterceptor();
       return dio!;
     } else {
@@ -25,12 +23,11 @@ class DioFactory {
     }
   }
 
-  static void addDioHeaders() async {
+  static Future<void> addDioHeaders({bool isMultipart = false}) async {
     dio?.options.headers = {
       'Accept': 'application/json',
-      // 'content-type': 'multipart/form-data',
-      'content-type': 'application/json',
-      'Authorization': 
+      'content-type': isMultipart ? 'multipart/form-data' : 'application/json',
+      'Authorization':
           'Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}',
     };
   }

@@ -6,4 +6,5 @@ class SharedPrefKeys {
   static const String userPassword = 'userPassword';
 
   static const String onboard = 'onboard';
+  static const String userPhotoUrl = 'photoUrl';
 }

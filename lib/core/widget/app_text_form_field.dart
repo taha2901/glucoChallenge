@@ -9,7 +9,8 @@ class AppTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final TextEditingController? controller;
   final ValueChanged<String>? onChanged;
-  // final VoidCallback? onTap;
+  final VoidCallback? onTap;
+  final void Function(String)? onFieldSubmitted;
   final Color? backFroundColor;
   final bool? isObscureText;
   final Widget? prefixIcon;
@@ -34,13 +35,15 @@ class AppTextFormField extends StatelessWidget {
     this.backFroundColor,
     this.validator,
     this.controller,
-    this.prefixIcon, required this.borderRadius, this.onChanged,
+    this.prefixIcon, required this.borderRadius, this.onChanged, this.onTap, this.onFieldSubmitted,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      onTap: onTap,
+      onFieldSubmitted: onFieldSubmitted,
       validator: (value) {
         return validator!(value);
       },
