@@ -1,5 +1,8 @@
 import 'package:challenge/core/helpers/constants.dart';
+import 'package:challenge/core/helpers/extentions.dart';
 import 'package:challenge/core/helpers/shared_pref_helper.dart';
+import 'package:challenge/core/routings/routers.dart';
+import 'package:challenge/features/login/ui/login_screen.dart';
 import 'package:challenge/features/onboard/data/onboard.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:flutter/material.dart';
@@ -28,22 +31,16 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         image: 'assets/images/3.png'),
   ];
   bool islast = false;
-  void submit() {
 
-    SharedPrefHelper.setData(SharedPrefKeys.onboard, 'true').then((value) {
-      if (value) {
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(
-            builder: (context) => Container(
-              child: const Center(child: Text('Login Screen')),
-            ),
-          ),
-          (route) => false,
-        );
-      }
-    });
-  }
+  // Future<void> submit() async {
+  //   saveUserToken(true); // Await the saveUserToken function
+  //   // Navigator.pushAndRemoveUntil(
+  //   //   context,
+  //   //   MaterialPageRoute(builder: (context) => ),
+  //   //   (route) => false,
+  //   // );
+  //   context.pushNamedAndRemoveUntil(Routers.login, predicate: (route) => false);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -57,41 +54,26 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 physics: const BouncingScrollPhysics(),
                 controller: boardController,
                 onPageChanged: (int index) {
-                  if (index == board.length - 1) {
-                    setState(() {
-                      islast = true;
-                    });
-                    debugPrint('Last');
-                  } else {
-                    debugPrint('Not Last');
-                    setState(() {
-                      islast = false;
-                    });
-                  }
+                  setState(() {
+                    islast = index == board.length - 1;
+                  });
                 },
                 itemBuilder: (context, index) {
-                  return BuildBoardingItem(
-                    board: board[index],
-                  );
+                  return BuildBoardingItem(board: board[index]);
                 },
                 itemCount: board.length,
               ),
             ),
-            const SizedBox(
-              height: 40.0,
-            ),
+            const SizedBox(height: 40.0),
             Padding(
               padding: const EdgeInsets.all(16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TextButton(
-                    onPressed: () {
-                      submit();
-                    },
-                    child: const Text(
-                      'تخطي',
-                    ),
+                    // onPressed: submit,
+                    onPressed: () {},
+                    child: const Text('تخطي'),
                   ),
                   SmoothPageIndicator(
                     controller: boardController,
@@ -107,12 +89,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   FloatingActionButton(
                     onPressed: () {
                       if (islast) {
-                        submit();
+                        context.pushNamedAndRemoveUntil(Routers.login,
+                            predicate: (route) => false);
                       } else {
                         boardController.nextPage(
-                          duration: const Duration(
-                            milliseconds: 750,
-                          ),
+                          duration: const Duration(milliseconds: 750),
                           curve: Curves.fastLinearToSlowEaseIn,
                         );
                       }
@@ -134,10 +115,10 @@ class CurveClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     final path = Path();
-    path.lineTo(0, size.height - 50); // بداية القطع من أعلى يسار الصورة
-    path.quadraticBezierTo(size.width / 2.3, size.height, size.width,
-        size.height - 60); // منحنى courve
-    path.lineTo(size.width, 0); // النهاية من أسفل يمين الصورة
+    path.lineTo(0, size.height - 50);
+    path.quadraticBezierTo(
+        size.width / 2.3, size.height, size.width, size.height - 60);
+    path.lineTo(size.width, 0);
     path.close();
     return path;
   }
@@ -147,10 +128,7 @@ class CurveClipper extends CustomClipper<Path> {
 }
 
 class BuildBoardingItem extends StatelessWidget {
-  const BuildBoardingItem({
-    super.key,
-    required this.board,
-  });
+  const BuildBoardingItem({super.key, required this.board});
 
   final OnBoardingModel board;
 
@@ -161,9 +139,7 @@ class BuildBoardingItem extends StatelessWidget {
         padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
         child: Column(
           children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.07,
-            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.07),
             Container(
               decoration: BoxDecoration(
                 color: Colors.blue,
@@ -171,8 +147,7 @@ class BuildBoardingItem extends StatelessWidget {
               ),
               child: Padding(
                 padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.02,
-                ),
+                    top: MediaQuery.of(context).size.height * 0.02),
                 child: Image(
                   height: MediaQuery.of(context).size.height / 2,
                   width: double.infinity,
@@ -181,9 +156,7 @@ class BuildBoardingItem extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.04,
-            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.04),
             Text(
               board.body,
               style: TextStyle(
@@ -196,4 +169,8 @@ class BuildBoardingItem extends StatelessWidget {
       ),
     );
   }
+}
+
+void saveUserToken(bool onboard) async {
+  await SharedPrefHelper.setData(SharedPrefKeys.onboard, onboard);
 }

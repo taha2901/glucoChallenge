@@ -39,6 +39,10 @@ dependencies:
   # flutter_credit_card: ^4.0.1
   dartz: ^0.10.1
   smooth_page_indicator: ^1.2.0+3
+  flutter_localizations:
+    sdk: flutter
+  freezed: ^2.5.7
+  image_picker: ^1.0.0
 
 dev_dependencies:
   flutter_test:
