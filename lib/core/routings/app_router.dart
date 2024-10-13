@@ -1,5 +1,8 @@
 import 'package:challenge/core/di/dependency_injection.dart';
 import 'package:challenge/core/routings/routers.dart';
+import 'package:challenge/features/doctors/ui/doctor_screen.dart';
+import 'package:challenge/features/doctors/ui/widgets/reservation/confirm_dotor_reservation.dart';
+import 'package:challenge/features/doctors/ui/widgets/reservation/doctor_reservation.dart';
 import 'package:challenge/features/home/ui/home_screen.dart';
 import 'package:challenge/features/login/logic/login_cubit.dart';
 import 'package:challenge/features/login/ui/login_screen.dart';
@@ -8,7 +11,6 @@ import 'package:challenge/features/register/logic/register_cubit.dart';
 import 'package:challenge/features/register/ui/register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -38,7 +40,21 @@ class AppRouter {
       //   );
       case Routers.home:
         return MaterialPageRoute(
-          builder: (_) =>  const HomeScreen(),
+          builder: (_) => const HomeScreen(),
+        );
+      case Routers.doctors:
+        return MaterialPageRoute(
+          builder: (_) => const DoctorScreen(),
+        );
+
+      case Routers.doctorResrvation:
+        return MaterialPageRoute(
+          builder: (_) => const DoctorReservation(),
+        );
+
+      case Routers.confirmDoctorResrvation:
+        return MaterialPageRoute(
+          builder: (_) => const ConfirmDoctorReservation(),
         );
 
       default:

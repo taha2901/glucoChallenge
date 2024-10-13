@@ -47,7 +47,7 @@ class AppTextFormField extends StatelessWidget {
       onTap: onTap,
       onFieldSubmitted: onFieldSubmitted,
       validator: (value) {
-        return validator!(value);
+        return validator?.call(value);
       },
       decoration: InputDecoration(
         isDense: true,

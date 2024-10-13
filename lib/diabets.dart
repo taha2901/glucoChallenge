@@ -44,7 +44,7 @@ class Diabetes extends StatelessWidget {
             scaffoldBackgroundColor: Colors.white,
             useMaterial3: true,
           ),
-          initialRoute: Routers.login,
+          initialRoute: Routers.home,
           debugShowCheckedModeBanner: false,
           onGenerateRoute: appRouter.generateRoute,
         );

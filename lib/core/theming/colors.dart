@@ -5,6 +5,8 @@ class ColorsManager {
   static const Color mainColorText = Color(0xFF121212);
   static const Color mainTextGrey = Color(0xFF5A5A5A);
   static const kPrimaryLightColor = Color(0xffDBEAFE);
+  static const mainCardColor = Color(0xffFCFAFA);
+  static const Color lightBlue = Color(0xffF3F8FF);
 
 
 
@@ -13,7 +15,6 @@ class ColorsManager {
   static const Color mainBlue = Color(0xff247CFF);
   static const Color grey = Color(0xff757575);
   static const Color lightGrey = Color(0xffC2C2C2);
-  static const Color lightBlue = Color(0xFFF4F8FF);
   static const Color darkBlue = Color(0xff242424);
   static const Color moreLightGrey = Color(0xffFDFDFF);
   static const Color moreLighterGray = Color(0xFFF5F5F5);

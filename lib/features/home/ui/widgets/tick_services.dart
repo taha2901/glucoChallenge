@@ -1,3 +1,5 @@
+import 'package:challenge/core/helpers/extentions.dart';
+import 'package:challenge/core/routings/routers.dart';
 import 'package:challenge/features/home/ui/widgets/services.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -21,7 +23,9 @@ class TicksOfServices extends StatelessWidget {
         const SizedBox(width: 23),
         Expanded(
           child: Services(
-            onTap: () {},
+            onTap: () {
+              context.pushNamed(Routers.doctors);
+            },
             text: 'دكتور',
             icon: FontAwesomeIcons.userDoctor,
           ),
