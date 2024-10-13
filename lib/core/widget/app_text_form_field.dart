@@ -9,7 +9,8 @@ class AppTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final TextEditingController? controller;
   final ValueChanged<String>? onChanged;
-  // final VoidCallback? onTap;
+  final VoidCallback? onTap;
+  final void Function(String)? onFieldSubmitted;
   final Color? backFroundColor;
   final bool? isObscureText;
   final Widget? prefixIcon;
@@ -19,11 +20,12 @@ class AppTextFormField extends StatelessWidget {
   final InputBorder? enabledBorder;
   final TextStyle? hintStyle;
   final TextStyle? inputTextStyle;
+  final TextAlign textAlign;
 
    const AppTextFormField({
     super.key,
     required this.hintText,
-    
+    this.textAlign = TextAlign.start,    
     this.isObscureText,
     this.suffixIcon,
     this.contentPadding,
@@ -34,25 +36,26 @@ class AppTextFormField extends StatelessWidget {
     this.backFroundColor,
     this.validator,
     this.controller,
-    this.prefixIcon, required this.borderRadius, this.onChanged,
+    this.prefixIcon, required this.borderRadius, this.onChanged, this.onTap, this.onFieldSubmitted,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textAlign: textAlign,
       controller: controller,
+      onTap: onTap,
+      onFieldSubmitted: onFieldSubmitted,
       validator: (value) {
-        return validator!(value);
+        return validator?.call(value);
       },
       decoration: InputDecoration(
         isDense: true,
         contentPadding: contentPadding ??
             EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
-        // border: const OutlineInputBorder(),
-        // labelText: 'Email',
+
         focusedBorder: focusedBorder ??
             OutlineInputBorder(
-              // borderRadius: BorderRadius.circular(5),
               borderRadius: borderRadius,
               borderSide:
                   const BorderSide(color: ColorsManager.mainColor, width: 1.3),
@@ -76,6 +79,7 @@ class AppTextFormField extends StatelessWidget {
         ),
         // hintStyle: hintStyle ?? TextStyles.font14LightGreyRegular,
         hintText: hintText,
+
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
         fillColor: backFroundColor ?? ColorsManager.lighterGrey,

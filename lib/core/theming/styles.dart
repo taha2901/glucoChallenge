@@ -1,7 +1,103 @@
+import 'package:challenge/core/theming/colors.dart';
+import 'package:challenge/core/theming/font_weight_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextStyles {
+  static TextStyle font15BlackBold = TextStyle(
+    color: ColorsManager.mainColorText,
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 15.sp,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font14BlackRegular = TextStyle(
+    fontWeight: FontWeightHelper.regular,
+    fontSize: 14.sp,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font14BlueSemiBold = TextStyle(
+    fontWeight: FontWeightHelper.semiBold,
+    fontSize: 14.sp,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font15DarkBlueMedium = TextStyle(
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 15.sp,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font14WhiteMedium = TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 14.sp,
+    fontFamily: 'Cairo',
+  );
+  static TextStyle font18BlueMedium = TextStyle(
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 18.sp,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font17GreySemiBold = TextStyle(
+    fontWeight: FontWeightHelper.semiBold,
+    fontSize: 17.sp,
+    fontFamily: 'Cairo',
+    color: ColorsManager.mainTextGrey,
+  );
+  static TextStyle font15greyBold = TextStyle(
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 15.sp,
+    fontFamily: 'Cairo',
+    color: ColorsManager.mainTextGrey,
+  );
+  static TextStyle font18BlackMedium = TextStyle(
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 18.sp,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font13BlackBold = TextStyle(
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 13.sp,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font13Blackmedium = TextStyle(
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 13.sp,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font13GreyRegular = TextStyle(
+    fontWeight: FontWeightHelper.regular,
+    fontSize: 13.sp,
+    fontFamily: 'Cairo',
+    color: ColorsManager.mainTextGrey,
+  );
+  static TextStyle font18WhiteBold = TextStyle(
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 18.sp,
+    fontFamily: 'Cairo',
+    color: Colors.white,
+  );
+
+  static TextStyle font15DarkSemiBold = TextStyle(
+    fontWeight: FontWeightHelper.semiBold,
+    fontSize: 15.sp,
+    fontFamily: 'Cairo',
+    color: ColorsManager.mainColorText,
+  );
+
+  static TextStyle font18BlueBold = TextStyle(
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 18.sp,
+    fontFamily: 'Cairo',
+    color: ColorsManager.mainColor,
+  );
+
   // static const TextStyle style25 = TextStyle(
   //   color: Colors.black,
   //   fontSize: 25,
@@ -49,12 +145,6 @@ class TextStyles {
   //   height: 0,
   // );
 
-  // static TextStyle font16MainColorMedium = TextStyle(
-  //   color: ColorsManager.mainColor,
-  //   fontWeight: FontWeightHelper.medium,
-  //   fontSize: 16.sp,
-  // );
-
   // static TextStyle font16LightGreyRegular = TextStyle(
   //   color: ColorsManager.lightGrey,
   //   fontWeight: FontWeightHelper.regular,
@@ -80,5 +170,4 @@ class TextStyles {
   //   fontWeight: FontWeightHelper.bold,
   //   fontSize: 24.sp,
   // );
-
 }
