@@ -1,5 +1,6 @@
 import 'package:challenge/core/di/dependency_injection.dart';
 import 'package:challenge/core/routings/routers.dart';
+import 'package:challenge/features/home/ui/home_screen.dart';
 import 'package:challenge/features/login/logic/login_cubit.dart';
 import 'package:challenge/features/login/ui/login_screen.dart';
 import 'package:challenge/features/onboard/ui/onboarding.dart';
@@ -7,6 +8,7 @@ import 'package:challenge/features/register/logic/register_cubit.dart';
 import 'package:challenge/features/register/ui/register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -36,11 +38,7 @@ class AppRouter {
       //   );
       case Routers.home:
         return MaterialPageRoute(
-          builder: (_) => const Scaffold(
-            body: Center(
-              child: Text('Home'),
-            ),
-          ),
+          builder: (_) =>  const HomeScreen(),
         );
 
       default:
