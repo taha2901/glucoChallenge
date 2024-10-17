@@ -59,6 +59,51 @@ class TextStyles {
     fontFamily: 'Cairo',
   );
 
+  static TextStyle font13BlackBold = TextStyle(
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 13.sp,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font13Blackmedium = TextStyle(
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 13.sp,
+    fontFamily: 'Cairo',
+  );
+
+  static TextStyle font13GreyRegular = TextStyle(
+    fontWeight: FontWeightHelper.regular,
+    fontSize: 13.sp,
+    fontFamily: 'Cairo',
+    color: ColorsManager.mainTextGrey,
+  );
+  static TextStyle font18WhiteBold = TextStyle(
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 18.sp,
+    fontFamily: 'Cairo',
+    color: Colors.white,
+  );
+
+  static TextStyle font15DarkSemiBold = TextStyle(
+    fontWeight: FontWeightHelper.semiBold,
+    fontSize: 15.sp,
+    fontFamily: 'Cairo',
+    color: ColorsManager.mainColorText,
+  );
+
+  static TextStyle font18BlueBold = TextStyle(
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 18.sp,
+    fontFamily: 'Cairo',
+    color: ColorsManager.mainColor,
+  );
+
+  static TextStyle font18BlackBold = TextStyle(
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 18.sp,
+    fontFamily: 'Cairo',
+  );
+
   // static const TextStyle style25 = TextStyle(
   //   color: Colors.black,
   //   fontSize: 25,

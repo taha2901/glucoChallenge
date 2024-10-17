@@ -74,10 +74,10 @@ packages:
     dependency: "direct main"
     description:
       name: awesome_notifications
-      sha256: d9e46ce7f5171ee1e9b1c5bc6dc40bd77528561f592842ce97ce3a0a9ae155ef
+      sha256: d051ffb694a53da216ff13d02c8ec645d75320048262f7e6b3c1d95a4f54c902
       url: "https://pub.dev"
     source: hosted
-    version: "0.9.3+1"
+    version: "0.10.0"
   bloc:
     dependency: transitive
     description:
@@ -562,6 +562,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
+  google_generative_ai:
+    dependency: "direct main"
+    description:
+      name: google_generative_ai
+      sha256: "81dae159c89e4d9bdc46955b6f4ee5ae0a291f9e8f990d76f43944e0d6041d4f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.6"
   graphs:
     dependency: transitive
     description:
