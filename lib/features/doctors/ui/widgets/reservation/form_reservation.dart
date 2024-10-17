@@ -1,24 +1,29 @@
-import 'package:challenge/core/helpers/extentions.dart';
 import 'package:challenge/core/helpers/spacing.dart';
-import 'package:challenge/core/routings/routers.dart';
 import 'package:challenge/core/widget/app_text_button.dart';
 import 'package:challenge/core/widget/app_text_form_field.dart';
+import 'package:challenge/features/doctors/logic/doctors_cubit.dart';
+import 'package:challenge/features/doctors/ui/widgets/reservation/confirm_dotor_reservation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+
 class FormReservation extends StatelessWidget {
+  final int doctorId;
   const FormReservation({
     super.key,
+    required this.doctorId,
   });
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    TextEditingController nameController = TextEditingController();
-    TextEditingController sexController = TextEditingController();
-    TextEditingController ageController = TextEditingController();
-    TextEditingController phoneController = TextEditingController();
     TextEditingController dateController = TextEditingController();
     TextEditingController timeController = TextEditingController();
+    TextEditingController nameController = TextEditingController();
+    TextEditingController ageController = TextEditingController();
+    TextEditingController phoneController = TextEditingController();
+    TextEditingController sexController = TextEditingController();
+
+    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     Future<void> _selectDate(BuildContext context) async {
       final DateTime? picked = await showDatePicker(
@@ -28,8 +33,10 @@ class FormReservation extends StatelessWidget {
         lastDate: DateTime(2101),
       );
       if (picked != null) {
-        dateController.text = DateFormat('yyyy-MM-dd').format(picked);
-        print("Selected Date: ${dateController.text}"); // Print the selected date
+        context.read<DoctorsCubit>().dateController.text =
+            DateFormat('yyyy-MM-dd').format(picked);
+        print(
+            "Selected Date: ${context.read<DoctorsCubit>().dateController.text}"); // Print the selected date
       }
     }
 
@@ -39,8 +46,10 @@ class FormReservation extends StatelessWidget {
         initialTime: TimeOfDay.now(),
       );
       if (picked != null) {
-        timeController.text = picked.format(context);
-        print("Selected Time: ${timeController.text}"); // Print the selected time
+        context.read<DoctorsCubit>().timeController.text =
+            picked.format(context);
+        print(
+            "Selected Time: ${context.read<DoctorsCubit>().timeController.text}"); // Print the selected time
       }
     }
 
@@ -68,7 +77,7 @@ class FormReservation extends StatelessWidget {
                 child: AppTextFormField(
                   borderRadius: BorderRadius.circular(10),
                   hintText: 'أدخل عمرك',
-                  controller: ageController,
+                  controller: context.read<DoctorsCubit>().ageController,
                 ),
               ),
             ],
@@ -77,8 +86,8 @@ class FormReservation extends StatelessWidget {
           AppTextFormField(
             borderRadius: BorderRadius.circular(10),
             hintText: 'أدخل رقم تلفونك',
-            controller: phoneController,
-          ),         
+            controller: context.read<DoctorsCubit>().phoneController,
+          ),
           verticalSpace(16),
           GestureDetector(
             onTap: () => _selectTime(context),
@@ -86,7 +95,7 @@ class FormReservation extends StatelessWidget {
               child: AppTextFormField(
                 borderRadius: BorderRadius.circular(10),
                 hintText: 'أدخل الوقت',
-                controller: timeController,
+                controller: context.read<DoctorsCubit>().timeController,
                 suffixIcon: const Icon(Icons.access_time),
               ),
             ),
@@ -98,9 +107,34 @@ class FormReservation extends StatelessWidget {
             buttonText: 'التالي',
             onPressed: () {
               if (formKey.currentState!.validate()) {
-                context.pushNamed(Routers.confirmDoctorResrvation);
+                // DoctorsCubit.get(context).emitReservationStates(doctorId);
+                debugPrint("Doctor IDdd: ${doctorId.toString()}");
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ConfirmDoctorReservation(
+                        doctorId: doctorId,
+                        username:
+                            nameController.text,
+                        sex: sexController.text,
+                        age : int.tryParse(context.read<DoctorsCubit>().ageController.text),
+                        phone:
+                            context.read<DoctorsCubit>().phoneController.text,
+                        time: context.read<DoctorsCubit>().timeController.text,
+                      ),
+                    ));
+                    print('name Controller: ${nameController.text}');
+                    print('sex Controller: ${sexController.text}');
+                    print('age Controller: ${context.read<DoctorsCubit>().ageController.text}');
+                    print('phone Controller: ${context.read<DoctorsCubit>().phoneController.text}');
+                    print(
+                        "Selected Time: ${context.read<DoctorsCubit>().timeController.text}");
+                        print(
+                            "Selected Date: ${context.read<DoctorsCubit>().dateController.text}");
+                            print('Doctor ID: ${doctorId.toString()}');
               }
-              print("Time Selected: ${timeController.text}");
+              print(
+                  "Time Selected: ${context.read<DoctorsCubit>().timeController.text}");
             },
           ),
         ],

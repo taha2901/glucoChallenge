@@ -2,12 +2,15 @@ import 'package:challenge/core/helpers/extentions.dart';
 import 'package:challenge/core/routings/routers.dart';
 import 'package:challenge/core/theming/colors.dart';
 import 'package:challenge/core/theming/styles.dart';
+import 'package:challenge/features/doctors/data/model/doctor_response_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AllDoctorsCard extends StatelessWidget {
+  final DoctorResponseBody doctorResponseBody;
   const AllDoctorsCard({
     super.key,
+    required this.doctorResponseBody,
   });
 
   @override
@@ -33,9 +36,9 @@ class AllDoctorsCard extends StatelessWidget {
                 color: ColorsManager.mainColor,
               ),
               child: Center(
-                child: Image.asset(
+                child: Image.network(
                   fit: BoxFit.cover,
-                  'assets/images/doctor.png',
+                  doctorResponseBody.photo.toString(),
                 ),
               ),
             ),
@@ -44,11 +47,11 @@ class AllDoctorsCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'دكتور محمد',
+                  doctorResponseBody.userName.toString(),
                   style: TextStyles.font13BlackBold,
                 ),
                 Text(
-                  'اخصائي بطنه و متابعة سكر',
+                  doctorResponseBody.doctorspecialization.toString(),
                   style: TextStyles.font13GreyRegular,
                 ),
               ],
@@ -56,7 +59,10 @@ class AllDoctorsCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTap: () => context.pushNamed(Routers.doctorResrvation),
+                onTap: () {
+                  context.pushNamed(Routers.doctorResrvation,
+                      arguments: doctorResponseBody); // 1 - send doctor response
+                },
                 child: const CircleAvatar(
                   backgroundColor: ColorsManager.mainColor,
                   radius: 15,

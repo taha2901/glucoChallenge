@@ -16,6 +16,8 @@ class DioFactory {
       dio!
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
+
+      addDioHeaders();
       addDioInterceptor();
       return dio!;
     } else {
@@ -28,23 +30,38 @@ class DioFactory {
       'Accept': 'application/json',
       'content-type': isMultipart ? 'multipart/form-data' : 'application/json',
       'Authorization':
-          'Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}',
+          'Bearer ${await SharedPrefHelper.getString(SharedPrefKeys.userToken)}',
     };
   }
 
   static void setTokenIntoHeaderAfterLogin(String token) {
     dio?.options.headers = {
+      'Accept': 'application/json',
       'content-type': 'application/json',
       'Authorization': 'Bearer $token',
     };
   }
 
   static void addDioInterceptor() {
+    // إضافة PrettyDioLogger (يبقيه إن أردت شكل منسق)
     dio?.interceptors.add(
       PrettyDioLogger(
         requestBody: true,
         requestHeader: true,
         responseHeader: true,
+        responseBody: true,  // لإظهار جسم الاستجابة بالكامل
+      ),
+    );
+
+    // إضافة LogInterceptor للحصول على التفاصيل الكاملة
+    dio?.interceptors.add(
+      LogInterceptor(
+        request: true,             // يعرض تفاصيل الطلب
+        requestBody: true,         // يعرض جسم الطلب
+        responseHeader: true,      // يعرض رؤوس الاستجابة
+        responseBody: true,        // يعرض جسم الاستجابة
+        error: true,               // يعرض أخطاء الطلب
+        logPrint: (log) => print(log), // يمكنك تخصيص الـ log أو تركها كما هي
       ),
     );
   }

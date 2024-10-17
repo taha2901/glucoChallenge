@@ -1,13 +1,17 @@
 import 'package:challenge/core/helpers/spacing.dart';
 import 'package:challenge/core/theming/colors.dart';
 import 'package:challenge/core/theming/styles.dart';
+import 'package:challenge/features/doctors/data/model/doctor_response_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: camel_case_types
 class defineDoctor extends StatelessWidget {
+  final DoctorResponseBody doctorResponseBody;
+
   const defineDoctor({
     super.key,
+    required this.doctorResponseBody,
   });
   @override
   Widget build(BuildContext context) {
@@ -22,13 +26,15 @@ class defineDoctor extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-                child: ClipOval(
-              child: SizedBox(
-                width: 100.r, // ضعف حجم radius
-                height: 100.r, // ضعف حجم radius
-                child: Image.asset(
-                  'assets/images/doctor.png',
-                  fit: BoxFit.contain,
+                child: Center(
+              child: ClipOval(
+                child: SizedBox(
+                  width: 100.r,
+                  height: 100.r,
+                  child: Image.network(
+                    doctorResponseBody.photo.toString(),
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
             )),
@@ -37,11 +43,11 @@ class defineDoctor extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'د. سعيد الحسيني',
+                  doctorResponseBody.userName.toString(),
                   style: TextStyles.font18BlueBold,
                 ),
                 Text(
-                  'استشاري جراحه و المسالك البوليه',
+                  doctorResponseBody.doctorspecialization.toString(),
                   style: TextStyles.font15DarkSemiBold,
                 ),
                 Row(
@@ -53,7 +59,7 @@ class defineDoctor extends StatelessWidget {
                     ),
                     horizontalSpace(5),
                     Text(
-                      '16-شارع جمال عبدالناصر',
+                      doctorResponseBody.address.toString(),
                       style: TextStyles.font15DarkBlueMedium,
                     ),
                   ],
@@ -67,7 +73,7 @@ class defineDoctor extends StatelessWidget {
                     ),
                     horizontalSpace(5),
                     Text(
-                      'الاحد  8-9-2023  8:30 م',
+                      doctorResponseBody.appointment.toString(),
                       style: TextStyles.font15DarkBlueMedium,
                     ),
                   ],
@@ -85,7 +91,7 @@ class defineDoctor extends StatelessWidget {
                       style: TextStyles.font15DarkBlueMedium,
                     ),
                     Text(
-                      " 100 جنيه ",
+                      doctorResponseBody.detectionPrice.toString(),
                       style: TextStyles.font15DarkBlueMedium,
                     ),
                   ],
@@ -103,7 +109,7 @@ class defineDoctor extends StatelessWidget {
                       style: TextStyles.font15DarkBlueMedium,
                     ),
                     Text(
-                      " : 20 دقيقه",
+                      doctorResponseBody.waitingTime.toString(),
                       style: TextStyles.font15DarkBlueMedium,
                     ),
                   ],
