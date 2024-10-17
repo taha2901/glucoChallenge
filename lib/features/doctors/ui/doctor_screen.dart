@@ -1,6 +1,7 @@
 import 'package:challenge/core/helpers/spacing.dart';
 import 'package:challenge/core/theming/styles.dart';
-import 'package:challenge/features/doctors/ui/widgets/doctors/all_doctors_card.dart';
+
+import 'package:challenge/features/doctors/ui/widgets/doctors/all_doctors_list_view.dart';
 import 'package:challenge/features/doctors/ui/widgets/doctors/doctor_app_bar.dart';
 import 'package:challenge/features/doctors/ui/widgets/doctors/doctor_name_and_image.dart';
 import 'package:challenge/features/doctors/ui/widgets/doctors/doctor_text_field.dart';
@@ -8,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorScreen extends StatelessWidget {
-  const DoctorScreen({super.key});
+  const DoctorScreen({super.key, });
 
   @override
   Widget build(BuildContext context) {
@@ -43,15 +44,8 @@ class DoctorScreen extends StatelessWidget {
                       style: TextStyles.font18BlackMedium,
                     ),
                   ),
-                  SliverToBoxAdapter(
-                    child: ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: 10,
-                      itemBuilder: (context, index) {
-                        return const AllDoctorsCard();
-                      },
-                    ),
+                  const SliverToBoxAdapter(
+                    child: AllDoctorsListView(),
                   ),
                 ],
               ),

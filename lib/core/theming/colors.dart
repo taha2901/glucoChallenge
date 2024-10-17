@@ -7,6 +7,7 @@ class ColorsManager {
   static const kPrimaryLightColor = Color(0xffDBEAFE);
   static const mainCardColor = Color(0xffFCFAFA);
   static const Color lightBlue = Color(0xffF3F8FF);
+  static const Color kPrimaryColor = Color(0xffE4EFFF);
 
 
 

@@ -5,7 +5,6 @@ import 'package:challenge/core/helpers/shared_pref_helper.dart';
 import 'package:challenge/features/register/data/model/register_response_body.dart';
 import 'package:challenge/features/register/logic/register_state.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
@@ -35,11 +34,16 @@ class RegisterCubit extends Cubit<RegisterState> {
             'http://diabetes.runasp.net/api/Auth/register',
             data: formData,
           );
+      print('response : ${response.data}');
       final registerModel = RegisterResponseBody.fromJson(response.data);
       var myPic = await SharedPrefHelper.setData(
-        SharedPrefKeys.userPhotoUrl , registerModel.photoUrl);
+          SharedPrefKeys.userPhotoUrl, registerModel.photoUrl);
+
+      var myName = await SharedPrefHelper.setData(
+          SharedPrefKeys.myName, registerModel.username);
       emit(RegisterState.success(registerModel));
     } catch (onError) {
+      print('error : ${onError.toString()}');
       emit(RegisterState.error(error: onError.toString()));
     }
   }

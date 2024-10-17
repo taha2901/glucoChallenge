@@ -1,3 +1,4 @@
+import 'package:challenge/core/helpers/extentions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,7 +10,9 @@ class ReservationAppBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Icon(Icons.arrow_back_ios_new_rounded),
+         InkWell(
+          onTap: () => context.pop(),
+          child: const Icon(Icons.arrow_back_ios_new_rounded)),
         const Text(
           'حجز',
           style: TextStyle(color: Colors.white),

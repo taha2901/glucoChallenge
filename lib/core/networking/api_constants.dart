@@ -5,29 +5,20 @@ class ApiConstants {
 
   static const String register = 'Auth/register';
 
-  static const String categories = 'categories';
+  static const String doctor = 'Doctors/SelectDoctors';
+  static const String reservation = 'Doctors/Reservation';
+  static const String reservationBase = 'Doctors/Reservation';
 
-  static const String categoryDetails = '$categories/{categoryId}';
+  static const String medicines = 'Medicine/Get medicines for user';
 
-  static const String home = 'home';
+  static const String addMedicine = 'Medicine/AddMedicines';
 
-  static const String notifications = 'notifications';
+  static const String bloodSugar = 'Measurements/blood sugar level';
 
-  static const String cart = 'carts';
+  static const String bloodPressure = 'Measurements/blood pressure';
 
-  static const String addOrRemoveCart = 'carts';
+  static const String weight = 'Measurements/weight';
 
-  static const String settings = 'profile';
-
-  static const String changePassword = 'change-password';
-
-  static const String updateProfile = 'update-profile';
-
-  static const String addresses = 'addresses';
-
-  static const String favourite = 'favorites';
-
-  static const String paymentIntent= 'https://api.stripe.com/v1/payment_intents';
 }
 
 class ApiErrors {

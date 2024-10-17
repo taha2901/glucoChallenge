@@ -1,9 +1,8 @@
-
-import 'package:challenge/core/helpers/spacing.dart';
-import 'package:challenge/core/theming/colors.dart';
-import 'package:challenge/core/theming/styles.dart';
+import 'package:challenge/features/doctors/logic/doctors_cubit.dart';
+import 'package:challenge/features/doctors/logic/doctors_state.dart';
+import 'package:challenge/features/doctors/ui/widgets/doctors/doctor_name_image_list_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DoctorNameAndImage extends StatelessWidget {
   const DoctorNameAndImage({
@@ -12,52 +11,20 @@ class DoctorNameAndImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.25,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return SizedBox(
-            height: 300.h,
-            width: 125.w,
-            child: Card(
-              color: ColorsManager.mainCardColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Column(
-                children: [
-                  Container(
-                    height: 125.h, 
-                    width: 125.w,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: ColorsManager.mainColor,
-                    ),
-                    child: Center(
-                      child: Image.asset(
-                        fit: BoxFit.cover,
-                        'assets/images/doctor.png',
-                      ),
-                    ),
-                  ),
-                  verticalSpace(
-                      8.h), 
-                  Text(
-                    'علي أبوبكر',
-                    style: TextStyles.font13BlackBold,
-                  ),
-                  Text(
-                    'باطنه',
-                    style: TextStyles.font13Blackmedium,
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
-        itemCount: 10,
-      ),
+    return BlocConsumer<DoctorsCubit, DoctorsState>(
+      listener: (context, state) {
+        state.maybeWhen(
+          orElse: () {},
+          doctorLoading: () {
+            const CircularProgressIndicator();
+          },
+        );
+      },
+      builder: (context, state) {
+        return state is DoctorSuccess
+            ? const DoctorNameAndImageListView()
+            : const Center(child: CircularProgressIndicator());
+      },
     );
   }
 }

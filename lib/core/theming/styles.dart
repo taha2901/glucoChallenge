@@ -98,6 +98,12 @@ class TextStyles {
     color: ColorsManager.mainColor,
   );
 
+  static TextStyle font18BlackBold = TextStyle(
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 18.sp,
+    fontFamily: 'Cairo',
+  );
+
   // static const TextStyle style25 = TextStyle(
   //   color: Colors.black,
   //   fontSize: 25,

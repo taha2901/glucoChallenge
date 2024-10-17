@@ -8,6 +8,11 @@ class Routers {
   static const String doctors = '/doctors';
   static const String confirmDoctorResrvation = '/confirmDoctorResrvation';
   static const String doctorResrvation = '/doctorResrvation';
+  static const String medicine = '/medicine';
+  static const String addMedicine = '/addMedicine';
+  static const String layoutShop = '/layoutShop';
+  static const String measurement = '/measurement';
+
 
 
 }

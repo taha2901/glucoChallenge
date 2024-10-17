@@ -1,6 +1,10 @@
 import 'package:challenge/core/helpers/spacing.dart';
 import 'package:challenge/core/theming/styles.dart';
+import 'package:challenge/features/login/logic/login_cubit.dart';
+import 'package:challenge/features/medicine/logic/medicine_cubit.dart';
+import 'package:challenge/features/register/logic/register_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAppBar extends StatelessWidget {

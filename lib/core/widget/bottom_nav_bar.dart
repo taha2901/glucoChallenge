@@ -1,7 +1,10 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:challenge/core/theming/colors.dart';
+import 'package:challenge/features/home/ui/home_screen.dart';
+import 'package:challenge/features/medicine/logic/medicine_cubit.dart';
+import 'package:challenge/features/medicine/ui/medicine_screen.dart';
+import 'package:challenge/features/pic_products/presentation/view/pic_products.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class LayoutShop extends StatefulWidget {
@@ -13,21 +16,20 @@ class LayoutShop extends StatefulWidget {
 }
 
 class _LayoutShopState extends State<LayoutShop> {
-  
   int _bottomNavIndex = 0;
 
   final List<IconData> iconList = [
     Icons.home,
-    Iconsax.notification,
-    Icons.shopping_cart,
-    Icons.person,
+    Iconsax.activity,
+    Icons.add,
+    Icons.camera_alt,
   ];
 
   late final List<Widget> _pages = [
-    // const HomeScreen(),
-    // const NotificationScreen(),
-    // const CartScreen(),
-    // ProfileScreen(),
+    const HomeScreen(),
+    Container(),
+    const MedicineScreen(),
+    const PicProductsView(),
   ];
 
   @override
