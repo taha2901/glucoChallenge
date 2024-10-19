@@ -18,7 +18,11 @@ class ApiConstants {
   static const String bloodPressure = 'Measurements/blood pressure';
 
   static const String weight = 'Measurements/weight';
+  static const String getBloodSuger = 'Selecting_data/user\'s sugar_data';
 
+  static const String getWeight = 'Selecting_data/user\'s weight_data';
+
+  static const String getPressure = 'Selecting_data/user\'s presure_data';
 }
 
 class ApiErrors {

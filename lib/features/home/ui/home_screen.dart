@@ -6,14 +6,21 @@ import 'package:challenge/features/home/ui/widgets/home_text_field.dart';
 import 'package:challenge/features/home/ui/widgets/tick_heart.dart';
 import 'package:challenge/features/home/ui/widgets/tick_services.dart';
 import 'package:challenge/features/home/ui/widgets/two_square_container.dart';
+import 'package:challenge/features/measurments/logic/suger/suger_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:challenge/features/measurments/logic/suger/suger_cubit.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   void _handleDateChange(DateTime selectedDate) {
-    // تنفيذ أي عملية عند تغيير التاريخ
     print('التاريخ المحدد: ${selectedDate.toLocal()}');
   }
 
@@ -48,8 +55,34 @@ class HomeScreen extends StatelessWidget {
                   SliverToBoxAdapter(
                     child: verticalSpace(8),
                   ),
-                  const SliverToBoxAdapter(
-                    child: Pulseindicator(),
+                  SliverToBoxAdapter(
+                    child: BlocBuilder<MeasurmentsCubit, MeasurmentsState>(
+                      builder: (context, state) {
+                        if (state is GetBloodSugerLoading) {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        } else if (state is GetBloodSugerSuccess) {
+                          int beforeMealValue = state.bloodSugar
+                              .where((measurement) =>
+                                  measurement.measurementDate == 'قبل الاكل')
+                              .fold(0, (sum, item) => sum + item.sugarReading);
+
+                          int afterMealValue = state.bloodSugar
+                              .where((measurement) =>
+                                  measurement.measurementDate == 'بعد الاكل')
+                              .fold(0, (sum, item) => sum + item.sugarReading);
+
+                          return PulseIndicator(
+                            beforeMealValue: beforeMealValue,
+                            afterMealValue: afterMealValue,
+                          );
+                        } else if (state is GetBloodSugerError) {
+                          return Center(child: Text('Error: ${state.error}'));
+                        } else {
+                          return const Text('No data available');
+                        }
+                      },
+                    ),
                   ),
                   SliverToBoxAdapter(
                     child: verticalSpace(12),

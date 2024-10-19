@@ -12,10 +12,8 @@ class MedicineRepo {
   Future<ApiResult<List<GetMedicineResponseBody>>> getMedicines() async {
     try {
       final response = await _apiService.getMedicine();
-      print("API Response: ${response.toString()}");
       return ApiResult.success(response);
     } catch (error) {
-      print("API Error: ${error.toString()}");
       return ApiResult.failure(ApiErrorModel(message: error.toString()));
     }
   }

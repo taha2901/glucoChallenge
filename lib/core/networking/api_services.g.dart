@@ -306,6 +306,115 @@ class _ApiServices implements ApiServices {
     return _value;
   }
 
+  @override
+  Future<List<SugarMeasurement>> getBloodSuger(String specificDate) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'specificDate': specificDate};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<List<SugarMeasurement>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'Selecting_data/user\'s sugar_data',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<SugarMeasurement> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) =>
+              SugarMeasurement.fromJson(i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<WeightMeasurement>> getWeight(String specificDate) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'specificDate': specificDate};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<List<WeightMeasurement>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'Selecting_data/user\'s weight_data',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<WeightMeasurement> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) =>
+              WeightMeasurement.fromJson(i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<BloodPressureMeasurement>> getPressure(
+      String specificDate) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'specificDate': specificDate};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<List<BloodPressureMeasurement>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'Selecting_data/user\'s presure_data',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<BloodPressureMeasurement> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) =>
+              BloodPressureMeasurement.fromJson(i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

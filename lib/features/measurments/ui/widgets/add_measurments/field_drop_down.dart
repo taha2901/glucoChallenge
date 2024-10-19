@@ -28,7 +28,7 @@ class _CustomTextFieldDropdownState extends State<CustomTextFieldDropdown> {
         ),
         hint: const Text("توقيت الوجبه"),
         value: selectedItem,
-        items: ["بعد الوجبه", "قبل الوجبه"].map((e) {
+        items: ["بعد الاكل", "قبل الاكل"].map((e) {
           return DropdownMenuItem<String>(
             value: e,
             child: Text(e),
