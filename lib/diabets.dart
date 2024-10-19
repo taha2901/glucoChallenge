@@ -4,6 +4,9 @@ import 'package:challenge/core/routings/app_router.dart';
 import 'package:challenge/core/routings/routers.dart';
 import 'package:challenge/core/theming/colors.dart';
 import 'package:challenge/features/doctors/logic/doctors_cubit.dart';
+import 'package:challenge/features/measurments/logic/pressure/pressure_cubit.dart';
+import 'package:challenge/features/measurments/logic/suger/suger_cubit.dart';
+import 'package:challenge/features/measurments/logic/weight/weight_cubit.dart';
 import 'package:challenge/features/medicine/logic/medicine_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,6 +22,9 @@ class Diabetes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime currentDate = DateTime.now();
+    String formattedDate =
+        "${currentDate.year}-${currentDate.month}-${currentDate.day}";
     return ScreenUtilInit(
       designSize: const Size(390, 844),
       minTextAdapt: true,
@@ -26,11 +32,23 @@ class Diabetes extends StatelessWidget {
       builder: (context, child) {
         return MultiBlocProvider(
           providers: [
-            BlocProvider<DoctorsCubit>(
+            BlocProvider(
               create: (context) => getit<DoctorsCubit>()..getDoctors(),
             ),
             BlocProvider(
               create: (context) => getit<MedicineCubit>()..getMedicine(),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  getit<MeasurmentsCubit>()..fetchSugarData(formattedDate),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  getit<WeightCubit>()..fetchWeightData(formattedDate),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  getit<PressureCubit>()..fetchPressureData(formattedDate),
             ),
           ],
           child: MaterialApp(

@@ -4,8 +4,12 @@ import 'package:challenge/features/doctors/data/repo/doctor_repo.dart';
 import 'package:challenge/features/doctors/logic/doctors_cubit.dart';
 import 'package:challenge/features/login/data/repo/login_repo.dart';
 import 'package:challenge/features/login/logic/login_cubit.dart';
-import 'package:challenge/features/measurments/data/repo/medicine_repo.dart';
-import 'package:challenge/features/measurments/logic/measurments_cubit.dart';
+import 'package:challenge/features/measurments/data/repo/suger_measurments_repo.dart';
+import 'package:challenge/features/measurments/data/repo/pressure_mesurment_repo.dart';
+import 'package:challenge/features/measurments/data/repo/weight_measurment_repo.dart';
+import 'package:challenge/features/measurments/logic/suger/suger_cubit.dart';
+import 'package:challenge/features/measurments/logic/pressure/pressure_cubit.dart';
+import 'package:challenge/features/measurments/logic/weight/weight_cubit.dart';
 import 'package:challenge/features/medicine/data/repo/medicine_repo.dart';
 import 'package:challenge/features/medicine/logic/medicine_cubit.dart';
 import 'package:dio/dio.dart';
@@ -33,4 +37,14 @@ Future<void> setUpGetIt() async {
   //measurements
   getit.registerLazySingleton<MeasurmentRepo>(() => MeasurmentRepo(getit()));
   getit.registerFactory<MeasurmentsCubit>(() => MeasurmentsCubit(getit()));
+
+  //weight
+  getit.registerLazySingleton<WeightMeasurmentRepo>(
+      () => WeightMeasurmentRepo(getit()));
+  getit.registerFactory<WeightCubit>(() => WeightCubit(getit()));
+
+  //pressure
+  getit.registerLazySingleton<PressureMeasurmentRepo>(
+      () => PressureMeasurmentRepo(getit()));
+  getit.registerFactory<PressureCubit>(() => PressureCubit(getit()));
 }
