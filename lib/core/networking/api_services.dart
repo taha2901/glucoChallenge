@@ -15,6 +15,9 @@ import 'package:challenge/features/measurments/data/model/get_measurments_models
 import 'package:challenge/features/medicine/data/model/add_medicine_request_model.dart';
 import 'package:challenge/features/medicine/data/model/add_medicine_response_model.dart';
 import 'package:challenge/features/medicine/data/model/get_medicine_response_model.dart';
+import 'package:challenge/features/settings/data/models/update_user_request.dart';
+import 'package:challenge/features/settings/data/models/update_user_response.dart';
+import 'package:challenge/features/settings/data/models/user_details_response.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'api_constants.dart';
@@ -68,4 +71,12 @@ abstract class ApiServices {
   @GET(ApiConstants.getPressure)
   Future<List<BloodPressureMeasurement>> getPressure(
       @Query('specificDate') String specificDate);
+
+  @GET(ApiConstants.settings)
+  Future<UserDetailsResponse> getProfile();
+
+  @PUT(ApiConstants.updateProfile)
+  Future<UpdateUserResponse> updateProfile(
+    @Body() UpdateUserRequest updateProfileRequestModel,
+  );
 }

@@ -12,6 +12,8 @@ class Routers {
   static const String addMedicine = '/addMedicine';
   static const String layoutShop = '/layoutShop';
   static const String measurement = '/measurement';
+  static const String profile = '/profile';
+  static const String updateProfile = '/updateProfile';
 
 
 

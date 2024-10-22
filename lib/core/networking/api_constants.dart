@@ -23,6 +23,10 @@ class ApiConstants {
   static const String getWeight = 'Selecting_data/user\'s weight_data';
 
   static const String getPressure = 'Selecting_data/user\'s presure_data';
+
+  static const String settings = 'Auth/Get User Details';
+
+  static const String updateProfile = 'Auth/UpdateUser';
 }
 
 class ApiErrors {

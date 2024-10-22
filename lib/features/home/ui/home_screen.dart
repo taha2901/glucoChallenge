@@ -59,8 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: BlocBuilder<MeasurmentsCubit, MeasurmentsState>(
                       builder: (context, state) {
                         if (state is GetBloodSugerLoading) {
-                          return const Center(
-                              child: CircularProgressIndicator());
+                          return Container();
                         } else if (state is GetBloodSugerSuccess) {
                           int beforeMealValue = state.bloodSugar
                               .where((measurement) =>
@@ -87,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   SliverToBoxAdapter(
                     child: verticalSpace(12),
                   ),
-                  SliverToBoxAdapter(
+                  const SliverToBoxAdapter(
                     child: TicksOfHeart(),
                   ),
                   SliverToBoxAdapter(

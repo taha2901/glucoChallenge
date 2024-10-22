@@ -27,6 +27,7 @@ mixin _$PressureState {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)
         getBloodPressureSuccess,
     required TResult Function() getBloodPressureError,
+    required TResult Function() getBloodPressureEmpty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +41,7 @@ mixin _$PressureState {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)?
         getBloodPressureSuccess,
     TResult? Function()? getBloodPressureError,
+    TResult? Function()? getBloodPressureEmpty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +55,7 @@ mixin _$PressureState {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)?
         getBloodPressureSuccess,
     TResult Function()? getBloodPressureError,
+    TResult Function()? getBloodPressureEmpty,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -71,6 +74,8 @@ mixin _$PressureState {
         getBloodPressureSuccess,
     required TResult Function(GetBloodPressureError value)
         getBloodPressureError,
+    required TResult Function(GetBloodPressureEmpty value)
+        getBloodPressureEmpty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +87,7 @@ mixin _$PressureState {
     TResult? Function(GetBloodPressureLoading value)? getBloodPressureLoading,
     TResult? Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
     TResult? Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult? Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,6 +99,7 @@ mixin _$PressureState {
     TResult Function(GetBloodPressureLoading value)? getBloodPressureLoading,
     TResult Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
     TResult Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -169,6 +176,7 @@ class _$InitialImpl implements _Initial {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)
         getBloodPressureSuccess,
     required TResult Function() getBloodPressureError,
+    required TResult Function() getBloodPressureEmpty,
   }) {
     return initial();
   }
@@ -185,6 +193,7 @@ class _$InitialImpl implements _Initial {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)?
         getBloodPressureSuccess,
     TResult? Function()? getBloodPressureError,
+    TResult? Function()? getBloodPressureEmpty,
   }) {
     return initial?.call();
   }
@@ -201,6 +210,7 @@ class _$InitialImpl implements _Initial {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)?
         getBloodPressureSuccess,
     TResult Function()? getBloodPressureError,
+    TResult Function()? getBloodPressureEmpty,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -225,6 +235,8 @@ class _$InitialImpl implements _Initial {
         getBloodPressureSuccess,
     required TResult Function(GetBloodPressureError value)
         getBloodPressureError,
+    required TResult Function(GetBloodPressureEmpty value)
+        getBloodPressureEmpty,
   }) {
     return initial(this);
   }
@@ -239,6 +251,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(GetBloodPressureLoading value)? getBloodPressureLoading,
     TResult? Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
     TResult? Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult? Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
   }) {
     return initial?.call(this);
   }
@@ -253,6 +266,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(GetBloodPressureLoading value)? getBloodPressureLoading,
     TResult Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
     TResult Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -319,6 +333,7 @@ class _$AddBloodPressureLoadingImpl implements AddBloodPressureLoading {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)
         getBloodPressureSuccess,
     required TResult Function() getBloodPressureError,
+    required TResult Function() getBloodPressureEmpty,
   }) {
     return addBloodPressureLoading();
   }
@@ -335,6 +350,7 @@ class _$AddBloodPressureLoadingImpl implements AddBloodPressureLoading {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)?
         getBloodPressureSuccess,
     TResult? Function()? getBloodPressureError,
+    TResult? Function()? getBloodPressureEmpty,
   }) {
     return addBloodPressureLoading?.call();
   }
@@ -351,6 +367,7 @@ class _$AddBloodPressureLoadingImpl implements AddBloodPressureLoading {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)?
         getBloodPressureSuccess,
     TResult Function()? getBloodPressureError,
+    TResult Function()? getBloodPressureEmpty,
     required TResult orElse(),
   }) {
     if (addBloodPressureLoading != null) {
@@ -375,6 +392,8 @@ class _$AddBloodPressureLoadingImpl implements AddBloodPressureLoading {
         getBloodPressureSuccess,
     required TResult Function(GetBloodPressureError value)
         getBloodPressureError,
+    required TResult Function(GetBloodPressureEmpty value)
+        getBloodPressureEmpty,
   }) {
     return addBloodPressureLoading(this);
   }
@@ -389,6 +408,7 @@ class _$AddBloodPressureLoadingImpl implements AddBloodPressureLoading {
     TResult? Function(GetBloodPressureLoading value)? getBloodPressureLoading,
     TResult? Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
     TResult? Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult? Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
   }) {
     return addBloodPressureLoading?.call(this);
   }
@@ -403,6 +423,7 @@ class _$AddBloodPressureLoadingImpl implements AddBloodPressureLoading {
     TResult Function(GetBloodPressureLoading value)? getBloodPressureLoading,
     TResult Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
     TResult Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
     required TResult orElse(),
   }) {
     if (addBloodPressureLoading != null) {
@@ -469,6 +490,7 @@ class _$AddBloodPressureSuccessImpl implements AddBloodPressureSuccess {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)
         getBloodPressureSuccess,
     required TResult Function() getBloodPressureError,
+    required TResult Function() getBloodPressureEmpty,
   }) {
     return addBloodPressureSuccess();
   }
@@ -485,6 +507,7 @@ class _$AddBloodPressureSuccessImpl implements AddBloodPressureSuccess {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)?
         getBloodPressureSuccess,
     TResult? Function()? getBloodPressureError,
+    TResult? Function()? getBloodPressureEmpty,
   }) {
     return addBloodPressureSuccess?.call();
   }
@@ -501,6 +524,7 @@ class _$AddBloodPressureSuccessImpl implements AddBloodPressureSuccess {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)?
         getBloodPressureSuccess,
     TResult Function()? getBloodPressureError,
+    TResult Function()? getBloodPressureEmpty,
     required TResult orElse(),
   }) {
     if (addBloodPressureSuccess != null) {
@@ -525,6 +549,8 @@ class _$AddBloodPressureSuccessImpl implements AddBloodPressureSuccess {
         getBloodPressureSuccess,
     required TResult Function(GetBloodPressureError value)
         getBloodPressureError,
+    required TResult Function(GetBloodPressureEmpty value)
+        getBloodPressureEmpty,
   }) {
     return addBloodPressureSuccess(this);
   }
@@ -539,6 +565,7 @@ class _$AddBloodPressureSuccessImpl implements AddBloodPressureSuccess {
     TResult? Function(GetBloodPressureLoading value)? getBloodPressureLoading,
     TResult? Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
     TResult? Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult? Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
   }) {
     return addBloodPressureSuccess?.call(this);
   }
@@ -553,6 +580,7 @@ class _$AddBloodPressureSuccessImpl implements AddBloodPressureSuccess {
     TResult Function(GetBloodPressureLoading value)? getBloodPressureLoading,
     TResult Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
     TResult Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
     required TResult orElse(),
   }) {
     if (addBloodPressureSuccess != null) {
@@ -618,6 +646,7 @@ class _$AddBloodPressureErrorImpl implements AddBloodPressureError {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)
         getBloodPressureSuccess,
     required TResult Function() getBloodPressureError,
+    required TResult Function() getBloodPressureEmpty,
   }) {
     return addBloodPressureError();
   }
@@ -634,6 +663,7 @@ class _$AddBloodPressureErrorImpl implements AddBloodPressureError {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)?
         getBloodPressureSuccess,
     TResult? Function()? getBloodPressureError,
+    TResult? Function()? getBloodPressureEmpty,
   }) {
     return addBloodPressureError?.call();
   }
@@ -650,6 +680,7 @@ class _$AddBloodPressureErrorImpl implements AddBloodPressureError {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)?
         getBloodPressureSuccess,
     TResult Function()? getBloodPressureError,
+    TResult Function()? getBloodPressureEmpty,
     required TResult orElse(),
   }) {
     if (addBloodPressureError != null) {
@@ -674,6 +705,8 @@ class _$AddBloodPressureErrorImpl implements AddBloodPressureError {
         getBloodPressureSuccess,
     required TResult Function(GetBloodPressureError value)
         getBloodPressureError,
+    required TResult Function(GetBloodPressureEmpty value)
+        getBloodPressureEmpty,
   }) {
     return addBloodPressureError(this);
   }
@@ -688,6 +721,7 @@ class _$AddBloodPressureErrorImpl implements AddBloodPressureError {
     TResult? Function(GetBloodPressureLoading value)? getBloodPressureLoading,
     TResult? Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
     TResult? Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult? Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
   }) {
     return addBloodPressureError?.call(this);
   }
@@ -702,6 +736,7 @@ class _$AddBloodPressureErrorImpl implements AddBloodPressureError {
     TResult Function(GetBloodPressureLoading value)? getBloodPressureLoading,
     TResult Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
     TResult Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
     required TResult orElse(),
   }) {
     if (addBloodPressureError != null) {
@@ -768,6 +803,7 @@ class _$GetBloodPressureLoadingImpl implements GetBloodPressureLoading {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)
         getBloodPressureSuccess,
     required TResult Function() getBloodPressureError,
+    required TResult Function() getBloodPressureEmpty,
   }) {
     return getBloodPressureLoading();
   }
@@ -784,6 +820,7 @@ class _$GetBloodPressureLoadingImpl implements GetBloodPressureLoading {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)?
         getBloodPressureSuccess,
     TResult? Function()? getBloodPressureError,
+    TResult? Function()? getBloodPressureEmpty,
   }) {
     return getBloodPressureLoading?.call();
   }
@@ -800,6 +837,7 @@ class _$GetBloodPressureLoadingImpl implements GetBloodPressureLoading {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)?
         getBloodPressureSuccess,
     TResult Function()? getBloodPressureError,
+    TResult Function()? getBloodPressureEmpty,
     required TResult orElse(),
   }) {
     if (getBloodPressureLoading != null) {
@@ -824,6 +862,8 @@ class _$GetBloodPressureLoadingImpl implements GetBloodPressureLoading {
         getBloodPressureSuccess,
     required TResult Function(GetBloodPressureError value)
         getBloodPressureError,
+    required TResult Function(GetBloodPressureEmpty value)
+        getBloodPressureEmpty,
   }) {
     return getBloodPressureLoading(this);
   }
@@ -838,6 +878,7 @@ class _$GetBloodPressureLoadingImpl implements GetBloodPressureLoading {
     TResult? Function(GetBloodPressureLoading value)? getBloodPressureLoading,
     TResult? Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
     TResult? Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult? Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
   }) {
     return getBloodPressureLoading?.call(this);
   }
@@ -852,6 +893,7 @@ class _$GetBloodPressureLoadingImpl implements GetBloodPressureLoading {
     TResult Function(GetBloodPressureLoading value)? getBloodPressureLoading,
     TResult Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
     TResult Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
     required TResult orElse(),
   }) {
     if (getBloodPressureLoading != null) {
@@ -965,6 +1007,7 @@ class _$GetBloodPressureSuccessImpl implements GetBloodPressureSuccess {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)
         getBloodPressureSuccess,
     required TResult Function() getBloodPressureError,
+    required TResult Function() getBloodPressureEmpty,
   }) {
     return getBloodPressureSuccess(bloodPressure, heartRate);
   }
@@ -981,6 +1024,7 @@ class _$GetBloodPressureSuccessImpl implements GetBloodPressureSuccess {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)?
         getBloodPressureSuccess,
     TResult? Function()? getBloodPressureError,
+    TResult? Function()? getBloodPressureEmpty,
   }) {
     return getBloodPressureSuccess?.call(bloodPressure, heartRate);
   }
@@ -997,6 +1041,7 @@ class _$GetBloodPressureSuccessImpl implements GetBloodPressureSuccess {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)?
         getBloodPressureSuccess,
     TResult Function()? getBloodPressureError,
+    TResult Function()? getBloodPressureEmpty,
     required TResult orElse(),
   }) {
     if (getBloodPressureSuccess != null) {
@@ -1021,6 +1066,8 @@ class _$GetBloodPressureSuccessImpl implements GetBloodPressureSuccess {
         getBloodPressureSuccess,
     required TResult Function(GetBloodPressureError value)
         getBloodPressureError,
+    required TResult Function(GetBloodPressureEmpty value)
+        getBloodPressureEmpty,
   }) {
     return getBloodPressureSuccess(this);
   }
@@ -1035,6 +1082,7 @@ class _$GetBloodPressureSuccessImpl implements GetBloodPressureSuccess {
     TResult? Function(GetBloodPressureLoading value)? getBloodPressureLoading,
     TResult? Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
     TResult? Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult? Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
   }) {
     return getBloodPressureSuccess?.call(this);
   }
@@ -1049,6 +1097,7 @@ class _$GetBloodPressureSuccessImpl implements GetBloodPressureSuccess {
     TResult Function(GetBloodPressureLoading value)? getBloodPressureLoading,
     TResult Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
     TResult Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
     required TResult orElse(),
   }) {
     if (getBloodPressureSuccess != null) {
@@ -1125,6 +1174,7 @@ class _$GetBloodPressureErrorImpl implements GetBloodPressureError {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)
         getBloodPressureSuccess,
     required TResult Function() getBloodPressureError,
+    required TResult Function() getBloodPressureEmpty,
   }) {
     return getBloodPressureError();
   }
@@ -1141,6 +1191,7 @@ class _$GetBloodPressureErrorImpl implements GetBloodPressureError {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)?
         getBloodPressureSuccess,
     TResult? Function()? getBloodPressureError,
+    TResult? Function()? getBloodPressureEmpty,
   }) {
     return getBloodPressureError?.call();
   }
@@ -1157,6 +1208,7 @@ class _$GetBloodPressureErrorImpl implements GetBloodPressureError {
             List<BloodPressureMeasurement> bloodPressure, int heartRate)?
         getBloodPressureSuccess,
     TResult Function()? getBloodPressureError,
+    TResult Function()? getBloodPressureEmpty,
     required TResult orElse(),
   }) {
     if (getBloodPressureError != null) {
@@ -1181,6 +1233,8 @@ class _$GetBloodPressureErrorImpl implements GetBloodPressureError {
         getBloodPressureSuccess,
     required TResult Function(GetBloodPressureError value)
         getBloodPressureError,
+    required TResult Function(GetBloodPressureEmpty value)
+        getBloodPressureEmpty,
   }) {
     return getBloodPressureError(this);
   }
@@ -1195,6 +1249,7 @@ class _$GetBloodPressureErrorImpl implements GetBloodPressureError {
     TResult? Function(GetBloodPressureLoading value)? getBloodPressureLoading,
     TResult? Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
     TResult? Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult? Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
   }) {
     return getBloodPressureError?.call(this);
   }
@@ -1209,6 +1264,7 @@ class _$GetBloodPressureErrorImpl implements GetBloodPressureError {
     TResult Function(GetBloodPressureLoading value)? getBloodPressureLoading,
     TResult Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
     TResult Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
     required TResult orElse(),
   }) {
     if (getBloodPressureError != null) {
@@ -1220,4 +1276,160 @@ class _$GetBloodPressureErrorImpl implements GetBloodPressureError {
 
 abstract class GetBloodPressureError implements PressureState {
   const factory GetBloodPressureError() = _$GetBloodPressureErrorImpl;
+}
+
+/// @nodoc
+abstract class _$$GetBloodPressureEmptyImplCopyWith<$Res> {
+  factory _$$GetBloodPressureEmptyImplCopyWith(
+          _$GetBloodPressureEmptyImpl value,
+          $Res Function(_$GetBloodPressureEmptyImpl) then) =
+      __$$GetBloodPressureEmptyImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetBloodPressureEmptyImplCopyWithImpl<$Res>
+    extends _$PressureStateCopyWithImpl<$Res, _$GetBloodPressureEmptyImpl>
+    implements _$$GetBloodPressureEmptyImplCopyWith<$Res> {
+  __$$GetBloodPressureEmptyImplCopyWithImpl(_$GetBloodPressureEmptyImpl _value,
+      $Res Function(_$GetBloodPressureEmptyImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PressureState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$GetBloodPressureEmptyImpl implements GetBloodPressureEmpty {
+  const _$GetBloodPressureEmptyImpl();
+
+  @override
+  String toString() {
+    return 'PressureState.getBloodPressureEmpty()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetBloodPressureEmptyImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() addBloodPressureLoading,
+    required TResult Function() addBloodPressureSuccess,
+    required TResult Function() addBloodPressureError,
+    required TResult Function() getBloodPressureLoading,
+    required TResult Function(
+            List<BloodPressureMeasurement> bloodPressure, int heartRate)
+        getBloodPressureSuccess,
+    required TResult Function() getBloodPressureError,
+    required TResult Function() getBloodPressureEmpty,
+  }) {
+    return getBloodPressureEmpty();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? addBloodPressureLoading,
+    TResult? Function()? addBloodPressureSuccess,
+    TResult? Function()? addBloodPressureError,
+    TResult? Function()? getBloodPressureLoading,
+    TResult? Function(
+            List<BloodPressureMeasurement> bloodPressure, int heartRate)?
+        getBloodPressureSuccess,
+    TResult? Function()? getBloodPressureError,
+    TResult? Function()? getBloodPressureEmpty,
+  }) {
+    return getBloodPressureEmpty?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? addBloodPressureLoading,
+    TResult Function()? addBloodPressureSuccess,
+    TResult Function()? addBloodPressureError,
+    TResult Function()? getBloodPressureLoading,
+    TResult Function(
+            List<BloodPressureMeasurement> bloodPressure, int heartRate)?
+        getBloodPressureSuccess,
+    TResult Function()? getBloodPressureError,
+    TResult Function()? getBloodPressureEmpty,
+    required TResult orElse(),
+  }) {
+    if (getBloodPressureEmpty != null) {
+      return getBloodPressureEmpty();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(AddBloodPressureLoading value)
+        addBloodPressureLoading,
+    required TResult Function(AddBloodPressureSuccess value)
+        addBloodPressureSuccess,
+    required TResult Function(AddBloodPressureError value)
+        addBloodPressureError,
+    required TResult Function(GetBloodPressureLoading value)
+        getBloodPressureLoading,
+    required TResult Function(GetBloodPressureSuccess value)
+        getBloodPressureSuccess,
+    required TResult Function(GetBloodPressureError value)
+        getBloodPressureError,
+    required TResult Function(GetBloodPressureEmpty value)
+        getBloodPressureEmpty,
+  }) {
+    return getBloodPressureEmpty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(AddBloodPressureLoading value)? addBloodPressureLoading,
+    TResult? Function(AddBloodPressureSuccess value)? addBloodPressureSuccess,
+    TResult? Function(AddBloodPressureError value)? addBloodPressureError,
+    TResult? Function(GetBloodPressureLoading value)? getBloodPressureLoading,
+    TResult? Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
+    TResult? Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult? Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
+  }) {
+    return getBloodPressureEmpty?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(AddBloodPressureLoading value)? addBloodPressureLoading,
+    TResult Function(AddBloodPressureSuccess value)? addBloodPressureSuccess,
+    TResult Function(AddBloodPressureError value)? addBloodPressureError,
+    TResult Function(GetBloodPressureLoading value)? getBloodPressureLoading,
+    TResult Function(GetBloodPressureSuccess value)? getBloodPressureSuccess,
+    TResult Function(GetBloodPressureError value)? getBloodPressureError,
+    TResult Function(GetBloodPressureEmpty value)? getBloodPressureEmpty,
+    required TResult orElse(),
+  }) {
+    if (getBloodPressureEmpty != null) {
+      return getBloodPressureEmpty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetBloodPressureEmpty implements PressureState {
+  const factory GetBloodPressureEmpty() = _$GetBloodPressureEmptyImpl;
 }
