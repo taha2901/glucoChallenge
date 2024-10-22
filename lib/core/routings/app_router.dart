@@ -17,6 +17,8 @@ import 'package:challenge/features/medicine/ui/medicine_screen.dart';
 import 'package:challenge/features/onboard/ui/onboarding.dart';
 import 'package:challenge/features/register/logic/register_cubit.dart';
 import 'package:challenge/features/register/ui/register.dart';
+import 'package:challenge/features/settings/ui/profile_screen.dart';
+import 'package:challenge/features/settings/ui/widgets/update_user_data_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -91,6 +93,16 @@ class AppRouter {
       case Routers.measurement:
         return MaterialPageRoute(
           builder: (_) => const MeasurementsScreen(),
+        );
+
+      case Routers.profile:
+        return MaterialPageRoute(
+          builder: (_) => const ProfileScreen(),
+        );
+
+      case Routers.updateProfile:
+        return MaterialPageRoute(
+          builder: (_) => UpdateUserDataScreen(),
         );
 
       default:

@@ -12,6 +12,8 @@ import 'package:challenge/features/measurments/logic/pressure/pressure_cubit.dar
 import 'package:challenge/features/measurments/logic/weight/weight_cubit.dart';
 import 'package:challenge/features/medicine/data/repo/medicine_repo.dart';
 import 'package:challenge/features/medicine/logic/medicine_cubit.dart';
+import 'package:challenge/features/settings/data/repos/profile_repo.dart';
+import 'package:challenge/features/settings/logic/profile_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -47,4 +49,8 @@ Future<void> setUpGetIt() async {
   getit.registerLazySingleton<PressureMeasurmentRepo>(
       () => PressureMeasurmentRepo(getit()));
   getit.registerFactory<PressureCubit>(() => PressureCubit(getit()));
+
+  //profile
+  getit.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getit()));
+  getit.registerFactory<ProfileCubit>(() => ProfileCubit(getit()));
 }

@@ -1,14 +1,13 @@
-import 'package:challenge/core/di/dependency_injection.dart';
 import 'package:challenge/core/helpers/spacing.dart';
 import 'package:challenge/core/theming/styles.dart';
 import 'package:challenge/core/widget/app_text_button.dart';
 import 'package:challenge/core/widget/app_text_form_field.dart';
 import 'package:challenge/core/widget/custom_show_toast.dart';
 import 'package:challenge/features/medicine/logic/medicine_cubit.dart';
+import 'package:challenge/features/medicine/logic/medicine_state.dart';
 import 'package:challenge/features/medicine/ui/widgets/medicine_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AddMedicineScreen extends StatelessWidget {
   const AddMedicineScreen({super.key});
@@ -24,12 +23,12 @@ class AddMedicineScreen extends StatelessWidget {
             );
           },
           addMedicineSuccess: () {
-            showToast(msg: 'Succesfully', state: ToastStates.SUCCESS);
+            showToast(msg: 'Successfully added', state: ToastStates.SUCCESS);
             context.read<MedicineCubit>().getMedicine();
             Navigator.pop(context);
           },
           addMedicineError: () {
-            showToast(msg: 'Failed', state: ToastStates.ERROR);
+            showToast(msg: 'Failed to add', state: ToastStates.ERROR);
           },
           orElse: () {},
         );
@@ -46,14 +45,15 @@ class AddMedicineScreen extends StatelessWidget {
                 ),
                 verticalSpace(16),
                 const Expanded(
-                    child: CustomScrollView(
-                  physics: BouncingScrollPhysics(),
-                  slivers: [
-                    SliverToBoxAdapter(
-                      child: AddMedicineForm(),
-                    ),
-                  ],
-                ))
+                  child: CustomScrollView(
+                    physics: BouncingScrollPhysics(),
+                    slivers: [
+                      SliverToBoxAdapter(
+                        child: AddMedicineForm(),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -68,46 +68,44 @@ class AddMedicineForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var formkey = context.read<MedicineCubit>().formKey;
+    var formKey = context.read<MedicineCubit>().formKey;
 
     return Form(
-      key: formkey,
+      key: formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AppTextFormField(
             hintText: 'اسم الدواء',
-            borderRadius: BorderRadius.all(Radius.circular(5.r)),
+            borderRadius: const BorderRadius.all(Radius.circular(5)),
             prefixIcon: const Icon(Icons.medication),
             controller: context.read<MedicineCubit>().nameController,
           ),
           verticalSpace(16),
           AppTextFormField(
-            hintText: 'الجرعه',
-            borderRadius: BorderRadius.all(Radius.circular(5.r)),
+            hintText: 'الجرعة',
+            borderRadius: const BorderRadius.all(Radius.circular(5)),
             controller: context.read<MedicineCubit>().dosageController,
           ),
           verticalSpace(16),
-          DropdownButtonFormField<String>(
-            decoration: InputDecoration(
-              labelText: 'الوقت',
-              border: OutlineInputBorder(),
-            ),
-            value: 'صباحًا',
-            items: ['صباحًا', 'مساءً', 'بعد الظهر'].map((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
-            onChanged: (newValue) {
-              context.read<MedicineCubit>().timeController.text = newValue!;
+          // استبدال DropdownButtonFormField بزر لفتح Bottom Sheet
+          InkWell(
+            onTap: () async {
+              // استدعاء Bottom Sheet لاختيار الوقت
+              await _selectTime(context);
             },
+            child: IgnorePointer(
+              child: AppTextFormField(
+                hintText: 'الوقت',
+                borderRadius: const BorderRadius.all(Radius.circular(5)),
+                controller: context.read<MedicineCubit>().timeController,
+              ),
+            ),
           ),
           verticalSpace(16),
           AppTextFormField(
-            hintText: 'العدد',
-            borderRadius: BorderRadius.all(Radius.circular(5.r)),
+            hintText: 'عدد الجرعات',
+            borderRadius: const BorderRadius.all(Radius.circular(5)),
             controller: context.read<MedicineCubit>().countController,
           ),
           verticalSpace(16),
@@ -116,8 +114,8 @@ class AddMedicineForm extends StatelessWidget {
             buttonText: 'حفظ',
             textStyle: TextStyles.font18WhiteBold,
             onPressed: () {
-              if (formkey.currentState!.validate()) {
-                formkey.currentState!.save();
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
                 context.read<MedicineCubit>().emitAddMedicine();
               }
             },
@@ -125,5 +123,18 @@ class AddMedicineForm extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  // الدالة التي تفتح Bottom Sheet لاختيار الوقت
+  Future<void> _selectTime(BuildContext context) async {
+    TimeOfDay? pickedTime = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(), // الوقت الافتراضي: الوقت الحالي
+    );
+
+    if (pickedTime != null) {
+      final formattedTime = pickedTime.format(context); // تنسيق الوقت
+      context.read<MedicineCubit>().timeController.text = formattedTime;
+    }
   }
 }

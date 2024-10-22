@@ -21,4 +21,6 @@ class PressureState with _$PressureState {
           {required List<BloodPressureMeasurement>  bloodPressure, required int heartRate}) =
       GetBloodPressureSuccess;
   const factory PressureState.getBloodPressureError() = GetBloodPressureError;
+  
+  const factory PressureState.getBloodPressureEmpty() = GetBloodPressureEmpty;
 }

@@ -56,22 +56,31 @@ class PressureCubit extends Cubit<PressureState> {
   }
 
   // Get Blood Pressure
+  // Get Blood Pressure
   void fetchPressureData(String specificDate) async {
     if (isClosed) return;
     emit(const PressureState.getBloodPressureLoading());
     final response = await _pressuretRepo.getBloodPressure(specificDate);
+
     response.when(
       success: (pressure) async {
         if (isClosed) return;
 
         bloodPressureMessurment = pressure.toList();
-        selectedMeasurement = bloodPressureMessurment.last;
 
-        // احصل على heartRate من القياس المحدد
-        int heartRate =
-            selectedMeasurement?.heartRate ?? 0; // تأكد من وجود قيمة
-        emit(PressureState.getBloodPressureSuccess(
-            heartRate: heartRate, bloodPressure: bloodPressureMessurment));
+        // تحقق إذا كانت القائمة غير فارغة قبل الوصول إلى العنصر الأخير
+        if (bloodPressureMessurment.isNotEmpty) {
+          selectedMeasurement = bloodPressureMessurment.last;
+
+          // احصل على heartRate من القياس المحدد
+          int heartRate =
+              selectedMeasurement?.heartRate ?? 0; // تأكد من وجود قيمة
+          emit(PressureState.getBloodPressureSuccess(
+              heartRate: heartRate, bloodPressure: bloodPressureMessurment));
+        } else {
+          // إذا كانت القائمة فارغة، يمكنك التعامل مع الحالة حسب الحاجة
+          emit(const PressureState.getBloodPressureEmpty());
+        }
       },
       failure: (error) {
         if (isClosed) return;

@@ -1,10 +1,8 @@
+import 'package:challenge/core/helpers/extentions.dart';
 import 'package:challenge/core/helpers/spacing.dart';
+import 'package:challenge/core/routings/routers.dart';
 import 'package:challenge/core/theming/styles.dart';
-import 'package:challenge/features/login/logic/login_cubit.dart';
-import 'package:challenge/features/medicine/logic/medicine_cubit.dart';
-import 'package:challenge/features/register/logic/register_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -16,8 +14,11 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CircleAvatar(
-          radius: 25.r,
+        GestureDetector(
+          onTap: () => context.pushNamed(Routers.profile),
+          child: CircleAvatar(
+            radius: 25.r,
+          ),
         ),
         horizontalSpace(8),
         Column(
@@ -34,6 +35,7 @@ class CustomAppBar extends StatelessWidget {
         ),
         const Spacer(),
         GestureDetector(
+          
           child: Image.asset(
             'assets/images/messenger.png',
             height: 55.h,

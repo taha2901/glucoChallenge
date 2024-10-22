@@ -1,4 +1,6 @@
-part of 'medicine_cubit.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'medicine_state.freezed.dart';
 
 @freezed
 class MedicineState with _$MedicineState {

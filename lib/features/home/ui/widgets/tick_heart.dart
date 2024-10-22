@@ -41,7 +41,7 @@ class TicksOfHeart extends StatelessWidget {
                               style: TextStyles.font18BlackMedium),
                           horizontalSpace(5),
                           state is GetBloodPressureLoading
-                              ? const CircularProgressIndicator()
+                              ? Container()
                               : Text(
                                   '${state is GetBloodPressureSuccess ? state.heartRate : '0'}',
                                   style: TextStyles.font18BlackMedium,
