@@ -6,6 +6,7 @@ class ApiErrorModel {
   final String? title;
   final int? status;
   final Map<String, List<String>>? errors;
+
   ApiErrorModel({
     this.title,
     this.status,
@@ -20,12 +21,10 @@ class ApiErrorModel {
   /// Returns a string containing all the error messages
   String getAllErrorMessages() {
     if (errors != null && errors!.isNotEmpty) {
-      return errors?.values.join('\n') ?? 'Unknown Error' + '\n' + errors!.values.toString();
+      return errors!.entries.map((entry) {
+        return '${entry.key}: ${entry.value.join(', ')}';
+      }).join('\n');
     }
-    final errorMessage = errors?.entries.map((entry) {
-      final value = entry.value;
-      return value.join(',');
-    }).join('\n');
-    return errorMessage ?? 'Unknown Error';
+    return title ?? 'Unknown Error';
   }
 }

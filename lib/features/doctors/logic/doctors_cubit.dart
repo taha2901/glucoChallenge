@@ -36,29 +36,31 @@ class DoctorsCubit extends Cubit<DoctorsState> {
     });
   }
 
-  void getAvailableTime(int id, DateTime date) async {
-    // تحويل التاريخ إلى سلسلة نصية بصيغة MM/dd/yyyy
-    String formattedDate = DateFormat('MM/dd/yyyy').format(date);
-
+  void getAvailableTime(int id, String formattedDate) async {
+    // تغيير نوع التاريخ إلى String
     if (isClosed) return;
     emit(const DoctorsState.availableTimeLoading());
 
     // تمرير التاريخ المُنسق (formattedDate) إلى الـ Repository
     final response = await _doctorRepo.getAvailableTime(
       id,
-      formattedDate, // هنا تستخدم التاريخ كـ String
+      formattedDate, // التاريخ كـ String
     );
 
-    response.when(success: (availableTime) {
-      if (isClosed) return;
-      availableTimesResponse = availableTime;
+    response.when(
+      success: (availableTime) {
+        if (isClosed) return;
+        availableTimesResponse = availableTime;
 
-      emit(DoctorsState.availableTimeSuccess(
-          availableTimeResponse: availableTime));
-    }, failure: (apiErrorModel) {
-      if (isClosed) return;
-      emit(DoctorsState.availableTimeError(apiErrorModel));
-    });
+        emit(DoctorsState.availableTimeSuccess(
+          availableTimeResponse: availableTime,
+        ));
+      },
+      failure: (apiErrorModel) {
+        if (isClosed) return;
+        emit(DoctorsState.availableTimeError(apiErrorModel));
+      },
+    );
   }
 
   void emitReservationStates({
@@ -75,7 +77,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
     emit(const DoctorsState.reservationLoading());
 
     final response = await _doctorRepo.addReservation(
-      doctorId, 
+      doctorId,
       ReservationRequestBody(
         age: age,
         date: date,

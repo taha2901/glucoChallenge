@@ -27,26 +27,37 @@ class ApiErrorHandler {
   }
 
   static ApiErrorModel _handleDioError(dynamic data) {
-    return ApiErrorModel(
-      title: data['title'] ?? 'Unexpected Error',
-      status: data['status'],
-      errors: _parseErrors(data['errors']),
-    );
-  }
-
-static Map<String, List<String>>? _parseErrors(dynamic errors) {
-  if (errors is Map<String, dynamic>) {
-    return errors.map((key, value) {
-      if (value is List) {
-        // تأكد أن جميع العناصر داخل القائمة من نوع String
-        return MapEntry(key, value.map((v) => v.toString()).toList());
+    if (data is Map<String, dynamic>) {
+      // التحقق إذا كانت الاستجابة تحتوي على `message` فقط
+      if (data.containsKey('message')) {
+        return ApiErrorModel(
+          title: data['message'], // استخدام `message` كعنوان للخطأ
+          status: null, // لا حاجة لتعيين حالة هنا
+          errors: null, // لا توجد أخطاء إضافية
+        );
       } else {
-        // إذا لم تكن القيمة قائمة، حولها إلى قائمة تحتوي على عنصر واحد
-        return MapEntry(key, [value.toString()]);
+        // معالجة الاستجابات التقليدية التي تحتوي على `errors`
+        return ApiErrorModel(
+          title: data['title'] ?? 'Unexpected Error',
+          status: data['status'] ?? 400, // استخدام 400 كقيمة افتراضية للحالة
+          errors: _parseErrors(data['errors']),
+        );
       }
-    });
+    }
+    // خطأ غير متوقع في حال لم تكن استجابة JSON
+    return ApiErrorModel(title: 'Unexpected Error', status: 400);
   }
-  return null;
-}
 
+  static Map<String, List<String>>? _parseErrors(dynamic errors) {
+    if (errors is Map<String, dynamic>) {
+      return errors.map((key, value) {
+        if (value is List) {
+          return MapEntry(key, value.map((v) => v.toString()).toList());
+        } else {
+          return MapEntry(key, [value.toString()]);
+        }
+      });
+    }
+    return null;
+  }
 }

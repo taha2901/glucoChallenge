@@ -79,7 +79,7 @@ class AppRouter {
         );
       case Routers.confirmDoctorResrvation:
         return MaterialPageRoute(
-          builder: (_) => const ConfirmDoctorReservation(),
+          builder: (_) =>  ConfirmDoctorReservation(),
         );
 
       case Routers.measurement:
