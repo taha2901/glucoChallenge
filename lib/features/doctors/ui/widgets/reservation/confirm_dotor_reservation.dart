@@ -1,4 +1,4 @@
-import 'package:challenge/core/di/dependency_injection.dart';
+import 'package:challenge/core/helpers/spacing.dart';
 import 'package:challenge/core/theming/styles.dart';
 import 'package:challenge/core/widget/app_text_button.dart';
 import 'package:challenge/features/doctors/logic/doctors_cubit.dart';
@@ -16,10 +16,10 @@ class ConfirmDoctorReservation extends StatefulWidget {
   final String? sex;
   final int? age;
   final String? phone;
-  final String? time;
+  String? time;
   final int? doctorId;
 
-  const ConfirmDoctorReservation({
+  ConfirmDoctorReservation({
     super.key,
     this.username,
     this.sex,
@@ -37,31 +37,17 @@ class ConfirmDoctorReservation extends StatefulWidget {
 class _ConfirmDoctorReservationState extends State<ConfirmDoctorReservation> {
   DateTime? _selectedDate;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   // التحقق من doctorId قبل الاستدعاء
-  //   if (widget.doctorId != null) {
-  //     BlocProvider.of<DoctorsCubit>(context).getAvailableTime(
-  //       widget.doctorId!,
-  //       // DateFormat('MM/dd/yyyy').format(DateTime.now()),
-  //       DateTime.now(),
-  //     );
-  //   }
-  // }
-
   void _onDateChange(DateTime selectedDate) {
     setState(() {
       _selectedDate = selectedDate;
-      print(
-          "Doctor ID: ${widget.doctorId}, Date: ${DateFormat('MM/dd/yyyy').format(_selectedDate!)}");
+      String formattedDate =
+          DateFormat('yyyy-MM-dd').format(selectedDate); // تغيير تنسيق التاريخ
 
       // استدعاء getAvailableTime بعد تحديد التاريخ
       if (widget.doctorId != null) {
         context.read<DoctorsCubit>().getAvailableTime(
               widget.doctorId!,
-              // DateFormat('MM/dd/yyyy').format(_selectedDate!),
-              _selectedDate!,
+              formattedDate, // تمرير التاريخ كـ String
             );
       }
     });
@@ -81,46 +67,80 @@ class _ConfirmDoctorReservationState extends State<ConfirmDoctorReservation> {
               'الأيام',
               style: TextStyles.font15DarkSemiBold,
             ),
-            // تمرير onDateChange لاختيار التاريخ
             DateSelectionPage(onDateChange: _onDateChange),
-            BlocProvider(
-              create: (context) => getit<DoctorsCubit>()
-                ..getAvailableTime(widget.doctorId!,
-                    // DateFormat('yyyy-MM-dd').format(DateTime.now())),
-                    _selectedDate!),
-              child: BlocConsumer<DoctorsCubit, DoctorsState>(
+            verticalSpace(16),
+            BlocBuilder<DoctorsCubit, DoctorsState>(builder: (context, state) {
+              if (_selectedDate == null) {
+                return const Center(child: Text('يرجى تحديد التاريخ أولاً'));
+              }
+
+              return BlocConsumer<DoctorsCubit, DoctorsState>(
                 listener: (context, state) {
+                  if (state is AvailableTimeLoading) {
+                    const Center(child: CircularProgressIndicator());
+                  }
                   if (state is AvailableTimeError) {
-                    // عرض رسالة للمستخدم عند حدوث خطأ
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('حدث خطأ: ${state.apiErrorModel.title}')),
+                      SnackBar(
+                          content: Text(
+                              'حدث خطأ: ${state.apiErrorModel.getAllErrorMessages()}')),
+                    );
+                  }
+                  if (state is ReservationSuccess) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      snackBarAnimationStyle: AnimationStyle(
+                        duration: const Duration(seconds: 2),
+                        curve: Curves.easeIn,
+                        reverseCurve: Curves.easeOut,
+                        reverseDuration: const Duration(seconds: 1),
+                      ),
+                      SnackBar(
+                          backgroundColor: Colors.green,
+                          clipBehavior: Clip.antiAlias,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          padding: const EdgeInsets.all(10),
+                          content: Text(
+                              'تم الحجز بنجاح: ${state.reservationResponse.message}')),
                     );
                   }
                 },
                 builder: (context, state) {
-                  if (state is AvailableTimeLoading) {
-                    return const Center(child: CircularProgressIndicator());
-                  } else if (state is AvailableTimeSuccess &&
-                      _selectedDate != null) {
+                  if (state is AvailableTimeSuccess) {
                     return Expanded(
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount:
                             state.availableTimeResponse.availableTimes.length,
                         itemBuilder: (context, index) {
-                          return Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 8),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            width: 100.w,
-                            height: 100.h,
-                            child: Card(
+                          String timeStr =
+                              state.availableTimeResponse.availableTimes[index];
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                widget.time = timeStr; // حفظ الوقت كـ String
+                              });
+                            },
+                            child: Container(
+                              margin: const EdgeInsets.symmetric(horizontal: 8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: (widget.time == timeStr)
+                                    ? Colors.blueAccent
+                                    : Colors.grey.shade300,
+                              ),
+                              width: 100.w,
+                              height: 100.h,
                               child: Center(
                                 child: Text(
-                                  state.availableTimeResponse
-                                      .availableTimes[index].toString(),
-                                  
+                                  timeStr,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: (widget.time == timeStr)
+                                        ? Colors.white
+                                        : Colors.black,
+                                  ),
                                 ),
                               ),
                             ),
@@ -128,33 +148,34 @@ class _ConfirmDoctorReservationState extends State<ConfirmDoctorReservation> {
                         },
                       ),
                     );
-                  } else {
-                    return const Center(
-                        child: Text('يرجى تحديد التاريخ أولاً'));
+                  }
+                  else {
+                    return const Center(child: Text(''));
                   }
                 },
-              ),
-            ),
+              );
+            }),
             const Spacer(),
             AppTextButton(
               borderRadius: 10,
               buttonText: 'تأكيد',
               textStyle: TextStyles.font18WhiteBold,
               onPressed: () {
-                if (_selectedDate != null) {
+                if (_selectedDate != null && widget.time != null) {
                   context.read<DoctorsCubit>().emitReservationStates(
                         username: widget.username.toString(),
                         phone: widget.phone.toString(),
                         age: widget.age ?? 0,
                         sex: widget.sex.toString(),
-                        date: DateFormat('MM/dd/yyyy').format(_selectedDate!),
+                        date: DateFormat('yyyy-MM-dd').format(
+                            _selectedDate!), // استخدام تنسيق صحيح للتاريخ
                         doctorId: widget.doctorId!,
                         time: widget.time!,
                       );
                 } else {
-                  // عرض رسالة للمستخدم لتحديد التاريخ
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('يرجى تحديد التاريخ أولاً')),
+                    const SnackBar(
+                        content: Text('يرجى تحديد التاريخ والوقت أولاً')),
                   );
                 }
               },

@@ -14,7 +14,7 @@ class FormReservation extends StatelessWidget {
   Widget build(BuildContext context) {
     // تعريف المتغيرات في نطاق الكلاس بدلاً من داخل الدالة
     TextEditingController dateController = TextEditingController();
-    TextEditingController timeController = TextEditingController();
+    // TextEditingController timeController = TextEditingController();
     TextEditingController nameController = TextEditingController();
     TextEditingController ageController = TextEditingController();
     TextEditingController phoneController = TextEditingController();
@@ -35,16 +35,16 @@ class FormReservation extends StatelessWidget {
       }
     }
 
-    Future<void> _selectTime(BuildContext context) async {
-      final TimeOfDay? picked = await showTimePicker(
-        context: context,
-        initialTime: TimeOfDay.now(),
-      );
-      if (picked != null) {
-        timeController.text = picked.format(context);
-        print("Selected Time: ${timeController.text}");
-      }
-    }
+    // Future<void> _selectTime(BuildContext context) async {
+    //   final TimeOfDay? picked = await showTimePicker(
+    //     context: context,
+    //     initialTime: TimeOfDay.now(),
+    //   );
+    //   if (picked != null) {
+    //     timeController.text = picked.format(context);
+    //     print("Selected Time: ${timeController.text}");
+    //   }
+    // }
 
     return Form(
       key: formKey,
@@ -81,18 +81,18 @@ class FormReservation extends StatelessWidget {
             hintText: 'أدخل رقم تلفونك',
             controller: phoneController,
           ),
-          verticalSpace(16),
-          GestureDetector(
-            onTap: () => _selectTime(context),
-            child: AbsorbPointer(
-              child: AppTextFormField(
-                borderRadius: BorderRadius.circular(10),
-                hintText: 'أدخل الوقت',
-                controller: timeController,
-                suffixIcon: const Icon(Icons.access_time),
-              ),
-            ),
-          ),
+          // verticalSpace(16),
+          // GestureDetector(
+          //   onTap: () => _selectTime(context),
+          //   child: AbsorbPointer(
+          //     child: AppTextFormField(
+          //       borderRadius: BorderRadius.circular(10),
+          //       hintText: 'أدخل الوقت',
+          //       controller: timeController,
+          //       suffixIcon: const Icon(Icons.access_time),
+          //     ),
+          //   ),
+          // ),
           verticalSpace(32),
           AppTextButton(
             borderRadius: 10,
@@ -109,7 +109,7 @@ class FormReservation extends StatelessWidget {
                       sex: sexController.text,
                       age: int.tryParse(ageController.text),
                       phone: phoneController.text,
-                      time: timeController.text,
+                      // time: timeController.text,
                     ),
                   ),
                 );
