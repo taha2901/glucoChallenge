@@ -1,6 +1,6 @@
-import 'dart:math';
 import 'package:challenge/core/helpers/constants.dart';
 import 'package:challenge/core/helpers/shared_pref_helper.dart';
+import 'package:challenge/core/networking/api_error_model.dart';
 import 'package:challenge/core/networking/dio_factory.dart';
 import 'package:challenge/features/login/logic/login_state.dart';
 import 'package:challenge/features/measurments/logic/pressure/pressure_cubit.dart';
@@ -45,12 +45,14 @@ class LoginCubit extends Cubit<LoginState> {
           context.read<PressureCubit>().fetchPressureData(formattedDate);
 
           emit(LoginState.success(loginResponse));
-        } else {
-          emit(const LoginState.error(error: 'Something went wrong'));
-        }
+        } 
+        else {
+        // إذا لم يكن هناك توكن، نرسل خطأ
+        emit(LoginState.error(ApiErrorModel(title: 'Token not found', status: 404)));
+      }
       },
       failure: (error) {
-        emit(LoginState.error(error: error.message.toString()));
+        emit(LoginState.error(error));
       },
     );
   }

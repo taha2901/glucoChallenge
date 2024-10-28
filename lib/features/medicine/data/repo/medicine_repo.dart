@@ -1,4 +1,4 @@
-import 'package:challenge/core/networking/api_error_model.dart';
+import 'package:challenge/core/networking/api_error_handler.dart';
 import 'package:challenge/core/networking/api_result.dart';
 import 'package:challenge/core/networking/api_services.dart';
 import 'package:challenge/features/medicine/data/model/add_medicine_request_model.dart';
@@ -14,7 +14,7 @@ class MedicineRepo {
       final response = await _apiService.getMedicine();
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ApiErrorModel(message: error.toString()));
+      return ApiResult.failure(ApiErrorHandler.handle(error),);
     }
   }
 
@@ -30,9 +30,7 @@ class MedicineRepo {
     } catch (error) {
       print('API Error: $error');
       return ApiResult.failure(
-        ApiErrorModel(
-          message: error.toString(),
-        ),
+       ApiErrorHandler.handle(error),
       );
     }
   }

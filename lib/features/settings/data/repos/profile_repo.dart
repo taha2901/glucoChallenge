@@ -1,4 +1,4 @@
-import 'package:challenge/core/networking/api_error_model.dart';
+import 'package:challenge/core/networking/api_error_handler.dart';
 import 'package:challenge/core/networking/api_result.dart';
 import 'package:challenge/core/networking/api_services.dart';
 import 'package:challenge/features/settings/data/models/update_user_request.dart';
@@ -16,9 +16,7 @@ class ProfileRepo {
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(
-        ApiErrorModel(
-          message: error.toString(),
-        ),
+      ApiErrorHandler.handle(error),
       );
     }
   }
@@ -46,9 +44,7 @@ class ProfileRepo {
     } catch (error) {
       print('API Error: $error');
       return ApiResult.failure(
-        ApiErrorModel(
-          message: error.toString(),
-        ),
+        ApiErrorHandler.handle(error),
       );
     }
   }

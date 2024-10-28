@@ -1,6 +1,4 @@
-
-
-import 'package:challenge/core/networking/api_error_handler.dart';
+import 'package:challenge/core/networking/api_error_model.dart';
 import 'package:challenge/features/settings/data/models/user_details_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'profile_state.freezed.dart';
@@ -12,7 +10,7 @@ class ProfileState with _$ProfileState {
 
   const factory ProfileState.profileSuccess({required UserDetailsResponse? profileModel}) = ProfileSuccess;
 
-  const factory ProfileState.profileError({required String errMessage}) = ProfileError;
+  const factory ProfileState.profileError(ApiErrorModel apiErrorModel) = ProfileError;
 
   // change password
   // const factory ProfileState.changePasswordLoading() = ChangePasswordLoading;
@@ -27,5 +25,5 @@ class ProfileState with _$ProfileState {
 
   const factory ProfileState.updateProfileSuccess() = UpdateProfileSuccess;
 
-  const factory ProfileState.updateProfileError({required String errMessage}) = UpdateProfileError;
+  const factory ProfileState.updateProfileError(ApiErrorModel apiErrorModel) = UpdateProfileError;
 }

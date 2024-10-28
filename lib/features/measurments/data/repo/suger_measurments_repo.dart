@@ -1,14 +1,9 @@
-import 'package:challenge/core/networking/api_error_model.dart';
+import 'package:challenge/core/networking/api_error_handler.dart';
 import 'package:challenge/core/networking/api_result.dart';
 import 'package:challenge/core/networking/api_services.dart';
-import 'package:challenge/features/measurments/data/model/add_measurments_models/blood_pressure_request_model.dart';
-import 'package:challenge/features/measurments/data/model/add_measurments_models/blood_pressure_response_model.dart';
 import 'package:challenge/features/measurments/data/model/add_measurments_models/blood_suger_request_model.dart';
 import 'package:challenge/features/measurments/data/model/add_measurments_models/blood_suger_response_model.dart';
-import 'package:challenge/features/measurments/data/model/add_measurments_models/weight_request_model.dart';
-import 'package:challenge/features/measurments/data/model/add_measurments_models/weight_response_model.dart';
 import 'package:challenge/features/measurments/data/model/get_measurments_models/get_blood_suger_response.dart';
-import 'package:challenge/features/measurments/data/model/get_measurments_models/get_weight_response.dart';
 
 class MeasurmentRepo {
   final ApiServices _apiService;
@@ -26,9 +21,7 @@ class MeasurmentRepo {
     } catch (error) {
       print('API Error: $error');
       return ApiResult.failure(
-        ApiErrorModel(
-          message: error.toString(),
-        ),
+        ApiErrorHandler.handle(error),
       );
     }
   }
@@ -43,9 +36,7 @@ class MeasurmentRepo {
     } catch (error) {
       print('API Error: $error');
       return ApiResult.failure(
-        ApiErrorModel(
-          message: error.toString(),
-        ),
+       ApiErrorHandler.handle(error),
       );
     }
   }

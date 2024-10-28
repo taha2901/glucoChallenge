@@ -23,7 +23,7 @@ class ProfileCubit extends Cubit<ProfileState> {
       emit(ProfileState.profileSuccess(profileModel: profileModel));
     }, failure: (errorHandler) {
       if (isClosed) return;
-      emit(ProfileState.profileError(errMessage: errorHandler.toString()));
+      emit(ProfileState.profileError(errorHandler));
     });
   }
 
@@ -71,7 +71,7 @@ class ProfileCubit extends Cubit<ProfileState> {
       emit(const ProfileState.updateProfileSuccess());
     }, failure: (errorHandler) {
       if (isClosed) return;
-      emit(ProfileState.updateProfileError(errMessage: errorHandler.toString()));
+      emit(ProfileState.updateProfileError( errorHandler));
     });
   }
 }

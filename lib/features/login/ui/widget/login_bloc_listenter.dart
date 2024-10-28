@@ -21,6 +21,7 @@ class LoginBlocListener extends StatelessWidget {
           // عرض مؤشر التحميل
           showDialog(
             context: context,
+            barrierDismissible: false,
             builder: (context) {
               return const Center(
                 child: CircularProgressIndicator(
@@ -30,12 +31,12 @@ class LoginBlocListener extends StatelessWidget {
             },
           );
         } else if (state is LoginSuccess) {
-          // إغلاق الحوار والانتقال إلى الصفحة الرئيسية
-          Navigator.pop(context); // إغلاق الحوار
+          Navigator.pop(context); 
           Navigator.pushReplacementNamed(context, Routers.home);
         } else if (state is LoginError) {
-          // إعداد حالة الخطأ
-          setupErrorState(context, state.error);
+          Navigator.pop(context);
+          print('Received error state: ${state.apiErrorModel.title}');
+          setupErrorState(context, state.apiErrorModel.getAllErrorMessages());
         }
       },
       child: const SizedBox.shrink(),
@@ -43,7 +44,6 @@ class LoginBlocListener extends StatelessWidget {
   }
 
   void setupErrorState(BuildContext context, String error) {
-    Navigator.pop(context); // إغلاق الحوار إذا كان مفتوحًا
     showDialog(
       context: context,
       builder: (context) => AlertDialog(

@@ -1,5 +1,6 @@
 import 'package:challenge/core/di/dependency_injection.dart';
 import 'package:challenge/core/helpers/spacing.dart';
+import 'package:challenge/core/widget/custom_show_toast.dart';
 import 'package:challenge/features/doctors/data/model/doctor_response_body.dart';
 import 'package:challenge/features/doctors/logic/doctors_cubit.dart';
 import 'package:challenge/features/doctors/logic/doctors_state.dart';
@@ -13,6 +14,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class DoctorReservation extends StatelessWidget {
   final int doctorId;
   final DoctorResponseBody doctorResponseBody;
+
   const DoctorReservation({
     super.key,
     required this.doctorResponseBody,
@@ -24,7 +26,15 @@ class DoctorReservation extends StatelessWidget {
     return BlocProvider(
       create: (context) => getit<DoctorsCubit>(),
       child: BlocConsumer<DoctorsCubit, DoctorsState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          // إضافة منطق للتعامل مع حالات النجاح والفشل
+          if (state is ReservationSuccess) {
+            showToast(msg: 'تم الحجز بنجاح', state: ToastStates.SUCCESS);
+          }
+          if (state is ReservationError) {
+            showToast(msg: state.apiErrorModel.errors.toString(), state: ToastStates.ERROR);
+          }
+        },
         builder: (context, state) {
           return Scaffold(
             body: Padding(

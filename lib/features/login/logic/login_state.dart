@@ -10,7 +10,7 @@ class LoginState<T> with _$LoginState<T> {
 
   const factory LoginState.success(T data) = LoginSuccess<T>;
 
-  const factory LoginState.error({required String error}) = LoginError;
+  const factory LoginState.error(ApiErrorModel apiErrorModel) = LoginError;
 
 }
 

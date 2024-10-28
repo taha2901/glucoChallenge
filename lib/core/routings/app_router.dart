@@ -2,8 +2,6 @@ import 'package:challenge/core/di/dependency_injection.dart';
 import 'package:challenge/core/routings/routers.dart';
 import 'package:challenge/core/widget/bottom_nav_bar.dart';
 import 'package:challenge/features/doctors/data/model/doctor_response_body.dart';
-import 'package:challenge/features/doctors/data/model/reservation_response_body.dart';
-import 'package:challenge/features/doctors/logic/doctors_cubit.dart';
 import 'package:challenge/features/doctors/ui/doctor_screen.dart';
 import 'package:challenge/features/doctors/ui/widgets/reservation/confirm_dotor_reservation.dart';
 import 'package:challenge/features/doctors/ui/widgets/reservation/doctor_reservation.dart';
@@ -11,9 +9,7 @@ import 'package:challenge/features/home/ui/home_screen.dart';
 import 'package:challenge/features/login/logic/login_cubit.dart';
 import 'package:challenge/features/login/ui/login_screen.dart';
 import 'package:challenge/features/measurments/ui/measurements_screen.dart';
-import 'package:challenge/features/medicine/logic/medicine_cubit.dart';
 import 'package:challenge/features/medicine/ui/add_medicine_screen.dart';
-import 'package:challenge/features/medicine/ui/medicine_screen.dart';
 import 'package:challenge/features/onboard/ui/onboarding.dart';
 import 'package:challenge/features/register/logic/register_cubit.dart';
 import 'package:challenge/features/register/ui/register.dart';
@@ -58,10 +54,7 @@ class AppRouter {
         );
       case Routers.doctors:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getit<DoctorsCubit>()..getDoctors(),
-            child: const DoctorScreen(),
-          ),
+          builder: (_) => const DoctorScreen(),
         );
 
       case Routers.doctorResrvation:
@@ -85,7 +78,6 @@ class AppRouter {
           builder: (_) => const AddMedicineScreen(),
         );
       case Routers.confirmDoctorResrvation:
-        final reservationModelDetails = arguments as ReservationResponseBody;
         return MaterialPageRoute(
           builder: (_) => const ConfirmDoctorReservation(),
         );
