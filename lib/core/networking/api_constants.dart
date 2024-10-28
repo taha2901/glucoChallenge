@@ -1,33 +1,35 @@
 class ApiConstants {
-  static const String apiBaseUrl = 'http://diabetes.runasp.net/api/';
+  static const String apiBaseUrl = 'http://diabetesapp.runasp.net/api/';
 
   static const String login = 'Auth/Login';
 
   static const String register = 'Auth/register';
 
-  static const String categories = 'categories';
+  static const String doctor = 'Doctors/SelectDoctors';
 
-  static const String categoryDetails = '$categories/{categoryId}';
+  static const String availableTime = 'Doctors/AvailableTime';
 
-  static const String home = 'home';
+  static const String reservation = 'Doctors/Reservation';
 
-  static const String notifications = 'notifications';
+  static const String medicines = 'Medicine/Get medicines for user';
 
-  static const String cart = 'carts';
+  static const String addMedicine = 'Medicine/AddMedicines';
 
-  static const String addOrRemoveCart = 'carts';
+  static const String bloodSugar = 'Measurements/blood sugar level';
 
-  static const String settings = 'profile';
+  static const String bloodPressure = 'Measurements/blood pressure';
 
-  static const String changePassword = 'change-password';
+  static const String weight = 'Measurements/weight';
 
-  static const String updateProfile = 'update-profile';
+  static const String getBloodSuger = 'Selecting_data/user\'s sugar_data';
 
-  static const String addresses = 'addresses';
+  static const String getWeight = 'Selecting_data/user\'s weight_data';
 
-  static const String favourite = 'favorites';
+  static const String getPressure = 'Selecting_data/user\'s presure_data';
 
-  static const String paymentIntent= 'https://api.stripe.com/v1/payment_intents';
+  static const String settings = 'Auth/Get User Details';
+
+  static const String updateProfile = 'Auth/UpdateUser';
 }
 
 class ApiErrors {

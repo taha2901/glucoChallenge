@@ -98,6 +98,12 @@ class TextStyles {
     color: ColorsManager.mainColor,
   );
 
+  static TextStyle font18BlackBold = TextStyle(
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 18.sp,
+    fontFamily: 'Cairo',
+  );
+
   // static const TextStyle style25 = TextStyle(
   //   color: Colors.black,
   //   fontSize: 25,
@@ -145,29 +151,29 @@ class TextStyles {
   //   height: 0,
   // );
 
-  // static TextStyle font16LightGreyRegular = TextStyle(
-  //   color: ColorsManager.lightGrey,
-  //   fontWeight: FontWeightHelper.regular,
-  //   fontSize: 16.sp,
-  // );
-  // static TextStyle font15Blackmedium = TextStyle(
-  //   color: Colors.black,
-  //   fontWeight: FontWeightHelper.medium,
-  //   fontSize: 15.sp,
-  // );
-  // static TextStyle font12MainColorMedium = TextStyle(
-  //   color: ColorsManager.mainColor,
-  //   fontWeight: FontWeightHelper.medium,
-  //   fontSize: 12.sp,
-  // );
-  // static TextStyle font12greyRegular = TextStyle(
-  //   color: Colors.grey,
-  //   fontWeight: FontWeightHelper.medium,
-  //   fontSize: 12.sp,
-  // );
-  // static TextStyle font24BlackBold = TextStyle(
-  //   color: Colors.black,
-  //   fontWeight: FontWeightHelper.bold,
-  //   fontSize: 24.sp,
-  // );
+  static TextStyle font16BlackBold = TextStyle(
+    color: Colors.black,
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 16.sp,
+  );
+  static TextStyle font14LightGreyRegular = TextStyle(
+    color: ColorsManager.lightGrey,
+    fontWeight: FontWeightHelper.regular,
+    fontSize: 14.sp,
+  );
+  static TextStyle font16MainColorMedium = TextStyle(
+    color: ColorsManager.mainColor,
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 16.sp,
+  );
+  static TextStyle font12greyRegular = TextStyle(
+    color: Colors.grey,
+    fontWeight: FontWeightHelper.medium,
+    fontSize: 12.sp,
+  );
+  static TextStyle font24BlackBold = TextStyle(
+    color: Colors.black,
+    fontWeight: FontWeightHelper.bold,
+    fontSize: 24.sp,
+  );
 }

@@ -17,7 +17,9 @@ class TicksOfServices extends StatelessWidget {
           child: Services(
             text: 'قياس السكر',
             icon: FontAwesomeIcons.hospital,
-            onTap: () {},
+            onTap: () {
+              context.pushNamed(Routers.measurement);
+            },
           ),
         ),
         const SizedBox(width: 23),
@@ -31,8 +33,9 @@ class TicksOfServices extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 23),
-        const Expanded(
+        Expanded(
           child: Services(
+            onTap: () {},
             text: 'رياضه',
             icon: Icons.run_circle_sharp,
           ),
