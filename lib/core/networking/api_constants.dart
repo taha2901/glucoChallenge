@@ -1,13 +1,15 @@
 class ApiConstants {
-  static const String apiBaseUrl = 'http://diabetes.runasp.net/api/';
+  static const String apiBaseUrl = 'http://diabetesapp.runasp.net/api/';
 
   static const String login = 'Auth/Login';
 
   static const String register = 'Auth/register';
 
   static const String doctor = 'Doctors/SelectDoctors';
+
+  static const String availableTime = 'Doctors/AvailableTime';
+
   static const String reservation = 'Doctors/Reservation';
-  static const String reservationBase = 'Doctors/Reservation';
 
   static const String medicines = 'Medicine/Get medicines for user';
 
@@ -18,6 +20,7 @@ class ApiConstants {
   static const String bloodPressure = 'Measurements/blood pressure';
 
   static const String weight = 'Measurements/weight';
+
   static const String getBloodSuger = 'Selecting_data/user\'s sugar_data';
 
   static const String getWeight = 'Selecting_data/user\'s weight_data';

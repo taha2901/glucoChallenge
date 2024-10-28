@@ -28,17 +28,7 @@ class _DateSelectionPageState extends State<DateSelectionPage> {
         MyTimeLinedoctor(
           onDateChange: _onDateChange,
         ),
-        // if (_selectedDate != null)
-        //   Padding(
-        //     padding: const EdgeInsets.only(top: 16.0),
-        //     child: Text(
-        //       'التاريخ المحدد: ${_selectedDate!.toLocal().toString().split(' ')[0]}',
-        //       style: const TextStyle(
-        //         fontSize: 16,
-        //         fontWeight: FontWeight.bold,
-        //       ),
-        //     ),
-        //   ),
+        
       ],
     );
   }

@@ -1,4 +1,3 @@
-import 'package:challenge/core/theming/colors.dart';
 import 'package:challenge/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';

@@ -1,5 +1,4 @@
 import 'package:challenge/core/networking/api_error_handler.dart';
-import 'package:challenge/core/networking/api_error_model.dart';
 import 'package:challenge/core/networking/api_result.dart';
 import 'package:challenge/core/networking/api_services.dart';
 import 'package:challenge/features/login/data/model/login_request_body.dart';
@@ -18,9 +17,7 @@ class LoginRepo {
     } catch (error) {
       print('API Error: $error');
       return ApiResult.failure(
-        ApiErrorModel(
-          message: error.toString(),
-        ),
+        ApiErrorHandler.handle(error),
       );
     }
   }

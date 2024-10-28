@@ -15,9 +15,9 @@ class MyTimeLinedoctor extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          verticalSpace(32),
+          verticalSpace(8),
           _changeDayStructureExample(),
-          verticalSpace(32),
+          verticalSpace(8),
         ],
       ),
     );
@@ -35,7 +35,7 @@ class MyTimeLinedoctor extends StatelessWidget {
         dateFormatter: DateFormatter.monthOnly(),
       ),
       dayProps:  EasyDayProps(
-        height: 100.h,
+        height: 90.h,
         dayStructure: DayStructure.dayNumDayStr,
         inactiveDayStyle: const DayStyle(
           // borderRadius: 48.0,

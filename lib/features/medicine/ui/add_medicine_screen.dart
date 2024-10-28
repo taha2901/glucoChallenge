@@ -27,8 +27,8 @@ class AddMedicineScreen extends StatelessWidget {
             context.read<MedicineCubit>().getMedicine();
             Navigator.pop(context);
           },
-          addMedicineError: () {
-            showToast(msg: 'Failed to add', state: ToastStates.ERROR);
+          addMedicineError: ( apiErrorModel) {
+            showToast(msg: apiErrorModel.errors.toString(), state: ToastStates.ERROR);
           },
           orElse: () {},
         );

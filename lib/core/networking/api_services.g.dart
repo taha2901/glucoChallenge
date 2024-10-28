@@ -14,7 +14,7 @@ class _ApiServices implements ApiServices {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://diabetes.runasp.net/api/';
+    baseUrl ??= 'http://diabetesapp.runasp.net/api/';
   }
 
   final Dio _dio;
@@ -123,6 +123,45 @@ class _ApiServices implements ApiServices {
     late ReservationResponseBody _value;
     try {
       _value = ReservationResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<AvailableTimesResponse> getAvailableTime(
+    int id,
+    String date,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'id': id,
+      r'date': date,
+    };
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<AvailableTimesResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'Doctors/AvailableTime',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late AvailableTimesResponse _value;
+    try {
+      _value = AvailableTimesResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

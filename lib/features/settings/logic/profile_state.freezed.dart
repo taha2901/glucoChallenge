@@ -21,10 +21,10 @@ mixin _$ProfileState {
     required TResult Function() initial,
     required TResult Function() profileLoading,
     required TResult Function(UserDetailsResponse? profileModel) profileSuccess,
-    required TResult Function(String errMessage) profileError,
+    required TResult Function(ApiErrorModel apiErrorModel) profileError,
     required TResult Function() updateProfileLoading,
     required TResult Function() updateProfileSuccess,
-    required TResult Function(String errMessage) updateProfileError,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,10 +32,10 @@ mixin _$ProfileState {
     TResult? Function()? initial,
     TResult? Function()? profileLoading,
     TResult? Function(UserDetailsResponse? profileModel)? profileSuccess,
-    TResult? Function(String errMessage)? profileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? profileError,
     TResult? Function()? updateProfileLoading,
     TResult? Function()? updateProfileSuccess,
-    TResult? Function(String errMessage)? updateProfileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,10 +43,10 @@ mixin _$ProfileState {
     TResult Function()? initial,
     TResult Function()? profileLoading,
     TResult Function(UserDetailsResponse? profileModel)? profileSuccess,
-    TResult Function(String errMessage)? profileError,
+    TResult Function(ApiErrorModel apiErrorModel)? profileError,
     TResult Function()? updateProfileLoading,
     TResult Function()? updateProfileSuccess,
-    TResult Function(String errMessage)? updateProfileError,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -151,10 +151,10 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() profileLoading,
     required TResult Function(UserDetailsResponse? profileModel) profileSuccess,
-    required TResult Function(String errMessage) profileError,
+    required TResult Function(ApiErrorModel apiErrorModel) profileError,
     required TResult Function() updateProfileLoading,
     required TResult Function() updateProfileSuccess,
-    required TResult Function(String errMessage) updateProfileError,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
   }) {
     return initial();
   }
@@ -165,10 +165,10 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? profileLoading,
     TResult? Function(UserDetailsResponse? profileModel)? profileSuccess,
-    TResult? Function(String errMessage)? profileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? profileError,
     TResult? Function()? updateProfileLoading,
     TResult? Function()? updateProfileSuccess,
-    TResult? Function(String errMessage)? updateProfileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
   }) {
     return initial?.call();
   }
@@ -179,10 +179,10 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? profileLoading,
     TResult Function(UserDetailsResponse? profileModel)? profileSuccess,
-    TResult Function(String errMessage)? profileError,
+    TResult Function(ApiErrorModel apiErrorModel)? profileError,
     TResult Function()? updateProfileLoading,
     TResult Function()? updateProfileSuccess,
-    TResult Function(String errMessage)? updateProfileError,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -286,10 +286,10 @@ class _$ProfileLoadingImpl implements ProfileLoading {
     required TResult Function() initial,
     required TResult Function() profileLoading,
     required TResult Function(UserDetailsResponse? profileModel) profileSuccess,
-    required TResult Function(String errMessage) profileError,
+    required TResult Function(ApiErrorModel apiErrorModel) profileError,
     required TResult Function() updateProfileLoading,
     required TResult Function() updateProfileSuccess,
-    required TResult Function(String errMessage) updateProfileError,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
   }) {
     return profileLoading();
   }
@@ -300,10 +300,10 @@ class _$ProfileLoadingImpl implements ProfileLoading {
     TResult? Function()? initial,
     TResult? Function()? profileLoading,
     TResult? Function(UserDetailsResponse? profileModel)? profileSuccess,
-    TResult? Function(String errMessage)? profileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? profileError,
     TResult? Function()? updateProfileLoading,
     TResult? Function()? updateProfileSuccess,
-    TResult? Function(String errMessage)? updateProfileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
   }) {
     return profileLoading?.call();
   }
@@ -314,10 +314,10 @@ class _$ProfileLoadingImpl implements ProfileLoading {
     TResult Function()? initial,
     TResult Function()? profileLoading,
     TResult Function(UserDetailsResponse? profileModel)? profileSuccess,
-    TResult Function(String errMessage)? profileError,
+    TResult Function(ApiErrorModel apiErrorModel)? profileError,
     TResult Function()? updateProfileLoading,
     TResult Function()? updateProfileSuccess,
-    TResult Function(String errMessage)? updateProfileError,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
     required TResult orElse(),
   }) {
     if (profileLoading != null) {
@@ -450,10 +450,10 @@ class _$ProfileSuccessImpl implements ProfileSuccess {
     required TResult Function() initial,
     required TResult Function() profileLoading,
     required TResult Function(UserDetailsResponse? profileModel) profileSuccess,
-    required TResult Function(String errMessage) profileError,
+    required TResult Function(ApiErrorModel apiErrorModel) profileError,
     required TResult Function() updateProfileLoading,
     required TResult Function() updateProfileSuccess,
-    required TResult Function(String errMessage) updateProfileError,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
   }) {
     return profileSuccess(profileModel);
   }
@@ -464,10 +464,10 @@ class _$ProfileSuccessImpl implements ProfileSuccess {
     TResult? Function()? initial,
     TResult? Function()? profileLoading,
     TResult? Function(UserDetailsResponse? profileModel)? profileSuccess,
-    TResult? Function(String errMessage)? profileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? profileError,
     TResult? Function()? updateProfileLoading,
     TResult? Function()? updateProfileSuccess,
-    TResult? Function(String errMessage)? updateProfileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
   }) {
     return profileSuccess?.call(profileModel);
   }
@@ -478,10 +478,10 @@ class _$ProfileSuccessImpl implements ProfileSuccess {
     TResult Function()? initial,
     TResult Function()? profileLoading,
     TResult Function(UserDetailsResponse? profileModel)? profileSuccess,
-    TResult Function(String errMessage)? profileError,
+    TResult Function(ApiErrorModel apiErrorModel)? profileError,
     TResult Function()? updateProfileLoading,
     TResult Function()? updateProfileSuccess,
-    TResult Function(String errMessage)? updateProfileError,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
     required TResult orElse(),
   }) {
     if (profileSuccess != null) {
@@ -557,7 +557,7 @@ abstract class _$$ProfileErrorImplCopyWith<$Res> {
           _$ProfileErrorImpl value, $Res Function(_$ProfileErrorImpl) then) =
       __$$ProfileErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String errMessage});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -573,13 +573,13 @@ class __$$ProfileErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errMessage = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$ProfileErrorImpl(
-      errMessage: null == errMessage
-          ? _value.errMessage
-          : errMessage // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -587,14 +587,14 @@ class __$$ProfileErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ProfileErrorImpl implements ProfileError {
-  const _$ProfileErrorImpl({required this.errMessage});
+  const _$ProfileErrorImpl(this.apiErrorModel);
 
   @override
-  final String errMessage;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'ProfileState.profileError(errMessage: $errMessage)';
+    return 'ProfileState.profileError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -602,12 +602,12 @@ class _$ProfileErrorImpl implements ProfileError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProfileErrorImpl &&
-            (identical(other.errMessage, errMessage) ||
-                other.errMessage == errMessage));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errMessage);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of ProfileState
   /// with the given fields replaced by the non-null parameter values.
@@ -623,12 +623,12 @@ class _$ProfileErrorImpl implements ProfileError {
     required TResult Function() initial,
     required TResult Function() profileLoading,
     required TResult Function(UserDetailsResponse? profileModel) profileSuccess,
-    required TResult Function(String errMessage) profileError,
+    required TResult Function(ApiErrorModel apiErrorModel) profileError,
     required TResult Function() updateProfileLoading,
     required TResult Function() updateProfileSuccess,
-    required TResult Function(String errMessage) updateProfileError,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
   }) {
-    return profileError(errMessage);
+    return profileError(apiErrorModel);
   }
 
   @override
@@ -637,12 +637,12 @@ class _$ProfileErrorImpl implements ProfileError {
     TResult? Function()? initial,
     TResult? Function()? profileLoading,
     TResult? Function(UserDetailsResponse? profileModel)? profileSuccess,
-    TResult? Function(String errMessage)? profileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? profileError,
     TResult? Function()? updateProfileLoading,
     TResult? Function()? updateProfileSuccess,
-    TResult? Function(String errMessage)? updateProfileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
   }) {
-    return profileError?.call(errMessage);
+    return profileError?.call(apiErrorModel);
   }
 
   @override
@@ -651,14 +651,14 @@ class _$ProfileErrorImpl implements ProfileError {
     TResult Function()? initial,
     TResult Function()? profileLoading,
     TResult Function(UserDetailsResponse? profileModel)? profileSuccess,
-    TResult Function(String errMessage)? profileError,
+    TResult Function(ApiErrorModel apiErrorModel)? profileError,
     TResult Function()? updateProfileLoading,
     TResult Function()? updateProfileSuccess,
-    TResult Function(String errMessage)? updateProfileError,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
     required TResult orElse(),
   }) {
     if (profileError != null) {
-      return profileError(errMessage);
+      return profileError(apiErrorModel);
     }
     return orElse();
   }
@@ -711,10 +711,10 @@ class _$ProfileErrorImpl implements ProfileError {
 }
 
 abstract class ProfileError implements ProfileState {
-  const factory ProfileError({required final String errMessage}) =
+  const factory ProfileError(final ApiErrorModel apiErrorModel) =
       _$ProfileErrorImpl;
 
-  String get errMessage;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of ProfileState
   /// with the given fields replaced by the non-null parameter values.
@@ -768,10 +768,10 @@ class _$UpdateProfileLoadingImpl implements UpdateProfileLoading {
     required TResult Function() initial,
     required TResult Function() profileLoading,
     required TResult Function(UserDetailsResponse? profileModel) profileSuccess,
-    required TResult Function(String errMessage) profileError,
+    required TResult Function(ApiErrorModel apiErrorModel) profileError,
     required TResult Function() updateProfileLoading,
     required TResult Function() updateProfileSuccess,
-    required TResult Function(String errMessage) updateProfileError,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
   }) {
     return updateProfileLoading();
   }
@@ -782,10 +782,10 @@ class _$UpdateProfileLoadingImpl implements UpdateProfileLoading {
     TResult? Function()? initial,
     TResult? Function()? profileLoading,
     TResult? Function(UserDetailsResponse? profileModel)? profileSuccess,
-    TResult? Function(String errMessage)? profileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? profileError,
     TResult? Function()? updateProfileLoading,
     TResult? Function()? updateProfileSuccess,
-    TResult? Function(String errMessage)? updateProfileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
   }) {
     return updateProfileLoading?.call();
   }
@@ -796,10 +796,10 @@ class _$UpdateProfileLoadingImpl implements UpdateProfileLoading {
     TResult Function()? initial,
     TResult Function()? profileLoading,
     TResult Function(UserDetailsResponse? profileModel)? profileSuccess,
-    TResult Function(String errMessage)? profileError,
+    TResult Function(ApiErrorModel apiErrorModel)? profileError,
     TResult Function()? updateProfileLoading,
     TResult Function()? updateProfileSuccess,
-    TResult Function(String errMessage)? updateProfileError,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
     required TResult orElse(),
   }) {
     if (updateProfileLoading != null) {
@@ -904,10 +904,10 @@ class _$UpdateProfileSuccessImpl implements UpdateProfileSuccess {
     required TResult Function() initial,
     required TResult Function() profileLoading,
     required TResult Function(UserDetailsResponse? profileModel) profileSuccess,
-    required TResult Function(String errMessage) profileError,
+    required TResult Function(ApiErrorModel apiErrorModel) profileError,
     required TResult Function() updateProfileLoading,
     required TResult Function() updateProfileSuccess,
-    required TResult Function(String errMessage) updateProfileError,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
   }) {
     return updateProfileSuccess();
   }
@@ -918,10 +918,10 @@ class _$UpdateProfileSuccessImpl implements UpdateProfileSuccess {
     TResult? Function()? initial,
     TResult? Function()? profileLoading,
     TResult? Function(UserDetailsResponse? profileModel)? profileSuccess,
-    TResult? Function(String errMessage)? profileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? profileError,
     TResult? Function()? updateProfileLoading,
     TResult? Function()? updateProfileSuccess,
-    TResult? Function(String errMessage)? updateProfileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
   }) {
     return updateProfileSuccess?.call();
   }
@@ -932,10 +932,10 @@ class _$UpdateProfileSuccessImpl implements UpdateProfileSuccess {
     TResult Function()? initial,
     TResult Function()? profileLoading,
     TResult Function(UserDetailsResponse? profileModel)? profileSuccess,
-    TResult Function(String errMessage)? profileError,
+    TResult Function(ApiErrorModel apiErrorModel)? profileError,
     TResult Function()? updateProfileLoading,
     TResult Function()? updateProfileSuccess,
-    TResult Function(String errMessage)? updateProfileError,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
     required TResult orElse(),
   }) {
     if (updateProfileSuccess != null) {
@@ -1001,7 +1001,7 @@ abstract class _$$UpdateProfileErrorImplCopyWith<$Res> {
           $Res Function(_$UpdateProfileErrorImpl) then) =
       __$$UpdateProfileErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String errMessage});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -1017,13 +1017,13 @@ class __$$UpdateProfileErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errMessage = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$UpdateProfileErrorImpl(
-      errMessage: null == errMessage
-          ? _value.errMessage
-          : errMessage // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -1031,14 +1031,14 @@ class __$$UpdateProfileErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UpdateProfileErrorImpl implements UpdateProfileError {
-  const _$UpdateProfileErrorImpl({required this.errMessage});
+  const _$UpdateProfileErrorImpl(this.apiErrorModel);
 
   @override
-  final String errMessage;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'ProfileState.updateProfileError(errMessage: $errMessage)';
+    return 'ProfileState.updateProfileError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -1046,12 +1046,12 @@ class _$UpdateProfileErrorImpl implements UpdateProfileError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UpdateProfileErrorImpl &&
-            (identical(other.errMessage, errMessage) ||
-                other.errMessage == errMessage));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errMessage);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of ProfileState
   /// with the given fields replaced by the non-null parameter values.
@@ -1068,12 +1068,12 @@ class _$UpdateProfileErrorImpl implements UpdateProfileError {
     required TResult Function() initial,
     required TResult Function() profileLoading,
     required TResult Function(UserDetailsResponse? profileModel) profileSuccess,
-    required TResult Function(String errMessage) profileError,
+    required TResult Function(ApiErrorModel apiErrorModel) profileError,
     required TResult Function() updateProfileLoading,
     required TResult Function() updateProfileSuccess,
-    required TResult Function(String errMessage) updateProfileError,
+    required TResult Function(ApiErrorModel apiErrorModel) updateProfileError,
   }) {
-    return updateProfileError(errMessage);
+    return updateProfileError(apiErrorModel);
   }
 
   @override
@@ -1082,12 +1082,12 @@ class _$UpdateProfileErrorImpl implements UpdateProfileError {
     TResult? Function()? initial,
     TResult? Function()? profileLoading,
     TResult? Function(UserDetailsResponse? profileModel)? profileSuccess,
-    TResult? Function(String errMessage)? profileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? profileError,
     TResult? Function()? updateProfileLoading,
     TResult? Function()? updateProfileSuccess,
-    TResult? Function(String errMessage)? updateProfileError,
+    TResult? Function(ApiErrorModel apiErrorModel)? updateProfileError,
   }) {
-    return updateProfileError?.call(errMessage);
+    return updateProfileError?.call(apiErrorModel);
   }
 
   @override
@@ -1096,14 +1096,14 @@ class _$UpdateProfileErrorImpl implements UpdateProfileError {
     TResult Function()? initial,
     TResult Function()? profileLoading,
     TResult Function(UserDetailsResponse? profileModel)? profileSuccess,
-    TResult Function(String errMessage)? profileError,
+    TResult Function(ApiErrorModel apiErrorModel)? profileError,
     TResult Function()? updateProfileLoading,
     TResult Function()? updateProfileSuccess,
-    TResult Function(String errMessage)? updateProfileError,
+    TResult Function(ApiErrorModel apiErrorModel)? updateProfileError,
     required TResult orElse(),
   }) {
     if (updateProfileError != null) {
-      return updateProfileError(errMessage);
+      return updateProfileError(apiErrorModel);
     }
     return orElse();
   }
@@ -1156,10 +1156,10 @@ class _$UpdateProfileErrorImpl implements UpdateProfileError {
 }
 
 abstract class UpdateProfileError implements ProfileState {
-  const factory UpdateProfileError({required final String errMessage}) =
+  const factory UpdateProfileError(final ApiErrorModel apiErrorModel) =
       _$UpdateProfileErrorImpl;
 
-  String get errMessage;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of ProfileState
   /// with the given fields replaced by the non-null parameter values.

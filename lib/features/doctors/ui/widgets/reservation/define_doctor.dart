@@ -73,7 +73,7 @@ class defineDoctor extends StatelessWidget {
                     ),
                     horizontalSpace(5),
                     Text(
-                      doctorResponseBody.appointment.toString(),
+                      doctorResponseBody.endTime.toString(),
                       style: TextStyles.font15DarkBlueMedium,
                     ),
                   ],

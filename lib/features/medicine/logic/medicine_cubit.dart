@@ -32,8 +32,8 @@ class MedicineCubit extends Cubit<MedicineState> {
         getMedicines = medicines;
         emit(const MedicineState.success());
       },
-      failure: (errorHandler) {
-        emit(const MedicineState.error());
+      failure: (errorModel) {
+        emit( MedicineState.error(errorModel));
       },
     );
   }
@@ -62,7 +62,7 @@ class MedicineCubit extends Cubit<MedicineState> {
         emit(const MedicineState.addMedicineSuccess());
       },
       failure: (error) {
-        emit(const MedicineState.addMedicineError());
+        emit( MedicineState.addMedicineError(error));
       },
     );
   }

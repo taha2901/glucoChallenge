@@ -1,3 +1,4 @@
+import 'package:challenge/features/doctors/data/model/available_time_response.dart';
 import 'package:challenge/features/doctors/data/model/doctor_response_body.dart';
 import 'package:challenge/features/doctors/data/model/reservation_request_body.dart';
 import 'package:challenge/features/doctors/data/model/reservation_response_body.dart';
@@ -34,10 +35,15 @@ abstract class ApiServices {
   @GET(ApiConstants.doctor)
   Future<List<DoctorResponseBody>> getDoctors();
 
-  @POST(ApiConstants.reservationBase)
+  @POST(ApiConstants.reservation)
   Future<ReservationResponseBody> addReservation(
     @Query("id") int id,
     @Body() ReservationRequestBody reservationRequestBody,
+  );
+  @GET(ApiConstants.availableTime)
+  Future<AvailableTimesResponse> getAvailableTime(
+    @Query("id") int id,
+    @Query("date") String date,
   );
   @GET(ApiConstants.medicines)
   Future<List<GetMedicineResponseBody>> getMedicine();

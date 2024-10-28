@@ -1,4 +1,3 @@
-import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:challenge/core/di/dependency_injection.dart';
 import 'package:challenge/core/helpers/constants.dart';
 import 'package:challenge/core/helpers/extentions.dart';
@@ -11,18 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // AwesomeNotifications().initialize(
-  //   'resource://mipmap/ic_launcher',
-  //   [
-  //     NotificationChannel(
-  //       channelKey: 'scheduled',
-  //       channelName: 'Scheduled Notifications',
-  //       channelDescription: 'Channel for scheduled notifications',
-  //       defaultColor: const Color(0xFF9D50BB),
-  //       ledColor: Colors.white,
-  //     )
-  //   ],
-  // );
+  
     NotificationService().initializeNotifications();
 
 
@@ -31,10 +19,10 @@ void main() async {
 
   SharedPrefHelper.getString(
     
-      ' SharedPrefHelper for my name is  ${SharedPrefKeys.myName}');
+      'SharedPrefHelper for my name is  ${SharedPrefKeys.myName}');
 
   SharedPrefHelper.getString(
-      ' SharedPrefHelper for my pic is  ${SharedPrefKeys.userPhotoUrl}');
+      'SharedPrefHelper for my pic is  ${SharedPrefKeys.userPhotoUrl}');
 
   await ScreenUtil.ensureScreenSize();
   await checkLoggedInUser();

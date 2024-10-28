@@ -21,10 +21,10 @@ mixin _$MedicineState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function() error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
     required TResult Function() addMedicineLoading,
     required TResult Function() addMedicineSuccess,
-    required TResult Function() addMedicineError,
+    required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,10 +32,10 @@ mixin _$MedicineState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
-    TResult? Function()? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
     TResult? Function()? addMedicineLoading,
     TResult? Function()? addMedicineSuccess,
-    TResult? Function()? addMedicineError,
+    TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,10 +43,10 @@ mixin _$MedicineState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function()? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     TResult Function()? addMedicineLoading,
     TResult Function()? addMedicineSuccess,
-    TResult Function()? addMedicineError,
+    TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -151,10 +151,10 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function() error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
     required TResult Function() addMedicineLoading,
     required TResult Function() addMedicineSuccess,
-    required TResult Function() addMedicineError,
+    required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
   }) {
     return initial();
   }
@@ -165,10 +165,10 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
-    TResult? Function()? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
     TResult? Function()? addMedicineLoading,
     TResult? Function()? addMedicineSuccess,
-    TResult? Function()? addMedicineError,
+    TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
   }) {
     return initial?.call();
   }
@@ -179,10 +179,10 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function()? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     TResult Function()? addMedicineLoading,
     TResult Function()? addMedicineSuccess,
-    TResult Function()? addMedicineError,
+    TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -286,10 +286,10 @@ class _$MedicineLoadingImpl implements MedicineLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function() error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
     required TResult Function() addMedicineLoading,
     required TResult Function() addMedicineSuccess,
-    required TResult Function() addMedicineError,
+    required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
   }) {
     return loading();
   }
@@ -300,10 +300,10 @@ class _$MedicineLoadingImpl implements MedicineLoading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
-    TResult? Function()? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
     TResult? Function()? addMedicineLoading,
     TResult? Function()? addMedicineSuccess,
-    TResult? Function()? addMedicineError,
+    TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
   }) {
     return loading?.call();
   }
@@ -314,10 +314,10 @@ class _$MedicineLoadingImpl implements MedicineLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function()? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     TResult Function()? addMedicineLoading,
     TResult Function()? addMedicineSuccess,
-    TResult Function()? addMedicineError,
+    TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -421,10 +421,10 @@ class _$MedicineSuccessImpl implements MedicineSuccess {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function() error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
     required TResult Function() addMedicineLoading,
     required TResult Function() addMedicineSuccess,
-    required TResult Function() addMedicineError,
+    required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
   }) {
     return success();
   }
@@ -435,10 +435,10 @@ class _$MedicineSuccessImpl implements MedicineSuccess {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
-    TResult? Function()? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
     TResult? Function()? addMedicineLoading,
     TResult? Function()? addMedicineSuccess,
-    TResult? Function()? addMedicineError,
+    TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
   }) {
     return success?.call();
   }
@@ -449,10 +449,10 @@ class _$MedicineSuccessImpl implements MedicineSuccess {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function()? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     TResult Function()? addMedicineLoading,
     TResult Function()? addMedicineSuccess,
-    TResult Function()? addMedicineError,
+    TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -517,6 +517,8 @@ abstract class _$$MedicineErrorImplCopyWith<$Res> {
   factory _$$MedicineErrorImplCopyWith(
           _$MedicineErrorImpl value, $Res Function(_$MedicineErrorImpl) then) =
       __$$MedicineErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -529,26 +531,52 @@ class __$$MedicineErrorImplCopyWithImpl<$Res>
 
   /// Create a copy of MedicineState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? apiErrorModel = null,
+  }) {
+    return _then(_$MedicineErrorImpl(
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$MedicineErrorImpl implements MedicineError {
-  const _$MedicineErrorImpl();
+  const _$MedicineErrorImpl(this.apiErrorModel);
+
+  @override
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'MedicineState.error()';
+    return 'MedicineState.error(apiErrorModel: $apiErrorModel)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$MedicineErrorImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$MedicineErrorImpl &&
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
+
+  /// Create a copy of MedicineState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MedicineErrorImplCopyWith<_$MedicineErrorImpl> get copyWith =>
+      __$$MedicineErrorImplCopyWithImpl<_$MedicineErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -556,12 +584,12 @@ class _$MedicineErrorImpl implements MedicineError {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function() error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
     required TResult Function() addMedicineLoading,
     required TResult Function() addMedicineSuccess,
-    required TResult Function() addMedicineError,
+    required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
   }) {
-    return error();
+    return error(apiErrorModel);
   }
 
   @override
@@ -570,12 +598,12 @@ class _$MedicineErrorImpl implements MedicineError {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
-    TResult? Function()? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
     TResult? Function()? addMedicineLoading,
     TResult? Function()? addMedicineSuccess,
-    TResult? Function()? addMedicineError,
+    TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
   }) {
-    return error?.call();
+    return error?.call(apiErrorModel);
   }
 
   @override
@@ -584,14 +612,14 @@ class _$MedicineErrorImpl implements MedicineError {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function()? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     TResult Function()? addMedicineLoading,
     TResult Function()? addMedicineSuccess,
-    TResult Function()? addMedicineError,
+    TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error();
+      return error(apiErrorModel);
     }
     return orElse();
   }
@@ -644,7 +672,16 @@ class _$MedicineErrorImpl implements MedicineError {
 }
 
 abstract class MedicineError implements MedicineState {
-  const factory MedicineError() = _$MedicineErrorImpl;
+  const factory MedicineError(final ApiErrorModel apiErrorModel) =
+      _$MedicineErrorImpl;
+
+  ApiErrorModel get apiErrorModel;
+
+  /// Create a copy of MedicineState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MedicineErrorImplCopyWith<_$MedicineErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -691,10 +728,10 @@ class _$AddMedicineLoadingImpl implements AddMedicineLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function() error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
     required TResult Function() addMedicineLoading,
     required TResult Function() addMedicineSuccess,
-    required TResult Function() addMedicineError,
+    required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
   }) {
     return addMedicineLoading();
   }
@@ -705,10 +742,10 @@ class _$AddMedicineLoadingImpl implements AddMedicineLoading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
-    TResult? Function()? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
     TResult? Function()? addMedicineLoading,
     TResult? Function()? addMedicineSuccess,
-    TResult? Function()? addMedicineError,
+    TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
   }) {
     return addMedicineLoading?.call();
   }
@@ -719,10 +756,10 @@ class _$AddMedicineLoadingImpl implements AddMedicineLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function()? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     TResult Function()? addMedicineLoading,
     TResult Function()? addMedicineSuccess,
-    TResult Function()? addMedicineError,
+    TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
     required TResult orElse(),
   }) {
     if (addMedicineLoading != null) {
@@ -826,10 +863,10 @@ class _$AddMedicineSuccessImpl implements AddMedicineSuccess {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function() error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
     required TResult Function() addMedicineLoading,
     required TResult Function() addMedicineSuccess,
-    required TResult Function() addMedicineError,
+    required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
   }) {
     return addMedicineSuccess();
   }
@@ -840,10 +877,10 @@ class _$AddMedicineSuccessImpl implements AddMedicineSuccess {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
-    TResult? Function()? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
     TResult? Function()? addMedicineLoading,
     TResult? Function()? addMedicineSuccess,
-    TResult? Function()? addMedicineError,
+    TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
   }) {
     return addMedicineSuccess?.call();
   }
@@ -854,10 +891,10 @@ class _$AddMedicineSuccessImpl implements AddMedicineSuccess {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function()? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     TResult Function()? addMedicineLoading,
     TResult Function()? addMedicineSuccess,
-    TResult Function()? addMedicineError,
+    TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
     required TResult orElse(),
   }) {
     if (addMedicineSuccess != null) {
@@ -922,6 +959,8 @@ abstract class _$$AddMedicineErrorImplCopyWith<$Res> {
   factory _$$AddMedicineErrorImplCopyWith(_$AddMedicineErrorImpl value,
           $Res Function(_$AddMedicineErrorImpl) then) =
       __$$AddMedicineErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -934,26 +973,53 @@ class __$$AddMedicineErrorImplCopyWithImpl<$Res>
 
   /// Create a copy of MedicineState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? apiErrorModel = null,
+  }) {
+    return _then(_$AddMedicineErrorImpl(
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$AddMedicineErrorImpl implements AddMedicineError {
-  const _$AddMedicineErrorImpl();
+  const _$AddMedicineErrorImpl(this.apiErrorModel);
+
+  @override
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'MedicineState.addMedicineError()';
+    return 'MedicineState.addMedicineError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AddMedicineErrorImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$AddMedicineErrorImpl &&
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
+
+  /// Create a copy of MedicineState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddMedicineErrorImplCopyWith<_$AddMedicineErrorImpl> get copyWith =>
+      __$$AddMedicineErrorImplCopyWithImpl<_$AddMedicineErrorImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -961,12 +1027,12 @@ class _$AddMedicineErrorImpl implements AddMedicineError {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function() error,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
     required TResult Function() addMedicineLoading,
     required TResult Function() addMedicineSuccess,
-    required TResult Function() addMedicineError,
+    required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
   }) {
-    return addMedicineError();
+    return addMedicineError(apiErrorModel);
   }
 
   @override
@@ -975,12 +1041,12 @@ class _$AddMedicineErrorImpl implements AddMedicineError {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
-    TResult? Function()? error,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
     TResult? Function()? addMedicineLoading,
     TResult? Function()? addMedicineSuccess,
-    TResult? Function()? addMedicineError,
+    TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
   }) {
-    return addMedicineError?.call();
+    return addMedicineError?.call(apiErrorModel);
   }
 
   @override
@@ -989,14 +1055,14 @@ class _$AddMedicineErrorImpl implements AddMedicineError {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function()? error,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
     TResult Function()? addMedicineLoading,
     TResult Function()? addMedicineSuccess,
-    TResult Function()? addMedicineError,
+    TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
     required TResult orElse(),
   }) {
     if (addMedicineError != null) {
-      return addMedicineError();
+      return addMedicineError(apiErrorModel);
     }
     return orElse();
   }
@@ -1049,5 +1115,14 @@ class _$AddMedicineErrorImpl implements AddMedicineError {
 }
 
 abstract class AddMedicineError implements MedicineState {
-  const factory AddMedicineError() = _$AddMedicineErrorImpl;
+  const factory AddMedicineError(final ApiErrorModel apiErrorModel) =
+      _$AddMedicineErrorImpl;
+
+  ApiErrorModel get apiErrorModel;
+
+  /// Create a copy of MedicineState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddMedicineErrorImplCopyWith<_$AddMedicineErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

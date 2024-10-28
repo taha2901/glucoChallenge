@@ -1,3 +1,5 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 class ReservationResponseBody {
 	String? message;
 	ReservationModelDetails? data;
@@ -27,9 +29,12 @@ class ReservationModelDetails {
 	String? phone;
 	int? age;
 	String? sex;
+  @JsonKey(name: 'user_Id')
 	String? userId;
+  @JsonKey(name: 'doctor_Id')
 	int? doctorId;
 	String? date;
+  String? time;
 
 	ReservationModelDetails({
 		this.id, 
@@ -40,6 +45,7 @@ class ReservationModelDetails {
 		this.userId, 
 		this.doctorId, 
 		this.date, 
+    this.time,
 	});
 
 	factory ReservationModelDetails.fromJson(Map<String, dynamic> json) => ReservationModelDetails(
@@ -51,6 +57,7 @@ class ReservationModelDetails {
 				userId: json['user_Id'] as String?,
 				doctorId: json['doctor_Id'] as int?,
 				date: json['date'] as String?,
+        time: json['time'] as String?,
 			);
 
 	Map<String, dynamic> toJson() => {

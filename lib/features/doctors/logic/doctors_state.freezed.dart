@@ -21,11 +21,15 @@ mixin _$DoctorsState {
     required TResult Function() initial,
     required TResult Function() doctorLoading,
     required TResult Function(List<DoctorResponseBody> doctor) doctorSuccess,
-    required TResult Function(String error) doctorError,
+    required TResult Function(ApiErrorModel apiErrorModel) doctorError,
+    required TResult Function() availableTimeLoading,
+    required TResult Function(AvailableTimesResponse availableTimeResponse)
+        availableTimeSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) availableTimeError,
     required TResult Function() reservationLoading,
     required TResult Function(ReservationResponseBody reservationResponse)
         reservationSuccess,
-    required TResult Function(String error) reservationError,
+    required TResult Function(ApiErrorModel apiErrorModel) reservationError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,11 +37,15 @@ mixin _$DoctorsState {
     TResult? Function()? initial,
     TResult? Function()? doctorLoading,
     TResult? Function(List<DoctorResponseBody> doctor)? doctorSuccess,
-    TResult? Function(String error)? doctorError,
+    TResult? Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult? Function()? availableTimeLoading,
+    TResult? Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? availableTimeError,
     TResult? Function()? reservationLoading,
     TResult? Function(ReservationResponseBody reservationResponse)?
         reservationSuccess,
-    TResult? Function(String error)? reservationError,
+    TResult? Function(ApiErrorModel apiErrorModel)? reservationError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,11 +53,15 @@ mixin _$DoctorsState {
     TResult Function()? initial,
     TResult Function()? doctorLoading,
     TResult Function(List<DoctorResponseBody> doctor)? doctorSuccess,
-    TResult Function(String error)? doctorError,
+    TResult Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult Function()? availableTimeLoading,
+    TResult Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? availableTimeError,
     TResult Function()? reservationLoading,
     TResult Function(ReservationResponseBody reservationResponse)?
         reservationSuccess,
-    TResult Function(String error)? reservationError,
+    TResult Function(ApiErrorModel apiErrorModel)? reservationError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +71,9 @@ mixin _$DoctorsState {
     required TResult Function(DoctorLoading value) doctorLoading,
     required TResult Function(DoctorSuccess value) doctorSuccess,
     required TResult Function(DoctorError value) doctorError,
+    required TResult Function(AvailableTimeLoading value) availableTimeLoading,
+    required TResult Function(AvailableTimeSuccess value) availableTimeSuccess,
+    required TResult Function(AvailableTimeError value) availableTimeError,
     required TResult Function(ReservationLoading value) reservationLoading,
     required TResult Function(ReservationSuccess value) reservationSuccess,
     required TResult Function(ReservationError value) reservationError,
@@ -70,6 +85,9 @@ mixin _$DoctorsState {
     TResult? Function(DoctorLoading value)? doctorLoading,
     TResult? Function(DoctorSuccess value)? doctorSuccess,
     TResult? Function(DoctorError value)? doctorError,
+    TResult? Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult? Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult? Function(AvailableTimeError value)? availableTimeError,
     TResult? Function(ReservationLoading value)? reservationLoading,
     TResult? Function(ReservationSuccess value)? reservationSuccess,
     TResult? Function(ReservationError value)? reservationError,
@@ -81,6 +99,9 @@ mixin _$DoctorsState {
     TResult Function(DoctorLoading value)? doctorLoading,
     TResult Function(DoctorSuccess value)? doctorSuccess,
     TResult Function(DoctorError value)? doctorError,
+    TResult Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult Function(AvailableTimeError value)? availableTimeError,
     TResult Function(ReservationLoading value)? reservationLoading,
     TResult Function(ReservationSuccess value)? reservationSuccess,
     TResult Function(ReservationError value)? reservationError,
@@ -154,11 +175,15 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() doctorLoading,
     required TResult Function(List<DoctorResponseBody> doctor) doctorSuccess,
-    required TResult Function(String error) doctorError,
+    required TResult Function(ApiErrorModel apiErrorModel) doctorError,
+    required TResult Function() availableTimeLoading,
+    required TResult Function(AvailableTimesResponse availableTimeResponse)
+        availableTimeSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) availableTimeError,
     required TResult Function() reservationLoading,
     required TResult Function(ReservationResponseBody reservationResponse)
         reservationSuccess,
-    required TResult Function(String error) reservationError,
+    required TResult Function(ApiErrorModel apiErrorModel) reservationError,
   }) {
     return initial();
   }
@@ -169,11 +194,15 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? doctorLoading,
     TResult? Function(List<DoctorResponseBody> doctor)? doctorSuccess,
-    TResult? Function(String error)? doctorError,
+    TResult? Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult? Function()? availableTimeLoading,
+    TResult? Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? availableTimeError,
     TResult? Function()? reservationLoading,
     TResult? Function(ReservationResponseBody reservationResponse)?
         reservationSuccess,
-    TResult? Function(String error)? reservationError,
+    TResult? Function(ApiErrorModel apiErrorModel)? reservationError,
   }) {
     return initial?.call();
   }
@@ -184,11 +213,15 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? doctorLoading,
     TResult Function(List<DoctorResponseBody> doctor)? doctorSuccess,
-    TResult Function(String error)? doctorError,
+    TResult Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult Function()? availableTimeLoading,
+    TResult Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? availableTimeError,
     TResult Function()? reservationLoading,
     TResult Function(ReservationResponseBody reservationResponse)?
         reservationSuccess,
-    TResult Function(String error)? reservationError,
+    TResult Function(ApiErrorModel apiErrorModel)? reservationError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -204,6 +237,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function(DoctorLoading value) doctorLoading,
     required TResult Function(DoctorSuccess value) doctorSuccess,
     required TResult Function(DoctorError value) doctorError,
+    required TResult Function(AvailableTimeLoading value) availableTimeLoading,
+    required TResult Function(AvailableTimeSuccess value) availableTimeSuccess,
+    required TResult Function(AvailableTimeError value) availableTimeError,
     required TResult Function(ReservationLoading value) reservationLoading,
     required TResult Function(ReservationSuccess value) reservationSuccess,
     required TResult Function(ReservationError value) reservationError,
@@ -218,6 +254,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(DoctorLoading value)? doctorLoading,
     TResult? Function(DoctorSuccess value)? doctorSuccess,
     TResult? Function(DoctorError value)? doctorError,
+    TResult? Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult? Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult? Function(AvailableTimeError value)? availableTimeError,
     TResult? Function(ReservationLoading value)? reservationLoading,
     TResult? Function(ReservationSuccess value)? reservationSuccess,
     TResult? Function(ReservationError value)? reservationError,
@@ -232,6 +271,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(DoctorLoading value)? doctorLoading,
     TResult Function(DoctorSuccess value)? doctorSuccess,
     TResult Function(DoctorError value)? doctorError,
+    TResult Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult Function(AvailableTimeError value)? availableTimeError,
     TResult Function(ReservationLoading value)? reservationLoading,
     TResult Function(ReservationSuccess value)? reservationSuccess,
     TResult Function(ReservationError value)? reservationError,
@@ -292,11 +334,15 @@ class _$DoctorLoadingImpl implements DoctorLoading {
     required TResult Function() initial,
     required TResult Function() doctorLoading,
     required TResult Function(List<DoctorResponseBody> doctor) doctorSuccess,
-    required TResult Function(String error) doctorError,
+    required TResult Function(ApiErrorModel apiErrorModel) doctorError,
+    required TResult Function() availableTimeLoading,
+    required TResult Function(AvailableTimesResponse availableTimeResponse)
+        availableTimeSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) availableTimeError,
     required TResult Function() reservationLoading,
     required TResult Function(ReservationResponseBody reservationResponse)
         reservationSuccess,
-    required TResult Function(String error) reservationError,
+    required TResult Function(ApiErrorModel apiErrorModel) reservationError,
   }) {
     return doctorLoading();
   }
@@ -307,11 +353,15 @@ class _$DoctorLoadingImpl implements DoctorLoading {
     TResult? Function()? initial,
     TResult? Function()? doctorLoading,
     TResult? Function(List<DoctorResponseBody> doctor)? doctorSuccess,
-    TResult? Function(String error)? doctorError,
+    TResult? Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult? Function()? availableTimeLoading,
+    TResult? Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? availableTimeError,
     TResult? Function()? reservationLoading,
     TResult? Function(ReservationResponseBody reservationResponse)?
         reservationSuccess,
-    TResult? Function(String error)? reservationError,
+    TResult? Function(ApiErrorModel apiErrorModel)? reservationError,
   }) {
     return doctorLoading?.call();
   }
@@ -322,11 +372,15 @@ class _$DoctorLoadingImpl implements DoctorLoading {
     TResult Function()? initial,
     TResult Function()? doctorLoading,
     TResult Function(List<DoctorResponseBody> doctor)? doctorSuccess,
-    TResult Function(String error)? doctorError,
+    TResult Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult Function()? availableTimeLoading,
+    TResult Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? availableTimeError,
     TResult Function()? reservationLoading,
     TResult Function(ReservationResponseBody reservationResponse)?
         reservationSuccess,
-    TResult Function(String error)? reservationError,
+    TResult Function(ApiErrorModel apiErrorModel)? reservationError,
     required TResult orElse(),
   }) {
     if (doctorLoading != null) {
@@ -342,6 +396,9 @@ class _$DoctorLoadingImpl implements DoctorLoading {
     required TResult Function(DoctorLoading value) doctorLoading,
     required TResult Function(DoctorSuccess value) doctorSuccess,
     required TResult Function(DoctorError value) doctorError,
+    required TResult Function(AvailableTimeLoading value) availableTimeLoading,
+    required TResult Function(AvailableTimeSuccess value) availableTimeSuccess,
+    required TResult Function(AvailableTimeError value) availableTimeError,
     required TResult Function(ReservationLoading value) reservationLoading,
     required TResult Function(ReservationSuccess value) reservationSuccess,
     required TResult Function(ReservationError value) reservationError,
@@ -356,6 +413,9 @@ class _$DoctorLoadingImpl implements DoctorLoading {
     TResult? Function(DoctorLoading value)? doctorLoading,
     TResult? Function(DoctorSuccess value)? doctorSuccess,
     TResult? Function(DoctorError value)? doctorError,
+    TResult? Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult? Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult? Function(AvailableTimeError value)? availableTimeError,
     TResult? Function(ReservationLoading value)? reservationLoading,
     TResult? Function(ReservationSuccess value)? reservationSuccess,
     TResult? Function(ReservationError value)? reservationError,
@@ -370,6 +430,9 @@ class _$DoctorLoadingImpl implements DoctorLoading {
     TResult Function(DoctorLoading value)? doctorLoading,
     TResult Function(DoctorSuccess value)? doctorSuccess,
     TResult Function(DoctorError value)? doctorError,
+    TResult Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult Function(AvailableTimeError value)? availableTimeError,
     TResult Function(ReservationLoading value)? reservationLoading,
     TResult Function(ReservationSuccess value)? reservationSuccess,
     TResult Function(ReservationError value)? reservationError,
@@ -464,11 +527,15 @@ class _$DoctorSuccessImpl implements DoctorSuccess {
     required TResult Function() initial,
     required TResult Function() doctorLoading,
     required TResult Function(List<DoctorResponseBody> doctor) doctorSuccess,
-    required TResult Function(String error) doctorError,
+    required TResult Function(ApiErrorModel apiErrorModel) doctorError,
+    required TResult Function() availableTimeLoading,
+    required TResult Function(AvailableTimesResponse availableTimeResponse)
+        availableTimeSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) availableTimeError,
     required TResult Function() reservationLoading,
     required TResult Function(ReservationResponseBody reservationResponse)
         reservationSuccess,
-    required TResult Function(String error) reservationError,
+    required TResult Function(ApiErrorModel apiErrorModel) reservationError,
   }) {
     return doctorSuccess(doctor);
   }
@@ -479,11 +546,15 @@ class _$DoctorSuccessImpl implements DoctorSuccess {
     TResult? Function()? initial,
     TResult? Function()? doctorLoading,
     TResult? Function(List<DoctorResponseBody> doctor)? doctorSuccess,
-    TResult? Function(String error)? doctorError,
+    TResult? Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult? Function()? availableTimeLoading,
+    TResult? Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? availableTimeError,
     TResult? Function()? reservationLoading,
     TResult? Function(ReservationResponseBody reservationResponse)?
         reservationSuccess,
-    TResult? Function(String error)? reservationError,
+    TResult? Function(ApiErrorModel apiErrorModel)? reservationError,
   }) {
     return doctorSuccess?.call(doctor);
   }
@@ -494,11 +565,15 @@ class _$DoctorSuccessImpl implements DoctorSuccess {
     TResult Function()? initial,
     TResult Function()? doctorLoading,
     TResult Function(List<DoctorResponseBody> doctor)? doctorSuccess,
-    TResult Function(String error)? doctorError,
+    TResult Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult Function()? availableTimeLoading,
+    TResult Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? availableTimeError,
     TResult Function()? reservationLoading,
     TResult Function(ReservationResponseBody reservationResponse)?
         reservationSuccess,
-    TResult Function(String error)? reservationError,
+    TResult Function(ApiErrorModel apiErrorModel)? reservationError,
     required TResult orElse(),
   }) {
     if (doctorSuccess != null) {
@@ -514,6 +589,9 @@ class _$DoctorSuccessImpl implements DoctorSuccess {
     required TResult Function(DoctorLoading value) doctorLoading,
     required TResult Function(DoctorSuccess value) doctorSuccess,
     required TResult Function(DoctorError value) doctorError,
+    required TResult Function(AvailableTimeLoading value) availableTimeLoading,
+    required TResult Function(AvailableTimeSuccess value) availableTimeSuccess,
+    required TResult Function(AvailableTimeError value) availableTimeError,
     required TResult Function(ReservationLoading value) reservationLoading,
     required TResult Function(ReservationSuccess value) reservationSuccess,
     required TResult Function(ReservationError value) reservationError,
@@ -528,6 +606,9 @@ class _$DoctorSuccessImpl implements DoctorSuccess {
     TResult? Function(DoctorLoading value)? doctorLoading,
     TResult? Function(DoctorSuccess value)? doctorSuccess,
     TResult? Function(DoctorError value)? doctorError,
+    TResult? Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult? Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult? Function(AvailableTimeError value)? availableTimeError,
     TResult? Function(ReservationLoading value)? reservationLoading,
     TResult? Function(ReservationSuccess value)? reservationSuccess,
     TResult? Function(ReservationError value)? reservationError,
@@ -542,6 +623,9 @@ class _$DoctorSuccessImpl implements DoctorSuccess {
     TResult Function(DoctorLoading value)? doctorLoading,
     TResult Function(DoctorSuccess value)? doctorSuccess,
     TResult Function(DoctorError value)? doctorError,
+    TResult Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult Function(AvailableTimeError value)? availableTimeError,
     TResult Function(ReservationLoading value)? reservationLoading,
     TResult Function(ReservationSuccess value)? reservationSuccess,
     TResult Function(ReservationError value)? reservationError,
@@ -573,7 +657,7 @@ abstract class _$$DoctorErrorImplCopyWith<$Res> {
           _$DoctorErrorImpl value, $Res Function(_$DoctorErrorImpl) then) =
       __$$DoctorErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -589,13 +673,13 @@ class __$$DoctorErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$DoctorErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -603,14 +687,14 @@ class __$$DoctorErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DoctorErrorImpl implements DoctorError {
-  const _$DoctorErrorImpl({required this.error});
+  const _$DoctorErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DoctorsState.doctorError(error: $error)';
+    return 'DoctorsState.doctorError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -618,11 +702,12 @@ class _$DoctorErrorImpl implements DoctorError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DoctorErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DoctorsState
   /// with the given fields replaced by the non-null parameter values.
@@ -638,13 +723,17 @@ class _$DoctorErrorImpl implements DoctorError {
     required TResult Function() initial,
     required TResult Function() doctorLoading,
     required TResult Function(List<DoctorResponseBody> doctor) doctorSuccess,
-    required TResult Function(String error) doctorError,
+    required TResult Function(ApiErrorModel apiErrorModel) doctorError,
+    required TResult Function() availableTimeLoading,
+    required TResult Function(AvailableTimesResponse availableTimeResponse)
+        availableTimeSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) availableTimeError,
     required TResult Function() reservationLoading,
     required TResult Function(ReservationResponseBody reservationResponse)
         reservationSuccess,
-    required TResult Function(String error) reservationError,
+    required TResult Function(ApiErrorModel apiErrorModel) reservationError,
   }) {
-    return doctorError(error);
+    return doctorError(apiErrorModel);
   }
 
   @override
@@ -653,13 +742,17 @@ class _$DoctorErrorImpl implements DoctorError {
     TResult? Function()? initial,
     TResult? Function()? doctorLoading,
     TResult? Function(List<DoctorResponseBody> doctor)? doctorSuccess,
-    TResult? Function(String error)? doctorError,
+    TResult? Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult? Function()? availableTimeLoading,
+    TResult? Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? availableTimeError,
     TResult? Function()? reservationLoading,
     TResult? Function(ReservationResponseBody reservationResponse)?
         reservationSuccess,
-    TResult? Function(String error)? reservationError,
+    TResult? Function(ApiErrorModel apiErrorModel)? reservationError,
   }) {
-    return doctorError?.call(error);
+    return doctorError?.call(apiErrorModel);
   }
 
   @override
@@ -668,15 +761,19 @@ class _$DoctorErrorImpl implements DoctorError {
     TResult Function()? initial,
     TResult Function()? doctorLoading,
     TResult Function(List<DoctorResponseBody> doctor)? doctorSuccess,
-    TResult Function(String error)? doctorError,
+    TResult Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult Function()? availableTimeLoading,
+    TResult Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? availableTimeError,
     TResult Function()? reservationLoading,
     TResult Function(ReservationResponseBody reservationResponse)?
         reservationSuccess,
-    TResult Function(String error)? reservationError,
+    TResult Function(ApiErrorModel apiErrorModel)? reservationError,
     required TResult orElse(),
   }) {
     if (doctorError != null) {
-      return doctorError(error);
+      return doctorError(apiErrorModel);
     }
     return orElse();
   }
@@ -688,6 +785,9 @@ class _$DoctorErrorImpl implements DoctorError {
     required TResult Function(DoctorLoading value) doctorLoading,
     required TResult Function(DoctorSuccess value) doctorSuccess,
     required TResult Function(DoctorError value) doctorError,
+    required TResult Function(AvailableTimeLoading value) availableTimeLoading,
+    required TResult Function(AvailableTimeSuccess value) availableTimeSuccess,
+    required TResult Function(AvailableTimeError value) availableTimeError,
     required TResult Function(ReservationLoading value) reservationLoading,
     required TResult Function(ReservationSuccess value) reservationSuccess,
     required TResult Function(ReservationError value) reservationError,
@@ -702,6 +802,9 @@ class _$DoctorErrorImpl implements DoctorError {
     TResult? Function(DoctorLoading value)? doctorLoading,
     TResult? Function(DoctorSuccess value)? doctorSuccess,
     TResult? Function(DoctorError value)? doctorError,
+    TResult? Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult? Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult? Function(AvailableTimeError value)? availableTimeError,
     TResult? Function(ReservationLoading value)? reservationLoading,
     TResult? Function(ReservationSuccess value)? reservationSuccess,
     TResult? Function(ReservationError value)? reservationError,
@@ -716,6 +819,9 @@ class _$DoctorErrorImpl implements DoctorError {
     TResult Function(DoctorLoading value)? doctorLoading,
     TResult Function(DoctorSuccess value)? doctorSuccess,
     TResult Function(DoctorError value)? doctorError,
+    TResult Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult Function(AvailableTimeError value)? availableTimeError,
     TResult Function(ReservationLoading value)? reservationLoading,
     TResult Function(ReservationSuccess value)? reservationSuccess,
     TResult Function(ReservationError value)? reservationError,
@@ -729,14 +835,571 @@ class _$DoctorErrorImpl implements DoctorError {
 }
 
 abstract class DoctorError implements DoctorsState {
-  const factory DoctorError({required final String error}) = _$DoctorErrorImpl;
+  const factory DoctorError(final ApiErrorModel apiErrorModel) =
+      _$DoctorErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DoctorsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DoctorErrorImplCopyWith<_$DoctorErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AvailableTimeLoadingImplCopyWith<$Res> {
+  factory _$$AvailableTimeLoadingImplCopyWith(_$AvailableTimeLoadingImpl value,
+          $Res Function(_$AvailableTimeLoadingImpl) then) =
+      __$$AvailableTimeLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AvailableTimeLoadingImplCopyWithImpl<$Res>
+    extends _$DoctorsStateCopyWithImpl<$Res, _$AvailableTimeLoadingImpl>
+    implements _$$AvailableTimeLoadingImplCopyWith<$Res> {
+  __$$AvailableTimeLoadingImplCopyWithImpl(_$AvailableTimeLoadingImpl _value,
+      $Res Function(_$AvailableTimeLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DoctorsState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AvailableTimeLoadingImpl implements AvailableTimeLoading {
+  const _$AvailableTimeLoadingImpl();
+
+  @override
+  String toString() {
+    return 'DoctorsState.availableTimeLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AvailableTimeLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() doctorLoading,
+    required TResult Function(List<DoctorResponseBody> doctor) doctorSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) doctorError,
+    required TResult Function() availableTimeLoading,
+    required TResult Function(AvailableTimesResponse availableTimeResponse)
+        availableTimeSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) availableTimeError,
+    required TResult Function() reservationLoading,
+    required TResult Function(ReservationResponseBody reservationResponse)
+        reservationSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) reservationError,
+  }) {
+    return availableTimeLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? doctorLoading,
+    TResult? Function(List<DoctorResponseBody> doctor)? doctorSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult? Function()? availableTimeLoading,
+    TResult? Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? availableTimeError,
+    TResult? Function()? reservationLoading,
+    TResult? Function(ReservationResponseBody reservationResponse)?
+        reservationSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? reservationError,
+  }) {
+    return availableTimeLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? doctorLoading,
+    TResult Function(List<DoctorResponseBody> doctor)? doctorSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult Function()? availableTimeLoading,
+    TResult Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? availableTimeError,
+    TResult Function()? reservationLoading,
+    TResult Function(ReservationResponseBody reservationResponse)?
+        reservationSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? reservationError,
+    required TResult orElse(),
+  }) {
+    if (availableTimeLoading != null) {
+      return availableTimeLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(DoctorLoading value) doctorLoading,
+    required TResult Function(DoctorSuccess value) doctorSuccess,
+    required TResult Function(DoctorError value) doctorError,
+    required TResult Function(AvailableTimeLoading value) availableTimeLoading,
+    required TResult Function(AvailableTimeSuccess value) availableTimeSuccess,
+    required TResult Function(AvailableTimeError value) availableTimeError,
+    required TResult Function(ReservationLoading value) reservationLoading,
+    required TResult Function(ReservationSuccess value) reservationSuccess,
+    required TResult Function(ReservationError value) reservationError,
+  }) {
+    return availableTimeLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(DoctorLoading value)? doctorLoading,
+    TResult? Function(DoctorSuccess value)? doctorSuccess,
+    TResult? Function(DoctorError value)? doctorError,
+    TResult? Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult? Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult? Function(AvailableTimeError value)? availableTimeError,
+    TResult? Function(ReservationLoading value)? reservationLoading,
+    TResult? Function(ReservationSuccess value)? reservationSuccess,
+    TResult? Function(ReservationError value)? reservationError,
+  }) {
+    return availableTimeLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(DoctorLoading value)? doctorLoading,
+    TResult Function(DoctorSuccess value)? doctorSuccess,
+    TResult Function(DoctorError value)? doctorError,
+    TResult Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult Function(AvailableTimeError value)? availableTimeError,
+    TResult Function(ReservationLoading value)? reservationLoading,
+    TResult Function(ReservationSuccess value)? reservationSuccess,
+    TResult Function(ReservationError value)? reservationError,
+    required TResult orElse(),
+  }) {
+    if (availableTimeLoading != null) {
+      return availableTimeLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AvailableTimeLoading implements DoctorsState {
+  const factory AvailableTimeLoading() = _$AvailableTimeLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$AvailableTimeSuccessImplCopyWith<$Res> {
+  factory _$$AvailableTimeSuccessImplCopyWith(_$AvailableTimeSuccessImpl value,
+          $Res Function(_$AvailableTimeSuccessImpl) then) =
+      __$$AvailableTimeSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({AvailableTimesResponse availableTimeResponse});
+}
+
+/// @nodoc
+class __$$AvailableTimeSuccessImplCopyWithImpl<$Res>
+    extends _$DoctorsStateCopyWithImpl<$Res, _$AvailableTimeSuccessImpl>
+    implements _$$AvailableTimeSuccessImplCopyWith<$Res> {
+  __$$AvailableTimeSuccessImplCopyWithImpl(_$AvailableTimeSuccessImpl _value,
+      $Res Function(_$AvailableTimeSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DoctorsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? availableTimeResponse = null,
+  }) {
+    return _then(_$AvailableTimeSuccessImpl(
+      availableTimeResponse: null == availableTimeResponse
+          ? _value.availableTimeResponse
+          : availableTimeResponse // ignore: cast_nullable_to_non_nullable
+              as AvailableTimesResponse,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AvailableTimeSuccessImpl implements AvailableTimeSuccess {
+  const _$AvailableTimeSuccessImpl({required this.availableTimeResponse});
+
+  @override
+  final AvailableTimesResponse availableTimeResponse;
+
+  @override
+  String toString() {
+    return 'DoctorsState.availableTimeSuccess(availableTimeResponse: $availableTimeResponse)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AvailableTimeSuccessImpl &&
+            (identical(other.availableTimeResponse, availableTimeResponse) ||
+                other.availableTimeResponse == availableTimeResponse));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, availableTimeResponse);
+
+  /// Create a copy of DoctorsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AvailableTimeSuccessImplCopyWith<_$AvailableTimeSuccessImpl>
+      get copyWith =>
+          __$$AvailableTimeSuccessImplCopyWithImpl<_$AvailableTimeSuccessImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() doctorLoading,
+    required TResult Function(List<DoctorResponseBody> doctor) doctorSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) doctorError,
+    required TResult Function() availableTimeLoading,
+    required TResult Function(AvailableTimesResponse availableTimeResponse)
+        availableTimeSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) availableTimeError,
+    required TResult Function() reservationLoading,
+    required TResult Function(ReservationResponseBody reservationResponse)
+        reservationSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) reservationError,
+  }) {
+    return availableTimeSuccess(availableTimeResponse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? doctorLoading,
+    TResult? Function(List<DoctorResponseBody> doctor)? doctorSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult? Function()? availableTimeLoading,
+    TResult? Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? availableTimeError,
+    TResult? Function()? reservationLoading,
+    TResult? Function(ReservationResponseBody reservationResponse)?
+        reservationSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? reservationError,
+  }) {
+    return availableTimeSuccess?.call(availableTimeResponse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? doctorLoading,
+    TResult Function(List<DoctorResponseBody> doctor)? doctorSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult Function()? availableTimeLoading,
+    TResult Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? availableTimeError,
+    TResult Function()? reservationLoading,
+    TResult Function(ReservationResponseBody reservationResponse)?
+        reservationSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? reservationError,
+    required TResult orElse(),
+  }) {
+    if (availableTimeSuccess != null) {
+      return availableTimeSuccess(availableTimeResponse);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(DoctorLoading value) doctorLoading,
+    required TResult Function(DoctorSuccess value) doctorSuccess,
+    required TResult Function(DoctorError value) doctorError,
+    required TResult Function(AvailableTimeLoading value) availableTimeLoading,
+    required TResult Function(AvailableTimeSuccess value) availableTimeSuccess,
+    required TResult Function(AvailableTimeError value) availableTimeError,
+    required TResult Function(ReservationLoading value) reservationLoading,
+    required TResult Function(ReservationSuccess value) reservationSuccess,
+    required TResult Function(ReservationError value) reservationError,
+  }) {
+    return availableTimeSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(DoctorLoading value)? doctorLoading,
+    TResult? Function(DoctorSuccess value)? doctorSuccess,
+    TResult? Function(DoctorError value)? doctorError,
+    TResult? Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult? Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult? Function(AvailableTimeError value)? availableTimeError,
+    TResult? Function(ReservationLoading value)? reservationLoading,
+    TResult? Function(ReservationSuccess value)? reservationSuccess,
+    TResult? Function(ReservationError value)? reservationError,
+  }) {
+    return availableTimeSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(DoctorLoading value)? doctorLoading,
+    TResult Function(DoctorSuccess value)? doctorSuccess,
+    TResult Function(DoctorError value)? doctorError,
+    TResult Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult Function(AvailableTimeError value)? availableTimeError,
+    TResult Function(ReservationLoading value)? reservationLoading,
+    TResult Function(ReservationSuccess value)? reservationSuccess,
+    TResult Function(ReservationError value)? reservationError,
+    required TResult orElse(),
+  }) {
+    if (availableTimeSuccess != null) {
+      return availableTimeSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AvailableTimeSuccess implements DoctorsState {
+  const factory AvailableTimeSuccess(
+          {required final AvailableTimesResponse availableTimeResponse}) =
+      _$AvailableTimeSuccessImpl;
+
+  AvailableTimesResponse get availableTimeResponse;
+
+  /// Create a copy of DoctorsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AvailableTimeSuccessImplCopyWith<_$AvailableTimeSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AvailableTimeErrorImplCopyWith<$Res> {
+  factory _$$AvailableTimeErrorImplCopyWith(_$AvailableTimeErrorImpl value,
+          $Res Function(_$AvailableTimeErrorImpl) then) =
+      __$$AvailableTimeErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ApiErrorModel apiErrorModel});
+}
+
+/// @nodoc
+class __$$AvailableTimeErrorImplCopyWithImpl<$Res>
+    extends _$DoctorsStateCopyWithImpl<$Res, _$AvailableTimeErrorImpl>
+    implements _$$AvailableTimeErrorImplCopyWith<$Res> {
+  __$$AvailableTimeErrorImplCopyWithImpl(_$AvailableTimeErrorImpl _value,
+      $Res Function(_$AvailableTimeErrorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DoctorsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? apiErrorModel = null,
+  }) {
+    return _then(_$AvailableTimeErrorImpl(
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AvailableTimeErrorImpl implements AvailableTimeError {
+  const _$AvailableTimeErrorImpl(this.apiErrorModel);
+
+  @override
+  final ApiErrorModel apiErrorModel;
+
+  @override
+  String toString() {
+    return 'DoctorsState.availableTimeError(apiErrorModel: $apiErrorModel)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AvailableTimeErrorImpl &&
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
+
+  /// Create a copy of DoctorsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AvailableTimeErrorImplCopyWith<_$AvailableTimeErrorImpl> get copyWith =>
+      __$$AvailableTimeErrorImplCopyWithImpl<_$AvailableTimeErrorImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() doctorLoading,
+    required TResult Function(List<DoctorResponseBody> doctor) doctorSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) doctorError,
+    required TResult Function() availableTimeLoading,
+    required TResult Function(AvailableTimesResponse availableTimeResponse)
+        availableTimeSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) availableTimeError,
+    required TResult Function() reservationLoading,
+    required TResult Function(ReservationResponseBody reservationResponse)
+        reservationSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) reservationError,
+  }) {
+    return availableTimeError(apiErrorModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? doctorLoading,
+    TResult? Function(List<DoctorResponseBody> doctor)? doctorSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult? Function()? availableTimeLoading,
+    TResult? Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? availableTimeError,
+    TResult? Function()? reservationLoading,
+    TResult? Function(ReservationResponseBody reservationResponse)?
+        reservationSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? reservationError,
+  }) {
+    return availableTimeError?.call(apiErrorModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? doctorLoading,
+    TResult Function(List<DoctorResponseBody> doctor)? doctorSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult Function()? availableTimeLoading,
+    TResult Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? availableTimeError,
+    TResult Function()? reservationLoading,
+    TResult Function(ReservationResponseBody reservationResponse)?
+        reservationSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? reservationError,
+    required TResult orElse(),
+  }) {
+    if (availableTimeError != null) {
+      return availableTimeError(apiErrorModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(DoctorLoading value) doctorLoading,
+    required TResult Function(DoctorSuccess value) doctorSuccess,
+    required TResult Function(DoctorError value) doctorError,
+    required TResult Function(AvailableTimeLoading value) availableTimeLoading,
+    required TResult Function(AvailableTimeSuccess value) availableTimeSuccess,
+    required TResult Function(AvailableTimeError value) availableTimeError,
+    required TResult Function(ReservationLoading value) reservationLoading,
+    required TResult Function(ReservationSuccess value) reservationSuccess,
+    required TResult Function(ReservationError value) reservationError,
+  }) {
+    return availableTimeError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(DoctorLoading value)? doctorLoading,
+    TResult? Function(DoctorSuccess value)? doctorSuccess,
+    TResult? Function(DoctorError value)? doctorError,
+    TResult? Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult? Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult? Function(AvailableTimeError value)? availableTimeError,
+    TResult? Function(ReservationLoading value)? reservationLoading,
+    TResult? Function(ReservationSuccess value)? reservationSuccess,
+    TResult? Function(ReservationError value)? reservationError,
+  }) {
+    return availableTimeError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(DoctorLoading value)? doctorLoading,
+    TResult Function(DoctorSuccess value)? doctorSuccess,
+    TResult Function(DoctorError value)? doctorError,
+    TResult Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult Function(AvailableTimeError value)? availableTimeError,
+    TResult Function(ReservationLoading value)? reservationLoading,
+    TResult Function(ReservationSuccess value)? reservationSuccess,
+    TResult Function(ReservationError value)? reservationError,
+    required TResult orElse(),
+  }) {
+    if (availableTimeError != null) {
+      return availableTimeError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AvailableTimeError implements DoctorsState {
+  const factory AvailableTimeError(final ApiErrorModel apiErrorModel) =
+      _$AvailableTimeErrorImpl;
+
+  ApiErrorModel get apiErrorModel;
+
+  /// Create a copy of DoctorsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AvailableTimeErrorImplCopyWith<_$AvailableTimeErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -784,11 +1447,15 @@ class _$ReservationLoadingImpl implements ReservationLoading {
     required TResult Function() initial,
     required TResult Function() doctorLoading,
     required TResult Function(List<DoctorResponseBody> doctor) doctorSuccess,
-    required TResult Function(String error) doctorError,
+    required TResult Function(ApiErrorModel apiErrorModel) doctorError,
+    required TResult Function() availableTimeLoading,
+    required TResult Function(AvailableTimesResponse availableTimeResponse)
+        availableTimeSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) availableTimeError,
     required TResult Function() reservationLoading,
     required TResult Function(ReservationResponseBody reservationResponse)
         reservationSuccess,
-    required TResult Function(String error) reservationError,
+    required TResult Function(ApiErrorModel apiErrorModel) reservationError,
   }) {
     return reservationLoading();
   }
@@ -799,11 +1466,15 @@ class _$ReservationLoadingImpl implements ReservationLoading {
     TResult? Function()? initial,
     TResult? Function()? doctorLoading,
     TResult? Function(List<DoctorResponseBody> doctor)? doctorSuccess,
-    TResult? Function(String error)? doctorError,
+    TResult? Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult? Function()? availableTimeLoading,
+    TResult? Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? availableTimeError,
     TResult? Function()? reservationLoading,
     TResult? Function(ReservationResponseBody reservationResponse)?
         reservationSuccess,
-    TResult? Function(String error)? reservationError,
+    TResult? Function(ApiErrorModel apiErrorModel)? reservationError,
   }) {
     return reservationLoading?.call();
   }
@@ -814,11 +1485,15 @@ class _$ReservationLoadingImpl implements ReservationLoading {
     TResult Function()? initial,
     TResult Function()? doctorLoading,
     TResult Function(List<DoctorResponseBody> doctor)? doctorSuccess,
-    TResult Function(String error)? doctorError,
+    TResult Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult Function()? availableTimeLoading,
+    TResult Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? availableTimeError,
     TResult Function()? reservationLoading,
     TResult Function(ReservationResponseBody reservationResponse)?
         reservationSuccess,
-    TResult Function(String error)? reservationError,
+    TResult Function(ApiErrorModel apiErrorModel)? reservationError,
     required TResult orElse(),
   }) {
     if (reservationLoading != null) {
@@ -834,6 +1509,9 @@ class _$ReservationLoadingImpl implements ReservationLoading {
     required TResult Function(DoctorLoading value) doctorLoading,
     required TResult Function(DoctorSuccess value) doctorSuccess,
     required TResult Function(DoctorError value) doctorError,
+    required TResult Function(AvailableTimeLoading value) availableTimeLoading,
+    required TResult Function(AvailableTimeSuccess value) availableTimeSuccess,
+    required TResult Function(AvailableTimeError value) availableTimeError,
     required TResult Function(ReservationLoading value) reservationLoading,
     required TResult Function(ReservationSuccess value) reservationSuccess,
     required TResult Function(ReservationError value) reservationError,
@@ -848,6 +1526,9 @@ class _$ReservationLoadingImpl implements ReservationLoading {
     TResult? Function(DoctorLoading value)? doctorLoading,
     TResult? Function(DoctorSuccess value)? doctorSuccess,
     TResult? Function(DoctorError value)? doctorError,
+    TResult? Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult? Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult? Function(AvailableTimeError value)? availableTimeError,
     TResult? Function(ReservationLoading value)? reservationLoading,
     TResult? Function(ReservationSuccess value)? reservationSuccess,
     TResult? Function(ReservationError value)? reservationError,
@@ -862,6 +1543,9 @@ class _$ReservationLoadingImpl implements ReservationLoading {
     TResult Function(DoctorLoading value)? doctorLoading,
     TResult Function(DoctorSuccess value)? doctorSuccess,
     TResult Function(DoctorError value)? doctorError,
+    TResult Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult Function(AvailableTimeError value)? availableTimeError,
     TResult Function(ReservationLoading value)? reservationLoading,
     TResult Function(ReservationSuccess value)? reservationSuccess,
     TResult Function(ReservationError value)? reservationError,
@@ -951,11 +1635,15 @@ class _$ReservationSuccessImpl implements ReservationSuccess {
     required TResult Function() initial,
     required TResult Function() doctorLoading,
     required TResult Function(List<DoctorResponseBody> doctor) doctorSuccess,
-    required TResult Function(String error) doctorError,
+    required TResult Function(ApiErrorModel apiErrorModel) doctorError,
+    required TResult Function() availableTimeLoading,
+    required TResult Function(AvailableTimesResponse availableTimeResponse)
+        availableTimeSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) availableTimeError,
     required TResult Function() reservationLoading,
     required TResult Function(ReservationResponseBody reservationResponse)
         reservationSuccess,
-    required TResult Function(String error) reservationError,
+    required TResult Function(ApiErrorModel apiErrorModel) reservationError,
   }) {
     return reservationSuccess(reservationResponse);
   }
@@ -966,11 +1654,15 @@ class _$ReservationSuccessImpl implements ReservationSuccess {
     TResult? Function()? initial,
     TResult? Function()? doctorLoading,
     TResult? Function(List<DoctorResponseBody> doctor)? doctorSuccess,
-    TResult? Function(String error)? doctorError,
+    TResult? Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult? Function()? availableTimeLoading,
+    TResult? Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? availableTimeError,
     TResult? Function()? reservationLoading,
     TResult? Function(ReservationResponseBody reservationResponse)?
         reservationSuccess,
-    TResult? Function(String error)? reservationError,
+    TResult? Function(ApiErrorModel apiErrorModel)? reservationError,
   }) {
     return reservationSuccess?.call(reservationResponse);
   }
@@ -981,11 +1673,15 @@ class _$ReservationSuccessImpl implements ReservationSuccess {
     TResult Function()? initial,
     TResult Function()? doctorLoading,
     TResult Function(List<DoctorResponseBody> doctor)? doctorSuccess,
-    TResult Function(String error)? doctorError,
+    TResult Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult Function()? availableTimeLoading,
+    TResult Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? availableTimeError,
     TResult Function()? reservationLoading,
     TResult Function(ReservationResponseBody reservationResponse)?
         reservationSuccess,
-    TResult Function(String error)? reservationError,
+    TResult Function(ApiErrorModel apiErrorModel)? reservationError,
     required TResult orElse(),
   }) {
     if (reservationSuccess != null) {
@@ -1001,6 +1697,9 @@ class _$ReservationSuccessImpl implements ReservationSuccess {
     required TResult Function(DoctorLoading value) doctorLoading,
     required TResult Function(DoctorSuccess value) doctorSuccess,
     required TResult Function(DoctorError value) doctorError,
+    required TResult Function(AvailableTimeLoading value) availableTimeLoading,
+    required TResult Function(AvailableTimeSuccess value) availableTimeSuccess,
+    required TResult Function(AvailableTimeError value) availableTimeError,
     required TResult Function(ReservationLoading value) reservationLoading,
     required TResult Function(ReservationSuccess value) reservationSuccess,
     required TResult Function(ReservationError value) reservationError,
@@ -1015,6 +1714,9 @@ class _$ReservationSuccessImpl implements ReservationSuccess {
     TResult? Function(DoctorLoading value)? doctorLoading,
     TResult? Function(DoctorSuccess value)? doctorSuccess,
     TResult? Function(DoctorError value)? doctorError,
+    TResult? Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult? Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult? Function(AvailableTimeError value)? availableTimeError,
     TResult? Function(ReservationLoading value)? reservationLoading,
     TResult? Function(ReservationSuccess value)? reservationSuccess,
     TResult? Function(ReservationError value)? reservationError,
@@ -1029,6 +1731,9 @@ class _$ReservationSuccessImpl implements ReservationSuccess {
     TResult Function(DoctorLoading value)? doctorLoading,
     TResult Function(DoctorSuccess value)? doctorSuccess,
     TResult Function(DoctorError value)? doctorError,
+    TResult Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult Function(AvailableTimeError value)? availableTimeError,
     TResult Function(ReservationLoading value)? reservationLoading,
     TResult Function(ReservationSuccess value)? reservationSuccess,
     TResult Function(ReservationError value)? reservationError,
@@ -1061,7 +1766,7 @@ abstract class _$$ReservationErrorImplCopyWith<$Res> {
           $Res Function(_$ReservationErrorImpl) then) =
       __$$ReservationErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel apiErrorModel});
 }
 
 /// @nodoc
@@ -1077,13 +1782,13 @@ class __$$ReservationErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? apiErrorModel = null,
   }) {
     return _then(_$ReservationErrorImpl(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
     ));
   }
 }
@@ -1091,14 +1796,14 @@ class __$$ReservationErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ReservationErrorImpl implements ReservationError {
-  const _$ReservationErrorImpl({required this.error});
+  const _$ReservationErrorImpl(this.apiErrorModel);
 
   @override
-  final String error;
+  final ApiErrorModel apiErrorModel;
 
   @override
   String toString() {
-    return 'DoctorsState.reservationError(error: $error)';
+    return 'DoctorsState.reservationError(apiErrorModel: $apiErrorModel)';
   }
 
   @override
@@ -1106,11 +1811,12 @@ class _$ReservationErrorImpl implements ReservationError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ReservationErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
 
   /// Create a copy of DoctorsState
   /// with the given fields replaced by the non-null parameter values.
@@ -1127,13 +1833,17 @@ class _$ReservationErrorImpl implements ReservationError {
     required TResult Function() initial,
     required TResult Function() doctorLoading,
     required TResult Function(List<DoctorResponseBody> doctor) doctorSuccess,
-    required TResult Function(String error) doctorError,
+    required TResult Function(ApiErrorModel apiErrorModel) doctorError,
+    required TResult Function() availableTimeLoading,
+    required TResult Function(AvailableTimesResponse availableTimeResponse)
+        availableTimeSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) availableTimeError,
     required TResult Function() reservationLoading,
     required TResult Function(ReservationResponseBody reservationResponse)
         reservationSuccess,
-    required TResult Function(String error) reservationError,
+    required TResult Function(ApiErrorModel apiErrorModel) reservationError,
   }) {
-    return reservationError(error);
+    return reservationError(apiErrorModel);
   }
 
   @override
@@ -1142,13 +1852,17 @@ class _$ReservationErrorImpl implements ReservationError {
     TResult? Function()? initial,
     TResult? Function()? doctorLoading,
     TResult? Function(List<DoctorResponseBody> doctor)? doctorSuccess,
-    TResult? Function(String error)? doctorError,
+    TResult? Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult? Function()? availableTimeLoading,
+    TResult? Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? availableTimeError,
     TResult? Function()? reservationLoading,
     TResult? Function(ReservationResponseBody reservationResponse)?
         reservationSuccess,
-    TResult? Function(String error)? reservationError,
+    TResult? Function(ApiErrorModel apiErrorModel)? reservationError,
   }) {
-    return reservationError?.call(error);
+    return reservationError?.call(apiErrorModel);
   }
 
   @override
@@ -1157,15 +1871,19 @@ class _$ReservationErrorImpl implements ReservationError {
     TResult Function()? initial,
     TResult Function()? doctorLoading,
     TResult Function(List<DoctorResponseBody> doctor)? doctorSuccess,
-    TResult Function(String error)? doctorError,
+    TResult Function(ApiErrorModel apiErrorModel)? doctorError,
+    TResult Function()? availableTimeLoading,
+    TResult Function(AvailableTimesResponse availableTimeResponse)?
+        availableTimeSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? availableTimeError,
     TResult Function()? reservationLoading,
     TResult Function(ReservationResponseBody reservationResponse)?
         reservationSuccess,
-    TResult Function(String error)? reservationError,
+    TResult Function(ApiErrorModel apiErrorModel)? reservationError,
     required TResult orElse(),
   }) {
     if (reservationError != null) {
-      return reservationError(error);
+      return reservationError(apiErrorModel);
     }
     return orElse();
   }
@@ -1177,6 +1895,9 @@ class _$ReservationErrorImpl implements ReservationError {
     required TResult Function(DoctorLoading value) doctorLoading,
     required TResult Function(DoctorSuccess value) doctorSuccess,
     required TResult Function(DoctorError value) doctorError,
+    required TResult Function(AvailableTimeLoading value) availableTimeLoading,
+    required TResult Function(AvailableTimeSuccess value) availableTimeSuccess,
+    required TResult Function(AvailableTimeError value) availableTimeError,
     required TResult Function(ReservationLoading value) reservationLoading,
     required TResult Function(ReservationSuccess value) reservationSuccess,
     required TResult Function(ReservationError value) reservationError,
@@ -1191,6 +1912,9 @@ class _$ReservationErrorImpl implements ReservationError {
     TResult? Function(DoctorLoading value)? doctorLoading,
     TResult? Function(DoctorSuccess value)? doctorSuccess,
     TResult? Function(DoctorError value)? doctorError,
+    TResult? Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult? Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult? Function(AvailableTimeError value)? availableTimeError,
     TResult? Function(ReservationLoading value)? reservationLoading,
     TResult? Function(ReservationSuccess value)? reservationSuccess,
     TResult? Function(ReservationError value)? reservationError,
@@ -1205,6 +1929,9 @@ class _$ReservationErrorImpl implements ReservationError {
     TResult Function(DoctorLoading value)? doctorLoading,
     TResult Function(DoctorSuccess value)? doctorSuccess,
     TResult Function(DoctorError value)? doctorError,
+    TResult Function(AvailableTimeLoading value)? availableTimeLoading,
+    TResult Function(AvailableTimeSuccess value)? availableTimeSuccess,
+    TResult Function(AvailableTimeError value)? availableTimeError,
     TResult Function(ReservationLoading value)? reservationLoading,
     TResult Function(ReservationSuccess value)? reservationSuccess,
     TResult Function(ReservationError value)? reservationError,
@@ -1218,10 +1945,10 @@ class _$ReservationErrorImpl implements ReservationError {
 }
 
 abstract class ReservationError implements DoctorsState {
-  const factory ReservationError({required final String error}) =
+  const factory ReservationError(final ApiErrorModel apiErrorModel) =
       _$ReservationErrorImpl;
 
-  String get error;
+  ApiErrorModel get apiErrorModel;
 
   /// Create a copy of DoctorsState
   /// with the given fields replaced by the non-null parameter values.
