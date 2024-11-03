@@ -30,6 +30,8 @@ class ApiConstants {
   static const String settings = 'Auth/Get User Details';
 
   static const String updateProfile = 'Auth/UpdateUser';
+
+  static const String getExercise = 'Sports/DisplaySports';
 }
 
 class ApiErrors {

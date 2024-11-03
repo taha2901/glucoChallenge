@@ -14,6 +14,8 @@ import 'package:challenge/features/medicine/data/repo/medicine_repo.dart';
 import 'package:challenge/features/medicine/logic/medicine_cubit.dart';
 import 'package:challenge/features/settings/data/repos/profile_repo.dart';
 import 'package:challenge/features/settings/logic/profile_cubit.dart';
+import 'package:challenge/features/sports/data/repo/exercise_repo.dart';
+import 'package:challenge/features/sports/logic/exercise_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -53,4 +55,8 @@ Future<void> setUpGetIt() async {
   //profile
   getit.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getit()));
   getit.registerFactory<ProfileCubit>(() => ProfileCubit(getit()));
+
+  //exercise
+  getit.registerLazySingleton<ExerciseRepo>(() => ExerciseRepo(getit()));
+  getit.registerFactory<ExerciseCubit>(() => ExerciseCubit(getit()));
 }
