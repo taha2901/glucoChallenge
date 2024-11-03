@@ -19,6 +19,7 @@ import 'package:challenge/features/medicine/data/model/get_medicine_response_mod
 import 'package:challenge/features/settings/data/models/update_user_request.dart';
 import 'package:challenge/features/settings/data/models/update_user_response.dart';
 import 'package:challenge/features/settings/data/models/user_details_response.dart';
+import 'package:challenge/features/sports/data/model/exercise_response.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'api_constants.dart';
@@ -85,4 +86,6 @@ abstract class ApiServices {
   Future<UpdateUserResponse> updateProfile(
     @Body() UpdateUserRequest updateProfileRequestModel,
   );
+  @GET(ApiConstants.getExercise)
+  Future<List<Exercise>> gerExercise();
 }

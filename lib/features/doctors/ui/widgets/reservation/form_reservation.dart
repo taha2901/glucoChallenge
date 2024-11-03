@@ -63,8 +63,6 @@ class FormReservation extends StatelessWidget {
             buttonText: 'التالي',
             onPressed: () {
               if (formKey.currentState!.validate()) {
-                print(
-                    'ksndkjanklsjd adlfknmlknm ${doctorResponseBody?.detectionPrice.toString()}');
                 Navigator.push(
                   context,
                   MaterialPageRoute(

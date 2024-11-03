@@ -10,7 +10,6 @@ import 'package:challenge/features/settings/ui/widgets/card_user_data.dart';
 import 'package:challenge/features/settings/ui/widgets/profile_user_data_shimmer_laoding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -50,6 +49,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         : const CardOfUserData(),
                     verticalSpace(16.0),
                     _buildListTile(
+                      onPressed: () {
+                        context.pushNamed(Routers.myMedicalRecord);
+                      },
                       leading: const Icon(
                         Iconsax.document,
                         color: Colors.blue,

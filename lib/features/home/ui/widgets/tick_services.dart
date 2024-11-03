@@ -35,7 +35,9 @@ class TicksOfServices extends StatelessWidget {
         const SizedBox(width: 23),
         Expanded(
           child: Services(
-            onTap: () {},
+            onTap: () {
+              context.pushNamed(Routers.exercise);
+            },
             text: 'رياضه',
             icon: Icons.run_circle_sharp,
           ),

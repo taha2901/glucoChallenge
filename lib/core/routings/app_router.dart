@@ -10,11 +10,14 @@ import 'package:challenge/features/login/logic/login_cubit.dart';
 import 'package:challenge/features/login/ui/login_screen.dart';
 import 'package:challenge/features/measurments/ui/measurements_screen.dart';
 import 'package:challenge/features/medicine/ui/add_medicine_screen.dart';
+import 'package:challenge/features/my_medical_record/ui/my_medical_record.dart';
 import 'package:challenge/features/onboard/ui/onboarding.dart';
 import 'package:challenge/features/register/logic/register_cubit.dart';
 import 'package:challenge/features/register/ui/register.dart';
 import 'package:challenge/features/settings/ui/profile_screen.dart';
 import 'package:challenge/features/settings/ui/widgets/update_user_data_screen.dart';
+import 'package:challenge/features/sports/data/model/exercise_response.dart';
+import 'package:challenge/features/sports/ui/exercise.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -79,12 +82,24 @@ class AppRouter {
         );
       case Routers.confirmDoctorResrvation:
         return MaterialPageRoute(
-          builder: (_) =>  ConfirmDoctorReservation(),
+          builder: (_) => ConfirmDoctorReservation(),
+        );
+
+      case Routers.myMedicalRecord:
+        
+        return MaterialPageRoute(
+          builder: (_) => MyMedicalRecord(
+          ),
         );
 
       case Routers.measurement:
         return MaterialPageRoute(
           builder: (_) => const MeasurementsScreen(),
+        );
+
+      case Routers.exercise:
+        return MaterialPageRoute(
+          builder: (_) => const ExerciseScreen(),
         );
 
       case Routers.profile:
