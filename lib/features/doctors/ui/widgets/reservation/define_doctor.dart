@@ -9,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class defineDoctor extends StatelessWidget {
   final DoctorResponseBody doctorResponseBody;
 
+
   const defineDoctor({
     super.key,
     required this.doctorResponseBody,

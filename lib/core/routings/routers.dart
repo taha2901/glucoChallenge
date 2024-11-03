@@ -14,6 +14,7 @@ class Routers {
   static const String measurement = '/measurement';
   static const String profile = '/profile';
   static const String updateProfile = '/updateProfile';
+  static const String thankYouView = '/thankYouView';
 
 
 

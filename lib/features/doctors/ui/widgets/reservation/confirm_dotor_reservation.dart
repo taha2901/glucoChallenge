@@ -1,11 +1,13 @@
 import 'package:challenge/core/helpers/spacing.dart';
 import 'package:challenge/core/theming/styles.dart';
 import 'package:challenge/core/widget/app_text_button.dart';
+import 'package:challenge/features/doctors/data/model/doctor_response_body.dart';
 import 'package:challenge/features/doctors/logic/doctors_cubit.dart';
 import 'package:challenge/features/doctors/logic/doctors_state.dart';
 import 'package:challenge/features/doctors/ui/widgets/reservation/define_doc_reservation.dart';
 import 'package:challenge/features/doctors/ui/widgets/reservation/confirm_reservation_app_bar.dart';
 import 'package:challenge/features/doctors/ui/widgets/reservation/time_line_cal_one.dart';
+import 'package:challenge/features/payment/ui/my_cart_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,6 +20,7 @@ class ConfirmDoctorReservation extends StatefulWidget {
   final String? phone;
   String? time;
   final int? doctorId;
+  final DoctorResponseBody? doctorResponseBody;
 
   ConfirmDoctorReservation({
     super.key,
@@ -26,7 +29,7 @@ class ConfirmDoctorReservation extends StatefulWidget {
     this.age,
     this.phone,
     this.time,
-    this.doctorId,
+    this.doctorId, this.doctorResponseBody,
   });
 
   @override
@@ -40,14 +43,13 @@ class _ConfirmDoctorReservationState extends State<ConfirmDoctorReservation> {
   void _onDateChange(DateTime selectedDate) {
     setState(() {
       _selectedDate = selectedDate;
-      String formattedDate =
-          DateFormat('yyyy-MM-dd').format(selectedDate); // تغيير تنسيق التاريخ
+      print('تم اختيار التاريخ: $_selectedDate');
+      String formattedDate = DateFormat('MM-dd-yyyy').format(selectedDate);
 
-      // استدعاء getAvailableTime بعد تحديد التاريخ
       if (widget.doctorId != null) {
         context.read<DoctorsCubit>().getAvailableTime(
               widget.doctorId!,
-              formattedDate, // تمرير التاريخ كـ String
+              formattedDate,
             );
       }
     });
@@ -82,27 +84,18 @@ class _ConfirmDoctorReservationState extends State<ConfirmDoctorReservation> {
                   if (state is AvailableTimeError) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                          content: Text(
-                              'حدث خطأ: ${state.apiErrorModel.getAllErrorMessages()}')),
+                        content: Text(
+                            'حدث خطأ: ${state.apiErrorModel.getAllErrorMessages()}'),
+                      ),
                     );
                   }
                   if (state is ReservationSuccess) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      snackBarAnimationStyle: AnimationStyle(
-                        duration: const Duration(seconds: 2),
-                        curve: Curves.easeIn,
-                        reverseCurve: Curves.easeOut,
-                        reverseDuration: const Duration(seconds: 1),
-                      ),
                       SnackBar(
-                          backgroundColor: Colors.green,
-                          clipBehavior: Clip.antiAlias,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          padding: const EdgeInsets.all(10),
-                          content: Text(
-                              'تم الحجز بنجاح: ${state.reservationResponse.message}')),
+                        backgroundColor: Colors.green,
+                        content: Text(
+                            'تم الحجز بنجاح: ${state.reservationResponse.message}'),
+                      ),
                     );
                   }
                 },
@@ -119,7 +112,7 @@ class _ConfirmDoctorReservationState extends State<ConfirmDoctorReservation> {
                           return GestureDetector(
                             onTap: () {
                               setState(() {
-                                widget.time = timeStr; // حفظ الوقت كـ String
+                                widget.time = timeStr;
                               });
                             },
                             child: Container(
@@ -148,8 +141,7 @@ class _ConfirmDoctorReservationState extends State<ConfirmDoctorReservation> {
                         },
                       ),
                     );
-                  }
-                  else {
+                  } else {
                     return const Center(child: Text(''));
                   }
                 },
@@ -162,22 +154,29 @@ class _ConfirmDoctorReservationState extends State<ConfirmDoctorReservation> {
               textStyle: TextStyles.font18WhiteBold,
               onPressed: () {
                 if (_selectedDate != null && widget.time != null) {
-                  context.read<DoctorsCubit>().emitReservationStates(
-                        username: widget.username.toString(),
-                        phone: widget.phone.toString(),
-                        age: widget.age ?? 0,
-                        sex: widget.sex.toString(),
-                        date: DateFormat('yyyy-MM-dd').format(
-                            _selectedDate!), // استخدام تنسيق صحيح للتاريخ
-                        doctorId: widget.doctorId!,
-                        time: widget.time!,
-                      );
+                  String formattedDate = _selectedDate!.toIso8601String();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MyCartView(
+                        age: widget.age,
+                        doctorId: widget.doctorId,
+                        phone: widget.phone,
+                        sex: widget.sex,
+                        username: widget.username,
+                        time: widget.time,
+                        selectedDate: formattedDate.toString(),
+                        doctorResponseBody:  widget.doctorResponseBody,
+                      ),
+                    ),
+                  );
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                         content: Text('يرجى تحديد التاريخ والوقت أولاً')),
                   );
                 }
+                print('seleeeecteeddddd dddattttte issss $_selectedDate');
               },
             ),
           ],

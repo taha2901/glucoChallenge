@@ -3,9 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BuildApBar extends StatelessWidget {
   final String? title;
+  final TextStyle? style;
   const BuildApBar({
     super.key,
-    this.title,
+    this.title, this.style,
   });
 
   @override
@@ -15,19 +16,15 @@ class BuildApBar extends StatelessWidget {
       children: [
         InkWell(
           onTap: () => Navigator.pop(context),
-          child: Image.asset(
-            'assets/images/Frame 17.png',
-            height: 40.h,
-            width: 40.w,
-          ),
+          child: IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.arrow_back_ios)),
         ),
         title == null
             ? const SizedBox()
             : Text(
                 title.toString(),
-                // style: TextStyles.font16BlackBold,
+                style: style,
               ),
-        Text('(12)', style: TextStyle(color: Colors.white)),
+        const Text('(12)', style: TextStyle(color: Colors.white)),
       ],
     );
   }
