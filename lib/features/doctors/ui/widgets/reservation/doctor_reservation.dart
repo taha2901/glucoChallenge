@@ -32,7 +32,9 @@ class DoctorReservation extends StatelessWidget {
             showToast(msg: 'تم الحجز بنجاح', state: ToastStates.SUCCESS);
           }
           if (state is ReservationError) {
-            showToast(msg: state.apiErrorModel.errors.toString(), state: ToastStates.ERROR);
+            showToast(
+                msg: state.apiErrorModel.errors.toString(),
+                state: ToastStates.ERROR);
           }
         },
         builder: (context, state) {
@@ -57,7 +59,10 @@ class DoctorReservation extends StatelessWidget {
                           child: verticalSpace(64),
                         ),
                         SliverToBoxAdapter(
-                          child: FormReservation(doctorId: doctorId),
+                          child: FormReservation(
+                            doctorId: doctorId,
+                            doctorResponseBody: doctorResponseBody,
+                          ),
                         )
                       ],
                     ),
