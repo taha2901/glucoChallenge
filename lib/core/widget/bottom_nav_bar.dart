@@ -1,7 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:challenge/core/theming/colors.dart';
+import 'package:challenge/features/activity/ui/activity_screen.dart';
 import 'package:challenge/features/home/ui/home_screen.dart';
-import 'package:challenge/features/medicine/logic/medicine_cubit.dart';
 import 'package:challenge/features/medicine/ui/medicine_screen.dart';
 import 'package:challenge/features/pic_products/presentation/view/pic_products.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +27,7 @@ class _LayoutShopState extends State<LayoutShop> {
 
   late final List<Widget> _pages = [
     const HomeScreen(),
-    Container(),
+    const ActivityScreen(),
     const MedicineScreen(),
     const PicProductsView(),
   ];
