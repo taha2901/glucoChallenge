@@ -13,4 +13,9 @@ class MedicineState with _$MedicineState {
   const factory MedicineState.addMedicineLoading() = AddMedicineLoading;
   const factory MedicineState.addMedicineSuccess() = AddMedicineSuccess;
   const factory MedicineState.addMedicineError(ApiErrorModel apiErrorModel) = AddMedicineError;
+
+  //delete medicine
+  const factory MedicineState.deleteMedicineLoading() = DeleteMedicineLoading;
+  const factory MedicineState.deleteMedicineSuccess() = DeleteMedicineSuccess;
+  const factory MedicineState.deleteMedicineError(ApiErrorModel apiErrorModel) = DeleteMedicineError;
 }

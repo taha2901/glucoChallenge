@@ -1,5 +1,6 @@
 import 'package:challenge/core/helpers/constants.dart';
 import 'package:challenge/core/helpers/spacing.dart';
+import 'package:challenge/core/theming/colors.dart';
 import 'package:challenge/core/widget/app_text_button.dart';
 import 'package:challenge/core/widget/app_text_form_field.dart';
 import 'package:challenge/features/measurments/data/model/get_measurments_models/get_blood_suger_response.dart';
@@ -10,7 +11,6 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 class PartScreenSuger extends StatefulWidget {
   final String? suffixText;
@@ -26,9 +26,6 @@ class _PartScreenSugerState extends State<PartScreenSuger> {
   String? selectedMeal;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController sugarLevelController = TextEditingController();
-
-
-
 
   void _onSaveButtonPressed() {
     if (formKey.currentState!.validate()) {
@@ -83,37 +80,76 @@ class _PartScreenSugerState extends State<PartScreenSuger> {
                   if (state is AddBloodSugerSuccess) {
                     // تحديث البيانات بعد نجاح الإضافة
                     String formattedDate = DateHelper.getCurrentDate();
-                    context.read<MeasurmentsCubit>().fetchSugarData(formattedDate);
+                    context
+                        .read<MeasurmentsCubit>()
+                        .fetchSugarData(formattedDate);
                   }
                 },
-                  child: BlocBuilder<MeasurmentsCubit, MeasurmentsState>(
-                    builder: (context, state) {
-                      if (state is GetBloodSugerLoading) {
-                        return const CircularProgressIndicator();
-                      } else if (state is GetBloodSugerSuccess) {
-                        return Column(
-                          children: [
-                            const Text("مستوى السكر في الدم (الزمن مقابل القراءة)"),
-                            SizedBox(
-                              height: 300, 
-                              child: LineChart(
-                                _buildLineChartData(state.bloodSugar),
-                              ),
-                            ),
-                          ],
-                        );
-                      } else if (state is GetBloodSugerError) {
-                        return Text('Error: ${state.error}');
-                      } else {
-                        return const Text('No data available');
+                child: BlocBuilder<MeasurmentsCubit, MeasurmentsState>(
+                  builder: (context, state) {
+                    if (state is GetBloodSugerLoading) {
+                      return const CircularProgressIndicator();
+                    } else if (state is GetBloodSugerSuccess) {
+                      if (state.bloodSugar.isEmpty) {
+                        return _buildEmptyState(
+                            context); // هذا الجزء سيظهر عندما لا توجد بيانات.
                       }
-                    },
-                  ),
+                      return Column(
+                        children: [
+                          const Text(
+                              "مستوى السكر في الدم (الزمن مقابل القراءة)"),
+                          SizedBox(
+                            height: 300,
+                            child: LineChart(
+                              _buildLineChartData(state.bloodSugar),
+                            ),
+                          ),
+                        ],
+                      );
+                    }
+                    // else if(state is GetBloodSugerSuccess && state.bloodSugar.isEmpty){
+                    //   return _buildEmptyState(context);
+                    // }
+                    else if (state is GetBloodSugerError) {
+                      return Text('Error: ${state.error}');
+                    } else {
+                      return const CircularProgressIndicator();
+                    }
+                  },
+                ),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildEmptyState(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Icon(Icons.warning, size: 50, color: Colors.grey),
+        const SizedBox(height: 12),
+        Text(
+          "لا توجد بيانات حالياً لعرضها",
+          style: TextStyle(color: Colors.grey, fontSize: 16),
+        ),
+        const SizedBox(height: 24),
+        AppTextButton(
+          buttonText: 'حاول لاحقاً',
+          borderRadius: 5,
+          backgroundColor: ColorsManager.mainColor,
+          textStyle: const TextStyle(color: Colors.white),
+          onPressed: () {
+            // إعادة المحاولة أو إعادة تحميل البيانات
+            context
+                .read<MeasurmentsCubit>()
+                .fetchSugarData(DateHelper.getCurrentDate());
+          },
+        ),
+      ],
     );
   }
 
@@ -163,50 +199,47 @@ class _PartScreenSugerState extends State<PartScreenSuger> {
 
   // دالة لبناء البيانات للرسم البياني
   LineChartData _buildLineChartData(List<SugarMeasurement> sugarData) {
-  List<FlSpot> beforeMealSpots = [];
-  List<FlSpot> afterMealSpots = [];
+    List<FlSpot> beforeMealSpots = [];
+    List<FlSpot> afterMealSpots = [];
 
-  // فرز القراءات بناءً على نوع الوجبة
-  for (int i = 0; i < sugarData.length; i++) {
-    if (sugarData[i].measurementDate == 'قبل الاكل') {
-      beforeMealSpots.add(FlSpot(i.toDouble(), sugarData[i].sugarReading.toDouble()));
-    } else if (sugarData[i].measurementDate == 'بعد الاكل') {
-      afterMealSpots.add(FlSpot(i.toDouble(), sugarData[i].sugarReading.toDouble()));
+    // فرز القراءات بناءً على نوع الوجبة
+    for (int i = 0; i < sugarData.length; i++) {
+      if (sugarData[i].measurementDate == 'قبل الاكل') {
+        beforeMealSpots
+            .add(FlSpot(i.toDouble(), sugarData[i].sugarReading.toDouble()));
+      } else if (sugarData[i].measurementDate == 'بعد الاكل') {
+        afterMealSpots
+            .add(FlSpot(i.toDouble(), sugarData[i].sugarReading.toDouble()));
+      }
     }
+
+    return LineChartData(
+      gridData: const FlGridData(show: true),
+      titlesData: const FlTitlesData(show: true),
+      borderData: FlBorderData(
+        show: true,
+        border: Border.all(color: Colors.black, width: 1),
+      ),
+      lineBarsData: [
+        // خط لقراءات قبل الوجبة
+        LineChartBarData(
+          spots: beforeMealSpots,
+          isCurved: true,
+          color: Colors.blue,
+          barWidth: 4,
+          belowBarData:
+              BarAreaData(show: true, color: Colors.blue.withOpacity(0.3)),
+        ),
+        // خط لقراءات بعد الوجبة
+        LineChartBarData(
+          spots: afterMealSpots,
+          isCurved: true,
+          color: Colors.red,
+          barWidth: 4,
+          belowBarData:
+              BarAreaData(show: true, color: Colors.red.withOpacity(0.3)),
+        ),
+      ],
+    );
   }
-
-  return LineChartData(
-    gridData: const FlGridData(show: true),
-    titlesData: const FlTitlesData(show: true),
-    borderData: FlBorderData(
-      show: true,
-      border: Border.all(color: Colors.black, width: 1),
-    ),
-    lineBarsData: [
-      // خط لقراءات قبل الوجبة
-      LineChartBarData(
-        spots: beforeMealSpots,
-        isCurved: true,
-        color: Colors.blue,
-        barWidth: 4,
-        belowBarData: BarAreaData(
-          show: true, 
-          color: Colors.blue.withOpacity(0.3)
-        ),
-      ),
-      // خط لقراءات بعد الوجبة
-      LineChartBarData(
-        spots: afterMealSpots,
-        isCurved: true,
-        color: Colors.red,
-        barWidth: 4,
-        belowBarData: BarAreaData(
-          show: true, 
-          color: Colors.red.withOpacity(0.3)
-        ),
-      ),
-    ],
-  );
-}
-
 }

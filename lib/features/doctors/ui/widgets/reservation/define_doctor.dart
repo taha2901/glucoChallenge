@@ -9,7 +9,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class defineDoctor extends StatelessWidget {
   final DoctorResponseBody doctorResponseBody;
 
-
   const defineDoctor({
     super.key,
     required this.doctorResponseBody,
@@ -61,20 +60,6 @@ class defineDoctor extends StatelessWidget {
                     horizontalSpace(5),
                     Text(
                       doctorResponseBody.address.toString(),
-                      style: TextStyles.font15DarkBlueMedium,
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    const Icon(
-                      Icons.calendar_today,
-                      size: 15,
-                    ),
-                    horizontalSpace(5),
-                    Text(
-                      doctorResponseBody.endTime.toString(),
                       style: TextStyles.font15DarkBlueMedium,
                     ),
                   ],

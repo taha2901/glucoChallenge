@@ -2,7 +2,6 @@ import 'package:challenge/core/helpers/spacing.dart';
 import 'package:challenge/core/theming/styles.dart';
 import 'package:challenge/features/home/ui/widgets/home_app_bar.dart';
 import 'package:challenge/features/home/ui/widgets/data_in_home.dart';
-import 'package:challenge/features/home/ui/widgets/home_text_field.dart';
 import 'package:challenge/features/home/ui/widgets/tick_heart.dart';
 import 'package:challenge/features/home/ui/widgets/tick_services.dart';
 import 'package:challenge/features/home/ui/widgets/two_square_container.dart';
@@ -21,7 +20,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   void _handleDateChange(DateTime selectedDate) {
-    print('التاريخ المحدد: ${selectedDate.toLocal()}');
+    debugPrint('التاريخ المحدد: ${selectedDate.toLocal()}');
   }
 
   @override
@@ -33,8 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             verticalSpace(16),
             const CustomAppBar(),
-            verticalSpace(16),
-            const HomeTextField(),
             Expanded(
               child: CustomScrollView(
                 slivers: [
@@ -59,26 +56,54 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: BlocBuilder<MeasurmentsCubit, MeasurmentsState>(
                       builder: (context, state) {
                         if (state is GetBloodSugerLoading) {
-                          return Container();
+                          return Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: PulseIndicator(
+                              beforeMealValue: 0,
+                              afterMealValue: 0,
+                              noDataMessage:
+                                  'Loading...', // يمكن تغيير الرسالة هنا
+                              isLoading: true, // إشارة إلى أنه في حالة تحميل
+                            ),
+                          );
                         } else if (state is GetBloodSugerSuccess) {
-                          int beforeMealValue = state.bloodSugar
+                          final bloodSugar = state.bloodSugar;
+                          int beforeMealValue = bloodSugar
                               .where((measurement) =>
                                   measurement.measurementDate == 'قبل الاكل')
-                              .fold(0, (sum, item) => sum + item.sugarReading);
-
-                          int afterMealValue = state.bloodSugar
+                              .fold(
+                                  0, (sum, item) => sum + item.sugarReading);
+    
+                          int afterMealValue = bloodSugar
                               .where((measurement) =>
                                   measurement.measurementDate == 'بعد الاكل')
-                              .fold(0, (sum, item) => sum + item.sugarReading);
-
+                              .fold(
+                                  0, (sum, item) => sum + item.sugarReading);
+    
                           return PulseIndicator(
                             beforeMealValue: beforeMealValue,
                             afterMealValue: afterMealValue,
+                            noDataMessage:
+                                beforeMealValue == 0 && afterMealValue == 0
+                                    ? 'No measurements for today'
+                                    : null, // إذا كانت البيانات فارغة
+                            isLoading: false, // عند انتهاء التحميل
                           );
                         } else if (state is GetBloodSugerError) {
-                          return Center(child: Text('Error: ${state.error}'));
+                          return PulseIndicator(
+                            beforeMealValue: 0,
+                            afterMealValue: 0,
+                            noDataMessage: 'Error: ${state.error}',
+                            isLoading: false,
+                          );
                         } else {
-                          return const Text('No data available');
+                          // عرض نفس الشكل مع رسالة عدم وجود بيانات
+                          return PulseIndicator(
+                            beforeMealValue: 0,
+                            afterMealValue: 0,
+                            noDataMessage: 'No data available',
+                            isLoading: false,
+                          );
                         }
                       },
                     ),

@@ -1,8 +1,10 @@
 import 'package:challenge/core/networking/api_error_handler.dart';
 import 'package:challenge/core/networking/api_result.dart';
 import 'package:challenge/core/networking/api_services.dart';
+import 'package:challenge/features/medical_record/data/model/delete_medical_record/delete_medical_record.dart';
 import 'package:challenge/features/medicine/data/model/add_medicine_request_model.dart';
 import 'package:challenge/features/medicine/data/model/add_medicine_response_model.dart';
+import 'package:challenge/features/medicine/data/model/delete_medicine_response/delete_medicine_response.dart';
 import 'package:challenge/features/medicine/data/model/get_medicine_response_model.dart';
 
 class MedicineRepo {
@@ -14,7 +16,9 @@ class MedicineRepo {
       final response = await _apiService.getMedicine();
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ApiErrorHandler.handle(error),);
+      return ApiResult.failure(
+        ApiErrorHandler.handle(error),
+      );
     }
   }
 
@@ -22,15 +26,26 @@ class MedicineRepo {
     AddMedicineRequestBody addMedicineRequestBody,
   ) async {
     try {
-      final response =
-          await _apiService.addMedicine(addMedicineRequestBody);
+      final response = await _apiService.addMedicine(addMedicineRequestBody);
 
       print('API Response: $response');
       return ApiResult.success(response);
     } catch (error) {
       print('API Error: $error');
       return ApiResult.failure(
-       ApiErrorHandler.handle(error),
+        ApiErrorHandler.handle(error),
+      );
+    }
+  }
+
+  //delete medicine
+  Future<ApiResult<DeleteMedicineResponse>> deleteMedicine(int id) async {
+    try {
+      final response = await _apiService.deleteMedicine(id);
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(
+        ApiErrorHandler.handle(error),
       );
     }
   }
