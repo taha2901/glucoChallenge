@@ -2,7 +2,9 @@ import 'package:challenge/core/helpers/spacing.dart';
 import 'package:challenge/core/theming/colors.dart';
 import 'package:challenge/core/theming/styles.dart';
 import 'package:challenge/features/medicine/data/model/get_medicine_response_model.dart';
+import 'package:challenge/features/medicine/logic/medicine_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MedicineCard extends StatelessWidget {
   final GetMedicineResponseBody medicine;
@@ -34,7 +36,13 @@ class MedicineCard extends StatelessWidget {
                     style: TextStyles.font18BlackBold,
                   ),
                   const Spacer(),
-                  const Icon(Icons.delete)
+                  InkWell(
+                      onTap: () {
+                        context
+                            .read<MedicineCubit>()
+                            .deleteMedicine(medicine.id!);
+                      },
+                      child: const Icon(Icons.delete))
                 ],
               ),
               Row(

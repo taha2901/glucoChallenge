@@ -70,6 +70,13 @@ class SharedPrefHelper {
     return sharedPreferences.getString(key) ?? '';
   }
 
+
+   static Future<String?> getStringg(String key) async {
+    // Your code to get the string from SharedPreferences
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(key);
+  }
+
   /// Saves a [value] with a [key] in the FlutterSecureStorage.
   static setSecuredString(String key, String value) async {
     const flutterSecureStorage = FlutterSecureStorage();
@@ -91,4 +98,5 @@ class SharedPrefHelper {
     const flutterSecureStorage = FlutterSecureStorage();
     await flutterSecureStorage.deleteAll();
   }
+  
 }

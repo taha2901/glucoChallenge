@@ -1,3 +1,4 @@
+import 'package:challenge/core/helpers/shared_pref_helper.dart';
 import 'package:challenge/core/helpers/spacing.dart';
 import 'package:challenge/core/theming/colors.dart';
 import 'package:challenge/features/settings/logic/profile_cubit.dart';
@@ -47,15 +48,17 @@ class CardOfUserData extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              GestureDetector(
-                child: CircleAvatar(
-                  radius: 50.sp,
-                  child: Icon(
-                    Icons.person,
-                    size: 60.sp,
-                  ),
-                ),
-              ),
+              FutureBuilder<String?>(
+                  future: SharedPrefHelper.getStringg('photoUrl'),
+                  builder: (context, snapshot) {
+                    String? photoUrl = snapshot.data;
+                    return GestureDetector(
+                      child: CircleAvatar(
+                        radius: 50.sp,
+                        backgroundImage: NetworkImage(photoUrl ?? ''),
+                      ),
+                    );
+                  }),
             ],
           ),
         ),

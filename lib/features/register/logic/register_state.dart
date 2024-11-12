@@ -1,3 +1,4 @@
+import 'package:challenge/core/networking/api_error_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'register_state.freezed.dart';
 
@@ -8,5 +9,5 @@ class RegisterState<T> with _$RegisterState {
 
   const factory RegisterState.success(T data) = RegisterSuccess<T>;
 
-  const factory RegisterState.error({required String error}) = RegisterError;
+  const factory RegisterState.error(ApiErrorModel error) = RegisterError;
 }

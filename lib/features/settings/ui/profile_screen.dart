@@ -33,7 +33,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               },
               icon: const Icon(Iconsax.arrow_right),
               color: Colors.blue,
-            ) ,
+            ),
             backgroundColor: Colors.transparent,
           ),
           body: SafeArea(
@@ -45,7 +45,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                     verticalSpace(16.0),
                     state is ProfileLoading
-                        ? const ProfileUserDataShimmerLoading()
+                        ? const ShimmerCardOfUserData()
                         : const CardOfUserData(),
                     verticalSpace(16.0),
                     _buildListTile(
@@ -70,6 +70,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       // Routers.changePassword,
                     ),
                     _buildListTile(
+                      onPressed: () => context.pushNamed(Routers.favourite),
                       leading: const Icon(
                         Icons.favorite_outline_outlined,
                         color: Colors.blue,

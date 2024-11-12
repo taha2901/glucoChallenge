@@ -7,11 +7,17 @@ class ApiConstants {
 
   static const String doctor = 'Doctors/SelectDoctors';
 
+  static const String popularDoctor = 'Doctors/PopularDoctors';
+
   static const String availableTime = 'Doctors/AvailableTime';
 
   static const String reservation = 'Doctors/Reservation';
 
+  static const String cancelReservation = 'profiles/DeleteResrvation';
+
   static const String medicines = 'Medicine/Get medicines for user';
+
+  static const String deleteMedicine = 'Medicine/Deletemedicine';
 
   static const String addMedicine = 'Medicine/AddMedicines';
 
@@ -32,6 +38,13 @@ class ApiConstants {
   static const String updateProfile = 'Auth/UpdateUser';
 
   static const String getExercise = 'Sports/DisplaySports';
+
+  static const String getFavourite = 'Favorites/GetFavoritesDoctors';
+  static const String addFavourite = 'Favorites/AddandRemoveFavoriteDoctor';
+
+  static const String medicalRecord = 'profiles/UserReservations';
+
+  static const String deleteMedicalRecord = 'profiles/DeletedUserReservations';
 }
 
 class ApiErrors {
