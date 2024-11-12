@@ -65,7 +65,10 @@ class NotificationService {
           displayOnBackground: true,
           displayOnForeground: true,
         ),
-        schedule: NotificationCalendar.fromDate(date: finalScheduledDateTime),
+        schedule: NotificationCalendar.fromDate(
+          date: finalScheduledDateTime,
+          repeats: true,
+        ),
       );
 
       print('Notification Scheduled for: $cleanedTime');

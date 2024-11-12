@@ -21,7 +21,7 @@ mixin _$RegisterState<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$RegisterState<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$RegisterState<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel error)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,7 +133,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel error) error,
   }) {
     return initial();
   }
@@ -144,7 +144,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel error)? error,
   }) {
     return initial?.call();
   }
@@ -155,7 +155,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel error)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -250,7 +250,7 @@ class _$RegisterLoadingImpl<T> implements RegisterLoading<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel error) error,
   }) {
     return loading();
   }
@@ -261,7 +261,7 @@ class _$RegisterLoadingImpl<T> implements RegisterLoading<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel error)? error,
   }) {
     return loading?.call();
   }
@@ -272,7 +272,7 @@ class _$RegisterLoadingImpl<T> implements RegisterLoading<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel error)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -396,7 +396,7 @@ class _$RegisterSuccessImpl<T> implements RegisterSuccess<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel error) error,
   }) {
     return success(data);
   }
@@ -407,7 +407,7 @@ class _$RegisterSuccessImpl<T> implements RegisterSuccess<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel error)? error,
   }) {
     return success?.call(data);
   }
@@ -418,7 +418,7 @@ class _$RegisterSuccessImpl<T> implements RegisterSuccess<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel error)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -483,7 +483,7 @@ abstract class _$$RegisterErrorImplCopyWith<T, $Res> {
           $Res Function(_$RegisterErrorImpl<T>) then) =
       __$$RegisterErrorImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ApiErrorModel error});
 }
 
 /// @nodoc
@@ -502,10 +502,10 @@ class __$$RegisterErrorImplCopyWithImpl<T, $Res>
     Object? error = null,
   }) {
     return _then(_$RegisterErrorImpl<T>(
-      error: null == error
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ApiErrorModel,
     ));
   }
 }
@@ -513,10 +513,10 @@ class __$$RegisterErrorImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$RegisterErrorImpl<T> implements RegisterError<T> {
-  const _$RegisterErrorImpl({required this.error});
+  const _$RegisterErrorImpl(this.error);
 
   @override
-  final String error;
+  final ApiErrorModel error;
 
   @override
   String toString() {
@@ -549,7 +549,7 @@ class _$RegisterErrorImpl<T> implements RegisterError<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) success,
-    required TResult Function(String error) error,
+    required TResult Function(ApiErrorModel error) error,
   }) {
     return error(this.error);
   }
@@ -560,7 +560,7 @@ class _$RegisterErrorImpl<T> implements RegisterError<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? success,
-    TResult? Function(String error)? error,
+    TResult? Function(ApiErrorModel error)? error,
   }) {
     return error?.call(this.error);
   }
@@ -571,7 +571,7 @@ class _$RegisterErrorImpl<T> implements RegisterError<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? success,
-    TResult Function(String error)? error,
+    TResult Function(ApiErrorModel error)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -619,10 +619,10 @@ class _$RegisterErrorImpl<T> implements RegisterError<T> {
 }
 
 abstract class RegisterError<T> implements RegisterState<T> {
-  const factory RegisterError({required final String error}) =
+  const factory RegisterError(final ApiErrorModel error) =
       _$RegisterErrorImpl<T>;
 
-  String get error;
+  ApiErrorModel get error;
 
   /// Create a copy of RegisterState
   /// with the given fields replaced by the non-null parameter values.

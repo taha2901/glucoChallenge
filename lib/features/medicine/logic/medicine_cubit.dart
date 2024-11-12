@@ -66,4 +66,18 @@ class MedicineCubit extends Cubit<MedicineState> {
       },
     );
   }
+
+
+  //delete medicine
+  void deleteMedicine(int id) async {
+    final response = await _medicineRepo.deleteMedicine(id);
+    response.when(
+      success: (deleteMedicine) {
+        getMedicine();
+      },
+      failure: (errorModel) {
+        emit(MedicineState.deleteMedicineError(errorModel));
+      },
+    );
+  }
 }

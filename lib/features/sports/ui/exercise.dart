@@ -5,6 +5,7 @@ import 'package:challenge/features/sports/ui/widgets/app_bar_exercise.dart';
 import 'package:challenge/features/sports/ui/widgets/exercise_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletonizer/skeletonizer.dart'; 
 
 class ExerciseScreen extends StatelessWidget {
   const ExerciseScreen({super.key});
@@ -18,28 +19,54 @@ class ExerciseScreen extends StatelessWidget {
             const AppBarOfExcercise(),
             Expanded(
               child: BlocProvider(
-                create: (context) =>  getit<ExerciseCubit>()..getExercise(),
+                create: (context) => getit<ExerciseCubit>()..getExercise(),
                 child: BlocConsumer<ExerciseCubit, ExerciseState>(
                   listener: (context, state) {
-                    // TODO: implement listener
+                   
                   },
                   builder: (context, state) {
-                    return ListView.builder(
-                      itemCount: ExerciseCubit.get(context).exercises.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ExerciseCard(
-                            exercise:
-                                ExerciseCubit.get(context).exercises[index],
-                          ),
-                        );
-                      },
-                    );
+                    if (state is ExerciseLoading) {
+                      return ListView.builder(
+                        itemCount: 5, 
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Skeletonizer(
+                              enabled: true,
+                              child: Container(
+                                height: 100,
+                                width: double.infinity,
+                                color: Colors.grey[300], // لون placeholder
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    } else if (state is ExerciseSuccess) {
+                      final exercises = ExerciseCubit.get(context).exercises;
+                      return ListView.builder(
+                        itemCount: exercises.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ExerciseCard(
+                              exercise: exercises[index],
+                            ),
+                          );
+                        },
+                      );
+                    } else if (state is ExerciseError) {
+                      // عرض رسالة خطأ في حالة الفشل
+                      return Center(
+                        child: Text('حدث خطأ أثناء جلب البيانات'),
+                      );
+                    }
+                    // عرض مؤشر تحميل أو رسالة مبدئية في حالة `initial`
+                    return Center(child: CircularProgressIndicator());
                   },
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

@@ -19,11 +19,19 @@ void main() async {
   setUpGetIt();
   await NotificationService().requestPermissions();
 
-  SharedPrefHelper.getString(
-      'SharedPrefHelper for my name is  ${SharedPrefKeys.myName}');
 
-  SharedPrefHelper.getString(
-      'SharedPrefHelper for my pic is  ${SharedPrefKeys.userPhotoUrl}');
+  Future<void> loadUserData() async {
+  String? photoUrl = await SharedPrefHelper.getString('photoUrl');
+  String? name = await SharedPrefHelper.getString('name');
+  String? password = await SharedPrefHelper.getString('password');
+
+  // يمكنك الآن استخدام هذه القيم كما تريد
+  print("User photo URL: $photoUrl");
+  print("User name: $name");
+  print("User password: $password");
+}
+
+
 
   await ScreenUtil.ensureScreenSize();
   await checkLoggedInUser();

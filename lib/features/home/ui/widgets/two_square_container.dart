@@ -3,15 +3,19 @@ import 'package:challenge/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:shimmer/shimmer.dart';
 class PulseIndicator extends StatelessWidget {
   final int beforeMealValue;
   final int afterMealValue;
+  final String? noDataMessage;
+  final bool isLoading; // متغير لتحديد حالة التحميل
 
   const PulseIndicator({
     super.key,
     required this.beforeMealValue,
     required this.afterMealValue,
+    this.noDataMessage,
+    this.isLoading = false, // افتراضي هو false
   });
 
   @override
@@ -42,13 +46,49 @@ class PulseIndicator extends StatelessWidget {
                       ),
                     ),
                   ),
+                  // إذا كانت هناك رسالة لعرضها، نعرضها هنا مع الأنيميشن
+                  if (isLoading) 
+                    _buildLoadingWidget()
+                  else if (noDataMessage != null)
+                    Expanded(
+                      child: Center(
+                        child: AnimatedSwitcher(
+                          duration: const Duration(seconds: 1),
+                          transitionBuilder:
+                              (Widget child, Animation<double> animation) {
+                            return RotationTransition(
+                              turns: Tween(begin: 0.0, end: 1.0)
+                                  .animate(animation),
+                              child: child,
+                            );
+                          },
+                          child: Container(
+                            key: ValueKey<String>(noDataMessage!), // تغيير المفتاح لتحديث الرسالة عند الحاجة
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.blueAccent.withOpacity(0.5),
+                            ),
+                            padding: const EdgeInsets.all(20.0),
+                            child: Text(
+                              noDataMessage!,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   Row(
                     children: [
                       _indicator(Colors.blue, "قبل الوجبة"),
                       const Spacer(),
                       _indicator(Colors.red, "بعد الوجبة"),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
@@ -57,6 +97,25 @@ class PulseIndicator extends StatelessWidget {
       ],
     );
   }
+
+Widget _buildLoadingWidget() {
+  return RotationTransition(
+    turns: AlwaysStoppedAnimation(1 / 2), // تدوير الشكل نصف دورة
+    child: Shimmer.fromColors(
+      baseColor: Colors.grey[300]!,
+      highlightColor: Colors.grey[100]!,
+      child: Container(
+        height: 100.r, // نفس حجم الدائرة الموجودة في PulseIndicator
+        width: 100.r,  // نفس الحجم
+        decoration: BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.circle, // يجعل الشكل دائري
+        ),
+      ),
+    ),
+  );
+}
+
 
   List<PieChartSectionData> _createPieChartSections() {
     final total = beforeMealValue + afterMealValue;

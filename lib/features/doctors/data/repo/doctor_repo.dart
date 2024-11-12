@@ -2,7 +2,9 @@ import 'package:challenge/core/networking/api_error_handler.dart';
 import 'package:challenge/core/networking/api_result.dart';
 import 'package:challenge/core/networking/api_services.dart';
 import 'package:challenge/features/doctors/data/model/available_time_response.dart';
+import 'package:challenge/features/doctors/data/model/delete_reservaion_response.dart';
 import 'package:challenge/features/doctors/data/model/doctor_response_body.dart';
+import 'package:challenge/features/doctors/data/model/popular_doctor_response_body.dart';
 import 'package:challenge/features/doctors/data/model/reservation_request_body.dart';
 import 'package:challenge/features/doctors/data/model/reservation_response_body.dart';
 
@@ -23,7 +25,20 @@ class DoctorRepo {
     }
   }
 
-  Future<ApiResult<AvailableTimesResponse>> getAvailableTime(int id, String date) async {
+  Future<ApiResult<List<PopularDoctorResponseBody>>> getPopularDoctors() async {
+    try {
+      final response = await _apiService.getPopularDoctor();
+      print("API Response: ${response.toString()}");
+      return ApiResult.success(response);
+    } catch (error) {
+      print("API Error: ${error.toString()}");
+      final errorHandler = ApiErrorHandler.handle(error);
+      return ApiResult.failure(errorHandler);
+    }
+  }
+
+  Future<ApiResult<AvailableTimesResponse>> getAvailableTime(
+      int id, String date) async {
     try {
       final response = await _apiService.getAvailableTime(id, date);
       print("API Response: ${response.toString()}");
@@ -36,13 +51,29 @@ class DoctorRepo {
     }
   }
 
-  Future<ApiResult<ReservationResponseBody>> addReservation(int doctorId, ReservationRequestBody reservationRequestBody) async {
+  Future<ApiResult<ReservationResponseBody>> addReservation(
+      int doctorId, ReservationRequestBody reservationRequestBody) async {
     try {
-      final response = await _apiService.addReservation(doctorId, reservationRequestBody);
+      final response =
+          await _apiService.addReservation(doctorId, reservationRequestBody);
       print('Doctor ID IS: ${doctorId.toString()}');
       return ApiResult.success(response);
     } catch (error) {
       print('API Error: $error');
+      // Return an ApiErrorModel for failures
+      final errorHandler = ApiErrorHandler.handle(error);
+      return ApiResult.failure(errorHandler);
+    }
+  }
+
+  //delete reservation
+  Future<ApiResult<DeleteReservaionResponse>> deleteReservation(int id) async {
+    try {
+      final response = await _apiService.cancelReservation(id);
+      print("API Response: ${response.toString()}");
+      return ApiResult.success(response);
+    } catch (error) {
+      print("API Error: ${error.toString()}");
       // Return an ApiErrorModel for failures
       final errorHandler = ApiErrorHandler.handle(error);
       return ApiResult.failure(errorHandler);

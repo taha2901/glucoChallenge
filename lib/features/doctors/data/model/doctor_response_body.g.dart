@@ -30,6 +30,8 @@ DoctorResponseBody _$DoctorResponseBodyFromJson(Map<String, dynamic> json) =>
       workingHours: (json['workingHours'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
+      rate: (json['rate'] as num?)?.toInt(),
+      rateCount: (json['rateCount'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$DoctorResponseBodyToJson(DoctorResponseBody instance) =>
@@ -49,6 +51,8 @@ Map<String, dynamic> _$DoctorResponseBodyToJson(DoctorResponseBody instance) =>
       'startTime': instance.startTime,
       'endTime': instance.endTime,
       'favorite': instance.favorite,
+      'rate': instance.rate,
+      'rateCount': instance.rateCount,
       'users': instance.users,
       'doctorComments': instance.doctorComments,
       'workingHours': instance.workingHours,
