@@ -45,6 +45,14 @@ class ApiConstants {
   static const String medicalRecord = 'profiles/UserReservations';
 
   static const String deleteMedicalRecord = 'profiles/DeletedUserReservations';
+
+  static const String addPerson = 'AddObserver/AddObserver';
+
+  static const String getDoctorComments = 'DoctotComment/Get comments';
+
+  static const String addDoctorComment = 'DoctotComment/AddDoctorcomment';
+
+  static const String addRate = 'Doctors/RateDoctor';
 }
 
 class ApiErrors {

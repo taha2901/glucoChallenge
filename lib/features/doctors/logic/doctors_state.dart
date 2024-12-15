@@ -1,6 +1,9 @@
 import 'package:challenge/core/networking/api_error_model.dart';
+import 'package:challenge/features/doctors/data/model/add_comment_response_body.dart';
+import 'package:challenge/features/doctors/data/model/add_rate_response.dart';
 import 'package:challenge/features/doctors/data/model/available_time_response.dart';
 import 'package:challenge/features/doctors/data/model/delete_reservaion_response.dart';
+import 'package:challenge/features/doctors/data/model/doctor_comment_response.dart';
 import 'package:challenge/features/doctors/data/model/doctor_response_body.dart';
 import 'package:challenge/features/doctors/data/model/reservation_response_body.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -29,6 +32,22 @@ class DoctorsState with _$DoctorsState {
   const factory DoctorsState.deleteReservationLoading() = DeleteReservationLoading;
   const factory DoctorsState.deleteReservationSuccess( {required DeleteReservaionResponse deleteReservaionResponse}) = DeleteReservationSuccess;
   const factory DoctorsState.deleteReservationError(ApiErrorModel apiErrorModel) = DeleteReservationError;
+
+
+  const factory DoctorsState.doctorCommentsLoading() = DoctorCommentsLoading;
+  const factory DoctorsState.doctorCommentsSuccess({required List<DoctorCommentResponse> responseBody}) = DoctorCommentsSuccess;
+  const factory DoctorsState.doctorCommentsError(ApiErrorModel apiErrorModel) = DoctorCommentsError;
+
+  //add comment
+  const factory DoctorsState.addCommentLoading() = AddCommentLoading;
+  const factory DoctorsState.addCommentSuccess({required AddCommentResponseBody responseBody}) = AddCommentSuccess;
+  const factory DoctorsState.addCommentError(ApiErrorModel apiErrorModel) = AddCommentError;
+
+  //add rate
+  const factory DoctorsState.addRateLoading() = AddRateLoading;
+  const factory DoctorsState.addRateSuccess(AddRateResponse addRateResponse) = AddRateSuccess;
+  const factory DoctorsState.addRateError(ApiErrorModel apiErrorModel) = AddRateError;
+
 }
 
 

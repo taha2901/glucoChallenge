@@ -1,5 +1,9 @@
+import 'package:challenge/core/helpers/email_services.dart';
+import 'package:challenge/core/helpers/local_notify.dart';
 import 'package:challenge/core/networking/api_services.dart';
 import 'package:challenge/core/networking/dio_factory.dart';
+import 'package:challenge/features/add_person/data/repo/add_person_repo.dart';
+import 'package:challenge/features/add_person/logic/add_person_cubit.dart';
 import 'package:challenge/features/doctors/data/repo/doctor_repo.dart';
 import 'package:challenge/features/doctors/data/repo/popular_doctor_repo.dart';
 import 'package:challenge/features/doctors/logic/doctors_cubit.dart';
@@ -34,6 +38,10 @@ Future<void> setUpGetIt() async {
   Dio dio = DioFactory.getDio();
   getit.registerLazySingleton<ApiServices>(() => ApiServices(dio));
 
+  // تسجيل NotificationService
+  getit.registerLazySingleton<NotificationService>(() => NotificationService());
+  getit.registerLazySingleton<EmailService>(() => EmailService());
+
   //Login
   getit.registerLazySingleton<LoginRepo>(() => LoginRepo(getit()));
   getit.registerFactory<LoginCubit>(() => LoginCubit(getit()));
@@ -55,13 +63,11 @@ Future<void> setUpGetIt() async {
   getit.registerFactory<MeasurmentsCubit>(() => MeasurmentsCubit(getit()));
 
   //weight
-  getit.registerLazySingleton<WeightMeasurmentRepo>(
-      () => WeightMeasurmentRepo(getit()));
+  getit.registerLazySingleton<WeightMeasurmentRepo>(() => WeightMeasurmentRepo(getit()));
   getit.registerFactory<WeightCubit>(() => WeightCubit(getit()));
 
   //pressure
-  getit.registerLazySingleton<PressureMeasurmentRepo>(
-      () => PressureMeasurmentRepo(getit()));
+  getit.registerLazySingleton<PressureMeasurmentRepo>(() => PressureMeasurmentRepo(getit()));
   getit.registerFactory<PressureCubit>(() => PressureCubit(getit()));
 
   //profile
@@ -77,13 +83,16 @@ Future<void> setUpGetIt() async {
   getit.registerFactory<FavouriteCubit>(() => FavouriteCubit(getit()));
 
   //popular doctors
-  getit.registerLazySingleton<PopularDoctorRepo>(
-      () => PopularDoctorRepo(getit()));
-  getit
-      .registerFactory<PopularDoctorsCubit>(() => PopularDoctorsCubit(getit()));
+  getit.registerLazySingleton<PopularDoctorRepo>(() => PopularDoctorRepo(getit()));
+  getit.registerFactory<PopularDoctorsCubit>(() => PopularDoctorsCubit(getit()));
 
   //medical record
   getit.registerLazySingleton<MedicalRecordRepo>(() => MedicalRecordRepo(getit()));
-  getit.registerFactory<MedicalRecordCubit>(() => MedicalRecordCubit(getit( )));
-  
+  getit.registerFactory<MedicalRecordCubit>(() => MedicalRecordCubit(getit()));
+
+  //add person
+  getit.registerLazySingleton<AddPersonRepo>(() => AddPersonRepo(getit()));
+  getit.registerFactory<AddPersonCubit>(() => AddPersonCubit(getit(), getit() , getit()));
+
+
 }

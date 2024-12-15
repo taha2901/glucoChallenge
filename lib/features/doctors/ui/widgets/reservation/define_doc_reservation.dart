@@ -1,10 +1,14 @@
 import 'package:challenge/core/theming/styles.dart';
+import 'package:challenge/features/doctors/data/model/doctor_response_body.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
+// ignore: must_be_immutable
 class DefineInReservation extends StatelessWidget {
+  final DoctorResponseBody? doctorResponseBody;
   const DefineInReservation({
     super.key,
+    this.doctorResponseBody,
   });
   @override
   Widget build(BuildContext context) {
@@ -45,8 +49,8 @@ class DefineInReservation extends StatelessWidget {
                           ),
                           CircleAvatar(
                             radius: MediaQuery.of(context).size.height * 0.07,
-                            backgroundImage: const AssetImage(
-                              'assets/images/doctor2.png',
+                            backgroundImage: NetworkImage(
+                              doctorResponseBody!.photo,
                             ),
                           ),
                           IconButton(
@@ -73,10 +77,8 @@ class DefineInReservation extends StatelessWidget {
                         height: MediaQuery.of(context).size.height * 0.011,
                       ),
                       Center(
-                        child: Text(
-                          'د. سعيد الحسيني',
-                          style: TextStyles.font18WhiteBold
-                        ),
+                        child: Text(doctorResponseBody!.userName,
+                            style: TextStyles.font18WhiteBold),
                       ),
                     ],
                   ),
@@ -117,7 +119,7 @@ class DefineInReservation extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    '200ج',
+                    doctorResponseBody!.detectionPrice.toString(),
                     style: TextStyle(
                         fontSize: MediaQuery.of(context).size.height * 0.02,
                         color: Colors.grey),
@@ -153,7 +155,7 @@ class DefineInReservation extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    'باطنه',
+                    doctorResponseBody!.doctorspecialization.toString(),
                     style: TextStyle(
                         fontSize: MediaQuery.of(context).size.height * 0.02,
                         color: Colors.grey),
@@ -189,7 +191,7 @@ class DefineInReservation extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    'ديروط',
+                    doctorResponseBody!.address.toString(),
                     style: TextStyle(
                         fontSize: MediaQuery.of(context).size.height * 0.02,
                         color: Colors.grey),

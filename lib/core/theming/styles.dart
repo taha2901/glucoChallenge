@@ -17,6 +17,19 @@ class TextStyles {
     fontFamily: 'Cairo',
   );
 
+  static TextStyle font13DarkBlue = TextStyle(
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: Colors.black,
+  );
+
+  static TextStyle font15Whiteregular = TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeightHelper.regular,
+    fontSize: 15.sp,
+    fontFamily: 'Cairo',
+  );
+
   static TextStyle font16WhiteSemiBold = TextStyle(
     color: Colors.white,
     fontWeight: FontWeightHelper.semiBold,
@@ -74,7 +87,7 @@ class TextStyles {
 
   static TextStyle font13BlackBold = TextStyle(
     fontWeight: FontWeightHelper.bold,
-    fontSize: 13.sp,
+    fontSize: 12.sp,
     fontFamily: 'Cairo',
   );
 

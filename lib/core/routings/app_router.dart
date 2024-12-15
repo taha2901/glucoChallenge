@@ -1,6 +1,7 @@
 import 'package:challenge/core/di/dependency_injection.dart';
 import 'package:challenge/core/routings/routers.dart';
 import 'package:challenge/core/widget/bottom_nav_bar.dart';
+import 'package:challenge/features/add_person/ui/add_person.dart';
 import 'package:challenge/features/chat_bot/my_bot.dart';
 import 'package:challenge/features/doctors/data/model/doctor_response_body.dart';
 import 'package:challenge/features/doctors/ui/doctor_screen.dart';
@@ -61,6 +62,11 @@ class AppRouter {
       case Routers.doctors:
         return MaterialPageRoute(
           builder: (_) => const DoctorScreen(),
+        );
+
+      case Routers.addPerson:
+        return MaterialPageRoute(
+          builder: (_) => const AddPerson(),
         );
 
       case Routers.doctorResrvation:

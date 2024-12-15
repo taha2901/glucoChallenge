@@ -1,4 +1,7 @@
+import 'package:challenge/features/doctors/data/model/add_comment_request_body.dart';
+import 'package:challenge/features/doctors/data/model/add_rate_request.dart';
 import 'package:challenge/features/doctors/data/model/available_time_response.dart';
+import 'package:challenge/features/doctors/data/model/doctor_comment_response.dart';
 import 'package:challenge/features/doctors/data/model/doctor_response_body.dart';
 import 'package:challenge/features/doctors/data/model/popular_doctor_response_body.dart';
 import 'package:challenge/features/doctors/data/model/reservation_request_body.dart';
@@ -12,6 +15,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
   DoctorsCubit(this._doctorRepo) : super(const DoctorsState.initial());
   List<DoctorResponseBody> doctorResponseBody = [];
   List<PopularDoctorResponseBody> popularDoctorResponseBody = [];
+  List<DoctorCommentResponse> doctorCommentResponse = [];
   AvailableTimesResponse? availableTimesResponse;
   static DoctorsCubit get(context) => BlocProvider.of(context);
 
@@ -101,6 +105,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
       },
     );
   }
+
   //delete reservation
   void deleteReservation(int reservationId, BuildContext context) async {
     if (isClosed) return;
@@ -117,5 +122,61 @@ class DoctorsCubit extends Cubit<DoctorsState> {
       if (isClosed) return;
       emit(DoctorsState.deleteReservationError(apiErrorModel));
     });
+  }
+
+  void getDoctorComment(int id) async {
+    if (isClosed) return;
+    emit(const DoctorsState.doctorCommentsLoading());
+
+    final response = await _doctorRepo.getDoctorComments(
+      id,
+    );
+    response.when(
+      success: (doctorComment) {
+        if (isClosed) return;
+        doctorCommentResponse = doctorComment.toList();
+        emit(DoctorsState.doctorCommentsSuccess(responseBody: doctorComment));
+      },
+      failure: (errorModel) {
+        if (isClosed) return;
+        emit(DoctorsState.doctorCommentsError(errorModel));
+      },
+    );
+  }
+
+  //add comment
+  void addComment(int id, AddCommentRequestBody addCommentRequestBody) async {
+    if (isClosed) return;
+    emit(const DoctorsState.addCommentLoading());
+    final response = await _doctorRepo.addComment(id, addCommentRequestBody);
+    response.when(
+      success: (addCommentResponse) {
+        if (isClosed) return;
+
+        getDoctorComment(id);
+        emit(DoctorsState.addCommentSuccess(responseBody: addCommentResponse));
+      },
+      failure: (errorModel) {
+        if (isClosed) return;
+        emit(DoctorsState.addCommentError(errorModel));
+      },
+    );
+  }
+
+  //add rate
+  void addRate(AddRateRequest addRateRequest) async {
+    if (isClosed) return;
+    emit(const DoctorsState.addRateLoading());
+    final response = await _doctorRepo.addRate(addRateRequest);
+    response.when(
+      success: (addRateResponse) {
+        if (isClosed) return;
+        emit(DoctorsState.addRateSuccess(addRateResponse));
+      },
+      failure: (errorModel) {
+        if (isClosed) return;
+        emit(DoctorsState.addRateError(errorModel));
+      },
+    );
   }
 }
