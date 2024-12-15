@@ -1,4 +1,3 @@
-
 import 'package:challenge/core/helpers/spacing.dart';
 import 'package:challenge/core/theming/colors.dart';
 import 'package:challenge/core/theming/styles.dart';
@@ -15,9 +14,10 @@ class PopularDoctorNameAndImageItem extends StatelessWidget {
   final PopularDoctorResponseBody? doctor;
 
   @override
+
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300.h,
+      height: 115.h,
       width: 125.w,
       child: Card(
         color: ColorsManager.mainCardColor,
@@ -28,8 +28,8 @@ class PopularDoctorNameAndImageItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 125.h,
-              width: 125.w,
+              height: 130.h,
+              width: 130.w,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: ColorsManager.mainColor,
@@ -41,7 +41,7 @@ class PopularDoctorNameAndImageItem extends StatelessWidget {
                 ),
               ),
             ),
-            verticalSpace(8.h),
+            verticalSpace(6.h),
             Row(
               children: [
                 Text(
@@ -53,9 +53,9 @@ class PopularDoctorNameAndImageItem extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.star,
-                        size: 20,
+                        size: 18.sp,
                         color: Colors.amber,
                       ),
                       Text(
@@ -67,9 +67,12 @@ class PopularDoctorNameAndImageItem extends StatelessWidget {
                 )
               ],
             ),
-            Text(
-              doctor!.doctorspecialization.toString(),
-              style: TextStyles.font13Blackmedium,
+            Padding(
+              padding: const EdgeInsets.only(right: 4.0),
+              child: Text(
+                doctor!.doctorspecialization.toString(),
+                style: TextStyles.font13Blackmedium,
+              ),
             ),
           ],
         ),

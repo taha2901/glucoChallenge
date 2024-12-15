@@ -11,7 +11,7 @@ class PopularDoctorNameAndImageListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.26,
+      height: MediaQuery.of(context).size.height * 0.28,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: PopularDoctorsCubit.get(context).popularDoctorResponseBody.length,

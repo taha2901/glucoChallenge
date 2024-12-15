@@ -61,6 +61,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       // Routers.changePassword,
                     ),
                     _buildListTile(
+                      onPressed: () => context.pushNamed(Routers.addPerson),
                       leading: const Icon(
                         Iconsax.element_plus,
                         color: Colors.blue,

@@ -26,6 +26,17 @@ class FormReservation extends StatelessWidget {
       child: Column(
         children: [
           AppTextFormField(
+            validator: (p0) {
+              if (p0 == null || p0.isEmpty) {
+                return 'يرجى ادخال اسمك';
+              }
+              return null;
+            },
+            prefixIcon: const Icon(Icons.person),
+            suffixIcon: InkWell(
+              onTap: () => ageController.clear(),
+              child: const Icon(Icons.close),
+            ),
             borderRadius: BorderRadius.circular(10),
             hintText: 'أدخل اسمك',
             controller: nameController,
@@ -35,6 +46,17 @@ class FormReservation extends StatelessWidget {
             children: [
               Expanded(
                 child: AppTextFormField(
+                  prefixIcon: const Icon(Icons.person),
+                  suffixIcon: InkWell(
+                    onTap: () => ageController.clear(),
+                    child: const Icon(Icons.close),
+                  ),
+                  validator: (p0) {
+                    if (p0 == null || p0.isEmpty) {
+                      return 'يرجى ادخال الجنس';
+                    }
+                    return null;
+                  },
                   borderRadius: BorderRadius.circular(10),
                   hintText: 'الجنس',
                   controller: sexController,
@@ -43,6 +65,18 @@ class FormReservation extends StatelessWidget {
               horizontalSpace(8),
               Expanded(
                 child: AppTextFormField(
+                  keyboardType: TextInputType.number,
+                  validator: (p0) {
+                    if (p0 == null || p0.isEmpty) {
+                      return 'يرجى ادخال العمر';
+                    }
+                    return null;
+                  },
+                  prefixIcon: const Icon(Icons.calendar_month),
+                  suffixIcon: InkWell(
+                    onTap: () => ageController.clear(),
+                    child: const Icon(Icons.close),
+                  ),
                   borderRadius: BorderRadius.circular(10),
                   hintText: 'أدخل عمرك',
                   controller: ageController,
@@ -52,6 +86,18 @@ class FormReservation extends StatelessWidget {
           ),
           verticalSpace(16),
           AppTextFormField(
+            keyboardType: TextInputType.phone,
+            prefixIcon: const Icon(Icons.phone),
+            suffixIcon: InkWell(
+              onTap: () => ageController.clear(),
+              child: const Icon(Icons.close),
+            ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'يرجى ادخال رقم الهاتف';
+              }
+              return null;
+            },
             borderRadius: BorderRadius.circular(10),
             hintText: 'أدخل رقم تلفونك',
             controller: phoneController,
@@ -72,7 +118,7 @@ class FormReservation extends StatelessWidget {
                       sex: sexController.text,
                       age: int.tryParse(ageController.text),
                       phone: phoneController.text,
-                      doctorResponseBody:  doctorResponseBody,
+                      doctorResponseBody: doctorResponseBody,
                     ),
                   ),
                 );

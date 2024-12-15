@@ -3,7 +3,6 @@ import 'package:challenge/core/theming/styles.dart';
 import 'package:challenge/features/doctors/ui/widgets/doctors/all_doctors_list_view.dart';
 import 'package:challenge/features/doctors/ui/widgets/doctors/all_famous_doctors/all_popular_doctors.dart';
 import 'package:challenge/features/doctors/ui/widgets/doctors/all_favourite_doctors/all_favourite_doctor.dart';
-import 'package:challenge/features/doctors/ui/widgets/doctors/all_favourite_doctors/all_favourite_doctor_list_view.dart';
 import 'package:challenge/features/doctors/ui/widgets/doctors/doctor_app_bar.dart';
 import 'package:challenge/features/doctors/ui/widgets/doctors/doctor_text_field.dart';
 import 'package:challenge/features/favourite/logic/favourite_cubit.dart';

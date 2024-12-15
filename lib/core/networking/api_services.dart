@@ -1,5 +1,11 @@
+import 'package:challenge/features/add_person/data/model/add_person_model.dart';
+import 'package:challenge/features/doctors/data/model/add_comment_request_body.dart';
+import 'package:challenge/features/doctors/data/model/add_comment_response_body.dart';
+import 'package:challenge/features/doctors/data/model/add_rate_request.dart';
+import 'package:challenge/features/doctors/data/model/add_rate_response.dart';
 import 'package:challenge/features/doctors/data/model/available_time_response.dart';
 import 'package:challenge/features/doctors/data/model/delete_reservaion_response.dart';
+import 'package:challenge/features/doctors/data/model/doctor_comment_response.dart';
 import 'package:challenge/features/doctors/data/model/doctor_response_body.dart';
 import 'package:challenge/features/doctors/data/model/popular_doctor_response_body.dart';
 import 'package:challenge/features/doctors/data/model/reservation_request_body.dart';
@@ -128,4 +134,28 @@ abstract class ApiServices {
 
   @GET(ApiConstants.deleteMedicalRecord)
   Future<DeleteMedicalRecord> deleteMedicalRecord();
+
+  @POST(ApiConstants.addPerson)
+  Future<AddPersonModel> addPerson(
+    @Query("email") String id,
+    @Query("phone") String date,
+    @Query("relvant_relation") String relvantRelation,
+  );
+
+  @GET(ApiConstants.getDoctorComments)
+  Future<List<DoctorCommentResponse>> getComments(
+      @Query("doctorId") int doctorId);
+
+  //doctorId as a query parameter
+
+  @POST(ApiConstants.addDoctorComment)
+  Future<AddCommentResponseBody> addComment(
+    @Query("doctorId") int doctorId,
+    @Body() AddCommentRequestBody addCommentRequestBody,
+  );
+
+  @POST(ApiConstants.addRate)
+  Future<AddRateResponse> addRate(
+    @Body() AddRateRequest addRateRequest,
+  );
 }

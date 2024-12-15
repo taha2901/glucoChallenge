@@ -18,4 +18,5 @@ class Routers {
   static const String favourite = '/favourite';
   static const String splashScreen = '/splashScreen';
   static const String chatbot = '/chatbot';
+  static const String addPerson = '/addPerson';
 }
