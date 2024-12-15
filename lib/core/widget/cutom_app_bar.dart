@@ -6,7 +6,7 @@ AppBar buildAppBar({final String? title}) {
     leading: Center(
       child: InkWell(
         child: SvgPicture.asset(
-          'assets/svgs/arrow.svg',
+          'assets/svg/arrow.svg',
         ),
       ),
     ),

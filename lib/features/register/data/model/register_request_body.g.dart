@@ -12,7 +12,7 @@ RegisterRequestBody _$RegisterRequestBodyFromJson(Map<String, dynamic> json) =>
       password: json['Password'] as String,
       name: json['Username'] as String,
       phone: json['Phone'] as String,
-      photo: RegisterRequestBody._stringToFile(json['Photo'] as String?),
+      photo: json['Photo'] as String,
       address: json['Address'] as String,
     );
 
@@ -22,7 +22,7 @@ Map<String, dynamic> _$RegisterRequestBodyToJson(
       'Username': instance.name,
       'Email': instance.email,
       'Phone': instance.phone,
-      'Photo': RegisterRequestBody._fileToString(instance.photo),
       'Password': instance.password,
       'Address': instance.address,
+      'Photo': instance.photo,
     };

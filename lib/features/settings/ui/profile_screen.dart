@@ -10,7 +10,6 @@ import 'package:challenge/features/settings/ui/widgets/card_user_data.dart';
 import 'package:challenge/features/settings/ui/widgets/profile_user_data_shimmer_laoding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -34,7 +33,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               },
               icon: const Icon(Iconsax.arrow_right),
               color: Colors.blue,
-            ) ,
+            ),
             backgroundColor: Colors.transparent,
           ),
           body: SafeArea(
@@ -46,10 +45,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                     verticalSpace(16.0),
                     state is ProfileLoading
-                        ? const ProfileUserDataShimmerLoading()
+                        ? const ShimmerCardOfUserData()
                         : const CardOfUserData(),
                     verticalSpace(16.0),
                     _buildListTile(
+                      onPressed: () {
+                        context.pushNamed(Routers.myMedicalRecord);
+                      },
                       leading: const Icon(
                         Iconsax.document,
                         color: Colors.blue,
@@ -59,6 +61,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       // Routers.changePassword,
                     ),
                     _buildListTile(
+                      onPressed: () => context.pushNamed(Routers.addPerson),
                       leading: const Icon(
                         Iconsax.element_plus,
                         color: Colors.blue,
@@ -68,6 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       // Routers.changePassword,
                     ),
                     _buildListTile(
+                      onPressed: () => context.pushNamed(Routers.favourite),
                       leading: const Icon(
                         Icons.favorite_outline_outlined,
                         color: Colors.blue,

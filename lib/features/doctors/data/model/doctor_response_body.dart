@@ -17,8 +17,10 @@ class DoctorResponseBody {
   String about;
   String waitingTime;
   String? startTime; // حقل اختياري
-  String? endTime;   // حقل اختياري
+  String? endTime; // حقل اختياري
   bool favorite;
+  int? rate;
+  int? rateCount;
   List<dynamic> users;
   List<dynamic> doctorComments;
   List<String> workingHours; // حقل جديد
@@ -37,11 +39,13 @@ class DoctorResponseBody {
     required this.about,
     required this.waitingTime,
     this.startTime, // حقل اختياري
-    this.endTime,   // حقل اختياري
+    this.endTime,
     required this.favorite,
     required this.users,
     required this.doctorComments,
-    required this.workingHours, // حقل جديد
+    required this.workingHours,
+    this.rate,
+    this.rateCount,
   });
 
   factory DoctorResponseBody.fromJson(Map<String, dynamic> json) =>

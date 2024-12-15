@@ -25,6 +25,9 @@ mixin _$MedicineState {
     required TResult Function() addMedicineLoading,
     required TResult Function() addMedicineSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
+    required TResult Function() deleteMedicineLoading,
+    required TResult Function() deleteMedicineSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) deleteMedicineError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +39,9 @@ mixin _$MedicineState {
     TResult? Function()? addMedicineLoading,
     TResult? Function()? addMedicineSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult? Function()? deleteMedicineLoading,
+    TResult? Function()? deleteMedicineSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +53,9 @@ mixin _$MedicineState {
     TResult Function()? addMedicineLoading,
     TResult Function()? addMedicineSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult Function()? deleteMedicineLoading,
+    TResult Function()? deleteMedicineSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +68,11 @@ mixin _$MedicineState {
     required TResult Function(AddMedicineLoading value) addMedicineLoading,
     required TResult Function(AddMedicineSuccess value) addMedicineSuccess,
     required TResult Function(AddMedicineError value) addMedicineError,
+    required TResult Function(DeleteMedicineLoading value)
+        deleteMedicineLoading,
+    required TResult Function(DeleteMedicineSuccess value)
+        deleteMedicineSuccess,
+    required TResult Function(DeleteMedicineError value) deleteMedicineError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +84,9 @@ mixin _$MedicineState {
     TResult? Function(AddMedicineLoading value)? addMedicineLoading,
     TResult? Function(AddMedicineSuccess value)? addMedicineSuccess,
     TResult? Function(AddMedicineError value)? addMedicineError,
+    TResult? Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult? Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult? Function(DeleteMedicineError value)? deleteMedicineError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +98,9 @@ mixin _$MedicineState {
     TResult Function(AddMedicineLoading value)? addMedicineLoading,
     TResult Function(AddMedicineSuccess value)? addMedicineSuccess,
     TResult Function(AddMedicineError value)? addMedicineError,
+    TResult Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult Function(DeleteMedicineError value)? deleteMedicineError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -155,6 +175,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function() addMedicineLoading,
     required TResult Function() addMedicineSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
+    required TResult Function() deleteMedicineLoading,
+    required TResult Function() deleteMedicineSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) deleteMedicineError,
   }) {
     return initial();
   }
@@ -169,6 +192,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? addMedicineLoading,
     TResult? Function()? addMedicineSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult? Function()? deleteMedicineLoading,
+    TResult? Function()? deleteMedicineSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
   }) {
     return initial?.call();
   }
@@ -183,6 +209,9 @@ class _$InitialImpl implements _Initial {
     TResult Function()? addMedicineLoading,
     TResult Function()? addMedicineSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult Function()? deleteMedicineLoading,
+    TResult Function()? deleteMedicineSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -201,6 +230,11 @@ class _$InitialImpl implements _Initial {
     required TResult Function(AddMedicineLoading value) addMedicineLoading,
     required TResult Function(AddMedicineSuccess value) addMedicineSuccess,
     required TResult Function(AddMedicineError value) addMedicineError,
+    required TResult Function(DeleteMedicineLoading value)
+        deleteMedicineLoading,
+    required TResult Function(DeleteMedicineSuccess value)
+        deleteMedicineSuccess,
+    required TResult Function(DeleteMedicineError value) deleteMedicineError,
   }) {
     return initial(this);
   }
@@ -215,6 +249,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(AddMedicineLoading value)? addMedicineLoading,
     TResult? Function(AddMedicineSuccess value)? addMedicineSuccess,
     TResult? Function(AddMedicineError value)? addMedicineError,
+    TResult? Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult? Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult? Function(DeleteMedicineError value)? deleteMedicineError,
   }) {
     return initial?.call(this);
   }
@@ -229,6 +266,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(AddMedicineLoading value)? addMedicineLoading,
     TResult Function(AddMedicineSuccess value)? addMedicineSuccess,
     TResult Function(AddMedicineError value)? addMedicineError,
+    TResult Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult Function(DeleteMedicineError value)? deleteMedicineError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -290,6 +330,9 @@ class _$MedicineLoadingImpl implements MedicineLoading {
     required TResult Function() addMedicineLoading,
     required TResult Function() addMedicineSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
+    required TResult Function() deleteMedicineLoading,
+    required TResult Function() deleteMedicineSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) deleteMedicineError,
   }) {
     return loading();
   }
@@ -304,6 +347,9 @@ class _$MedicineLoadingImpl implements MedicineLoading {
     TResult? Function()? addMedicineLoading,
     TResult? Function()? addMedicineSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult? Function()? deleteMedicineLoading,
+    TResult? Function()? deleteMedicineSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
   }) {
     return loading?.call();
   }
@@ -318,6 +364,9 @@ class _$MedicineLoadingImpl implements MedicineLoading {
     TResult Function()? addMedicineLoading,
     TResult Function()? addMedicineSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult Function()? deleteMedicineLoading,
+    TResult Function()? deleteMedicineSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -336,6 +385,11 @@ class _$MedicineLoadingImpl implements MedicineLoading {
     required TResult Function(AddMedicineLoading value) addMedicineLoading,
     required TResult Function(AddMedicineSuccess value) addMedicineSuccess,
     required TResult Function(AddMedicineError value) addMedicineError,
+    required TResult Function(DeleteMedicineLoading value)
+        deleteMedicineLoading,
+    required TResult Function(DeleteMedicineSuccess value)
+        deleteMedicineSuccess,
+    required TResult Function(DeleteMedicineError value) deleteMedicineError,
   }) {
     return loading(this);
   }
@@ -350,6 +404,9 @@ class _$MedicineLoadingImpl implements MedicineLoading {
     TResult? Function(AddMedicineLoading value)? addMedicineLoading,
     TResult? Function(AddMedicineSuccess value)? addMedicineSuccess,
     TResult? Function(AddMedicineError value)? addMedicineError,
+    TResult? Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult? Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult? Function(DeleteMedicineError value)? deleteMedicineError,
   }) {
     return loading?.call(this);
   }
@@ -364,6 +421,9 @@ class _$MedicineLoadingImpl implements MedicineLoading {
     TResult Function(AddMedicineLoading value)? addMedicineLoading,
     TResult Function(AddMedicineSuccess value)? addMedicineSuccess,
     TResult Function(AddMedicineError value)? addMedicineError,
+    TResult Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult Function(DeleteMedicineError value)? deleteMedicineError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -425,6 +485,9 @@ class _$MedicineSuccessImpl implements MedicineSuccess {
     required TResult Function() addMedicineLoading,
     required TResult Function() addMedicineSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
+    required TResult Function() deleteMedicineLoading,
+    required TResult Function() deleteMedicineSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) deleteMedicineError,
   }) {
     return success();
   }
@@ -439,6 +502,9 @@ class _$MedicineSuccessImpl implements MedicineSuccess {
     TResult? Function()? addMedicineLoading,
     TResult? Function()? addMedicineSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult? Function()? deleteMedicineLoading,
+    TResult? Function()? deleteMedicineSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
   }) {
     return success?.call();
   }
@@ -453,6 +519,9 @@ class _$MedicineSuccessImpl implements MedicineSuccess {
     TResult Function()? addMedicineLoading,
     TResult Function()? addMedicineSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult Function()? deleteMedicineLoading,
+    TResult Function()? deleteMedicineSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -471,6 +540,11 @@ class _$MedicineSuccessImpl implements MedicineSuccess {
     required TResult Function(AddMedicineLoading value) addMedicineLoading,
     required TResult Function(AddMedicineSuccess value) addMedicineSuccess,
     required TResult Function(AddMedicineError value) addMedicineError,
+    required TResult Function(DeleteMedicineLoading value)
+        deleteMedicineLoading,
+    required TResult Function(DeleteMedicineSuccess value)
+        deleteMedicineSuccess,
+    required TResult Function(DeleteMedicineError value) deleteMedicineError,
   }) {
     return success(this);
   }
@@ -485,6 +559,9 @@ class _$MedicineSuccessImpl implements MedicineSuccess {
     TResult? Function(AddMedicineLoading value)? addMedicineLoading,
     TResult? Function(AddMedicineSuccess value)? addMedicineSuccess,
     TResult? Function(AddMedicineError value)? addMedicineError,
+    TResult? Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult? Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult? Function(DeleteMedicineError value)? deleteMedicineError,
   }) {
     return success?.call(this);
   }
@@ -499,6 +576,9 @@ class _$MedicineSuccessImpl implements MedicineSuccess {
     TResult Function(AddMedicineLoading value)? addMedicineLoading,
     TResult Function(AddMedicineSuccess value)? addMedicineSuccess,
     TResult Function(AddMedicineError value)? addMedicineError,
+    TResult Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult Function(DeleteMedicineError value)? deleteMedicineError,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -588,6 +668,9 @@ class _$MedicineErrorImpl implements MedicineError {
     required TResult Function() addMedicineLoading,
     required TResult Function() addMedicineSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
+    required TResult Function() deleteMedicineLoading,
+    required TResult Function() deleteMedicineSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) deleteMedicineError,
   }) {
     return error(apiErrorModel);
   }
@@ -602,6 +685,9 @@ class _$MedicineErrorImpl implements MedicineError {
     TResult? Function()? addMedicineLoading,
     TResult? Function()? addMedicineSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult? Function()? deleteMedicineLoading,
+    TResult? Function()? deleteMedicineSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
   }) {
     return error?.call(apiErrorModel);
   }
@@ -616,6 +702,9 @@ class _$MedicineErrorImpl implements MedicineError {
     TResult Function()? addMedicineLoading,
     TResult Function()? addMedicineSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult Function()? deleteMedicineLoading,
+    TResult Function()? deleteMedicineSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -634,6 +723,11 @@ class _$MedicineErrorImpl implements MedicineError {
     required TResult Function(AddMedicineLoading value) addMedicineLoading,
     required TResult Function(AddMedicineSuccess value) addMedicineSuccess,
     required TResult Function(AddMedicineError value) addMedicineError,
+    required TResult Function(DeleteMedicineLoading value)
+        deleteMedicineLoading,
+    required TResult Function(DeleteMedicineSuccess value)
+        deleteMedicineSuccess,
+    required TResult Function(DeleteMedicineError value) deleteMedicineError,
   }) {
     return error(this);
   }
@@ -648,6 +742,9 @@ class _$MedicineErrorImpl implements MedicineError {
     TResult? Function(AddMedicineLoading value)? addMedicineLoading,
     TResult? Function(AddMedicineSuccess value)? addMedicineSuccess,
     TResult? Function(AddMedicineError value)? addMedicineError,
+    TResult? Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult? Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult? Function(DeleteMedicineError value)? deleteMedicineError,
   }) {
     return error?.call(this);
   }
@@ -662,6 +759,9 @@ class _$MedicineErrorImpl implements MedicineError {
     TResult Function(AddMedicineLoading value)? addMedicineLoading,
     TResult Function(AddMedicineSuccess value)? addMedicineSuccess,
     TResult Function(AddMedicineError value)? addMedicineError,
+    TResult Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult Function(DeleteMedicineError value)? deleteMedicineError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -732,6 +832,9 @@ class _$AddMedicineLoadingImpl implements AddMedicineLoading {
     required TResult Function() addMedicineLoading,
     required TResult Function() addMedicineSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
+    required TResult Function() deleteMedicineLoading,
+    required TResult Function() deleteMedicineSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) deleteMedicineError,
   }) {
     return addMedicineLoading();
   }
@@ -746,6 +849,9 @@ class _$AddMedicineLoadingImpl implements AddMedicineLoading {
     TResult? Function()? addMedicineLoading,
     TResult? Function()? addMedicineSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult? Function()? deleteMedicineLoading,
+    TResult? Function()? deleteMedicineSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
   }) {
     return addMedicineLoading?.call();
   }
@@ -760,6 +866,9 @@ class _$AddMedicineLoadingImpl implements AddMedicineLoading {
     TResult Function()? addMedicineLoading,
     TResult Function()? addMedicineSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult Function()? deleteMedicineLoading,
+    TResult Function()? deleteMedicineSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
     required TResult orElse(),
   }) {
     if (addMedicineLoading != null) {
@@ -778,6 +887,11 @@ class _$AddMedicineLoadingImpl implements AddMedicineLoading {
     required TResult Function(AddMedicineLoading value) addMedicineLoading,
     required TResult Function(AddMedicineSuccess value) addMedicineSuccess,
     required TResult Function(AddMedicineError value) addMedicineError,
+    required TResult Function(DeleteMedicineLoading value)
+        deleteMedicineLoading,
+    required TResult Function(DeleteMedicineSuccess value)
+        deleteMedicineSuccess,
+    required TResult Function(DeleteMedicineError value) deleteMedicineError,
   }) {
     return addMedicineLoading(this);
   }
@@ -792,6 +906,9 @@ class _$AddMedicineLoadingImpl implements AddMedicineLoading {
     TResult? Function(AddMedicineLoading value)? addMedicineLoading,
     TResult? Function(AddMedicineSuccess value)? addMedicineSuccess,
     TResult? Function(AddMedicineError value)? addMedicineError,
+    TResult? Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult? Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult? Function(DeleteMedicineError value)? deleteMedicineError,
   }) {
     return addMedicineLoading?.call(this);
   }
@@ -806,6 +923,9 @@ class _$AddMedicineLoadingImpl implements AddMedicineLoading {
     TResult Function(AddMedicineLoading value)? addMedicineLoading,
     TResult Function(AddMedicineSuccess value)? addMedicineSuccess,
     TResult Function(AddMedicineError value)? addMedicineError,
+    TResult Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult Function(DeleteMedicineError value)? deleteMedicineError,
     required TResult orElse(),
   }) {
     if (addMedicineLoading != null) {
@@ -867,6 +987,9 @@ class _$AddMedicineSuccessImpl implements AddMedicineSuccess {
     required TResult Function() addMedicineLoading,
     required TResult Function() addMedicineSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
+    required TResult Function() deleteMedicineLoading,
+    required TResult Function() deleteMedicineSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) deleteMedicineError,
   }) {
     return addMedicineSuccess();
   }
@@ -881,6 +1004,9 @@ class _$AddMedicineSuccessImpl implements AddMedicineSuccess {
     TResult? Function()? addMedicineLoading,
     TResult? Function()? addMedicineSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult? Function()? deleteMedicineLoading,
+    TResult? Function()? deleteMedicineSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
   }) {
     return addMedicineSuccess?.call();
   }
@@ -895,6 +1021,9 @@ class _$AddMedicineSuccessImpl implements AddMedicineSuccess {
     TResult Function()? addMedicineLoading,
     TResult Function()? addMedicineSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult Function()? deleteMedicineLoading,
+    TResult Function()? deleteMedicineSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
     required TResult orElse(),
   }) {
     if (addMedicineSuccess != null) {
@@ -913,6 +1042,11 @@ class _$AddMedicineSuccessImpl implements AddMedicineSuccess {
     required TResult Function(AddMedicineLoading value) addMedicineLoading,
     required TResult Function(AddMedicineSuccess value) addMedicineSuccess,
     required TResult Function(AddMedicineError value) addMedicineError,
+    required TResult Function(DeleteMedicineLoading value)
+        deleteMedicineLoading,
+    required TResult Function(DeleteMedicineSuccess value)
+        deleteMedicineSuccess,
+    required TResult Function(DeleteMedicineError value) deleteMedicineError,
   }) {
     return addMedicineSuccess(this);
   }
@@ -927,6 +1061,9 @@ class _$AddMedicineSuccessImpl implements AddMedicineSuccess {
     TResult? Function(AddMedicineLoading value)? addMedicineLoading,
     TResult? Function(AddMedicineSuccess value)? addMedicineSuccess,
     TResult? Function(AddMedicineError value)? addMedicineError,
+    TResult? Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult? Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult? Function(DeleteMedicineError value)? deleteMedicineError,
   }) {
     return addMedicineSuccess?.call(this);
   }
@@ -941,6 +1078,9 @@ class _$AddMedicineSuccessImpl implements AddMedicineSuccess {
     TResult Function(AddMedicineLoading value)? addMedicineLoading,
     TResult Function(AddMedicineSuccess value)? addMedicineSuccess,
     TResult Function(AddMedicineError value)? addMedicineError,
+    TResult Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult Function(DeleteMedicineError value)? deleteMedicineError,
     required TResult orElse(),
   }) {
     if (addMedicineSuccess != null) {
@@ -1031,6 +1171,9 @@ class _$AddMedicineErrorImpl implements AddMedicineError {
     required TResult Function() addMedicineLoading,
     required TResult Function() addMedicineSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
+    required TResult Function() deleteMedicineLoading,
+    required TResult Function() deleteMedicineSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) deleteMedicineError,
   }) {
     return addMedicineError(apiErrorModel);
   }
@@ -1045,6 +1188,9 @@ class _$AddMedicineErrorImpl implements AddMedicineError {
     TResult? Function()? addMedicineLoading,
     TResult? Function()? addMedicineSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult? Function()? deleteMedicineLoading,
+    TResult? Function()? deleteMedicineSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
   }) {
     return addMedicineError?.call(apiErrorModel);
   }
@@ -1059,6 +1205,9 @@ class _$AddMedicineErrorImpl implements AddMedicineError {
     TResult Function()? addMedicineLoading,
     TResult Function()? addMedicineSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult Function()? deleteMedicineLoading,
+    TResult Function()? deleteMedicineSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
     required TResult orElse(),
   }) {
     if (addMedicineError != null) {
@@ -1077,6 +1226,11 @@ class _$AddMedicineErrorImpl implements AddMedicineError {
     required TResult Function(AddMedicineLoading value) addMedicineLoading,
     required TResult Function(AddMedicineSuccess value) addMedicineSuccess,
     required TResult Function(AddMedicineError value) addMedicineError,
+    required TResult Function(DeleteMedicineLoading value)
+        deleteMedicineLoading,
+    required TResult Function(DeleteMedicineSuccess value)
+        deleteMedicineSuccess,
+    required TResult Function(DeleteMedicineError value) deleteMedicineError,
   }) {
     return addMedicineError(this);
   }
@@ -1091,6 +1245,9 @@ class _$AddMedicineErrorImpl implements AddMedicineError {
     TResult? Function(AddMedicineLoading value)? addMedicineLoading,
     TResult? Function(AddMedicineSuccess value)? addMedicineSuccess,
     TResult? Function(AddMedicineError value)? addMedicineError,
+    TResult? Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult? Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult? Function(DeleteMedicineError value)? deleteMedicineError,
   }) {
     return addMedicineError?.call(this);
   }
@@ -1105,6 +1262,9 @@ class _$AddMedicineErrorImpl implements AddMedicineError {
     TResult Function(AddMedicineLoading value)? addMedicineLoading,
     TResult Function(AddMedicineSuccess value)? addMedicineSuccess,
     TResult Function(AddMedicineError value)? addMedicineError,
+    TResult Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult Function(DeleteMedicineError value)? deleteMedicineError,
     required TResult orElse(),
   }) {
     if (addMedicineError != null) {
@@ -1124,5 +1284,512 @@ abstract class AddMedicineError implements MedicineState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddMedicineErrorImplCopyWith<_$AddMedicineErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteMedicineLoadingImplCopyWith<$Res> {
+  factory _$$DeleteMedicineLoadingImplCopyWith(
+          _$DeleteMedicineLoadingImpl value,
+          $Res Function(_$DeleteMedicineLoadingImpl) then) =
+      __$$DeleteMedicineLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DeleteMedicineLoadingImplCopyWithImpl<$Res>
+    extends _$MedicineStateCopyWithImpl<$Res, _$DeleteMedicineLoadingImpl>
+    implements _$$DeleteMedicineLoadingImplCopyWith<$Res> {
+  __$$DeleteMedicineLoadingImplCopyWithImpl(_$DeleteMedicineLoadingImpl _value,
+      $Res Function(_$DeleteMedicineLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MedicineState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$DeleteMedicineLoadingImpl implements DeleteMedicineLoading {
+  const _$DeleteMedicineLoadingImpl();
+
+  @override
+  String toString() {
+    return 'MedicineState.deleteMedicineLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteMedicineLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() addMedicineLoading,
+    required TResult Function() addMedicineSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
+    required TResult Function() deleteMedicineLoading,
+    required TResult Function() deleteMedicineSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) deleteMedicineError,
+  }) {
+    return deleteMedicineLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? addMedicineLoading,
+    TResult? Function()? addMedicineSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult? Function()? deleteMedicineLoading,
+    TResult? Function()? deleteMedicineSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
+  }) {
+    return deleteMedicineLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? addMedicineLoading,
+    TResult Function()? addMedicineSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult Function()? deleteMedicineLoading,
+    TResult Function()? deleteMedicineSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
+    required TResult orElse(),
+  }) {
+    if (deleteMedicineLoading != null) {
+      return deleteMedicineLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(MedicineLoading value) loading,
+    required TResult Function(MedicineSuccess value) success,
+    required TResult Function(MedicineError value) error,
+    required TResult Function(AddMedicineLoading value) addMedicineLoading,
+    required TResult Function(AddMedicineSuccess value) addMedicineSuccess,
+    required TResult Function(AddMedicineError value) addMedicineError,
+    required TResult Function(DeleteMedicineLoading value)
+        deleteMedicineLoading,
+    required TResult Function(DeleteMedicineSuccess value)
+        deleteMedicineSuccess,
+    required TResult Function(DeleteMedicineError value) deleteMedicineError,
+  }) {
+    return deleteMedicineLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(MedicineLoading value)? loading,
+    TResult? Function(MedicineSuccess value)? success,
+    TResult? Function(MedicineError value)? error,
+    TResult? Function(AddMedicineLoading value)? addMedicineLoading,
+    TResult? Function(AddMedicineSuccess value)? addMedicineSuccess,
+    TResult? Function(AddMedicineError value)? addMedicineError,
+    TResult? Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult? Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult? Function(DeleteMedicineError value)? deleteMedicineError,
+  }) {
+    return deleteMedicineLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(MedicineLoading value)? loading,
+    TResult Function(MedicineSuccess value)? success,
+    TResult Function(MedicineError value)? error,
+    TResult Function(AddMedicineLoading value)? addMedicineLoading,
+    TResult Function(AddMedicineSuccess value)? addMedicineSuccess,
+    TResult Function(AddMedicineError value)? addMedicineError,
+    TResult Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult Function(DeleteMedicineError value)? deleteMedicineError,
+    required TResult orElse(),
+  }) {
+    if (deleteMedicineLoading != null) {
+      return deleteMedicineLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteMedicineLoading implements MedicineState {
+  const factory DeleteMedicineLoading() = _$DeleteMedicineLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$DeleteMedicineSuccessImplCopyWith<$Res> {
+  factory _$$DeleteMedicineSuccessImplCopyWith(
+          _$DeleteMedicineSuccessImpl value,
+          $Res Function(_$DeleteMedicineSuccessImpl) then) =
+      __$$DeleteMedicineSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DeleteMedicineSuccessImplCopyWithImpl<$Res>
+    extends _$MedicineStateCopyWithImpl<$Res, _$DeleteMedicineSuccessImpl>
+    implements _$$DeleteMedicineSuccessImplCopyWith<$Res> {
+  __$$DeleteMedicineSuccessImplCopyWithImpl(_$DeleteMedicineSuccessImpl _value,
+      $Res Function(_$DeleteMedicineSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MedicineState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$DeleteMedicineSuccessImpl implements DeleteMedicineSuccess {
+  const _$DeleteMedicineSuccessImpl();
+
+  @override
+  String toString() {
+    return 'MedicineState.deleteMedicineSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteMedicineSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() addMedicineLoading,
+    required TResult Function() addMedicineSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
+    required TResult Function() deleteMedicineLoading,
+    required TResult Function() deleteMedicineSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) deleteMedicineError,
+  }) {
+    return deleteMedicineSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? addMedicineLoading,
+    TResult? Function()? addMedicineSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult? Function()? deleteMedicineLoading,
+    TResult? Function()? deleteMedicineSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
+  }) {
+    return deleteMedicineSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? addMedicineLoading,
+    TResult Function()? addMedicineSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult Function()? deleteMedicineLoading,
+    TResult Function()? deleteMedicineSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
+    required TResult orElse(),
+  }) {
+    if (deleteMedicineSuccess != null) {
+      return deleteMedicineSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(MedicineLoading value) loading,
+    required TResult Function(MedicineSuccess value) success,
+    required TResult Function(MedicineError value) error,
+    required TResult Function(AddMedicineLoading value) addMedicineLoading,
+    required TResult Function(AddMedicineSuccess value) addMedicineSuccess,
+    required TResult Function(AddMedicineError value) addMedicineError,
+    required TResult Function(DeleteMedicineLoading value)
+        deleteMedicineLoading,
+    required TResult Function(DeleteMedicineSuccess value)
+        deleteMedicineSuccess,
+    required TResult Function(DeleteMedicineError value) deleteMedicineError,
+  }) {
+    return deleteMedicineSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(MedicineLoading value)? loading,
+    TResult? Function(MedicineSuccess value)? success,
+    TResult? Function(MedicineError value)? error,
+    TResult? Function(AddMedicineLoading value)? addMedicineLoading,
+    TResult? Function(AddMedicineSuccess value)? addMedicineSuccess,
+    TResult? Function(AddMedicineError value)? addMedicineError,
+    TResult? Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult? Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult? Function(DeleteMedicineError value)? deleteMedicineError,
+  }) {
+    return deleteMedicineSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(MedicineLoading value)? loading,
+    TResult Function(MedicineSuccess value)? success,
+    TResult Function(MedicineError value)? error,
+    TResult Function(AddMedicineLoading value)? addMedicineLoading,
+    TResult Function(AddMedicineSuccess value)? addMedicineSuccess,
+    TResult Function(AddMedicineError value)? addMedicineError,
+    TResult Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult Function(DeleteMedicineError value)? deleteMedicineError,
+    required TResult orElse(),
+  }) {
+    if (deleteMedicineSuccess != null) {
+      return deleteMedicineSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteMedicineSuccess implements MedicineState {
+  const factory DeleteMedicineSuccess() = _$DeleteMedicineSuccessImpl;
+}
+
+/// @nodoc
+abstract class _$$DeleteMedicineErrorImplCopyWith<$Res> {
+  factory _$$DeleteMedicineErrorImplCopyWith(_$DeleteMedicineErrorImpl value,
+          $Res Function(_$DeleteMedicineErrorImpl) then) =
+      __$$DeleteMedicineErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ApiErrorModel apiErrorModel});
+}
+
+/// @nodoc
+class __$$DeleteMedicineErrorImplCopyWithImpl<$Res>
+    extends _$MedicineStateCopyWithImpl<$Res, _$DeleteMedicineErrorImpl>
+    implements _$$DeleteMedicineErrorImplCopyWith<$Res> {
+  __$$DeleteMedicineErrorImplCopyWithImpl(_$DeleteMedicineErrorImpl _value,
+      $Res Function(_$DeleteMedicineErrorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MedicineState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? apiErrorModel = null,
+  }) {
+    return _then(_$DeleteMedicineErrorImpl(
+      null == apiErrorModel
+          ? _value.apiErrorModel
+          : apiErrorModel // ignore: cast_nullable_to_non_nullable
+              as ApiErrorModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteMedicineErrorImpl implements DeleteMedicineError {
+  const _$DeleteMedicineErrorImpl(this.apiErrorModel);
+
+  @override
+  final ApiErrorModel apiErrorModel;
+
+  @override
+  String toString() {
+    return 'MedicineState.deleteMedicineError(apiErrorModel: $apiErrorModel)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteMedicineErrorImpl &&
+            (identical(other.apiErrorModel, apiErrorModel) ||
+                other.apiErrorModel == apiErrorModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, apiErrorModel);
+
+  /// Create a copy of MedicineState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteMedicineErrorImplCopyWith<_$DeleteMedicineErrorImpl> get copyWith =>
+      __$$DeleteMedicineErrorImplCopyWithImpl<_$DeleteMedicineErrorImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() addMedicineLoading,
+    required TResult Function() addMedicineSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) addMedicineError,
+    required TResult Function() deleteMedicineLoading,
+    required TResult Function() deleteMedicineSuccess,
+    required TResult Function(ApiErrorModel apiErrorModel) deleteMedicineError,
+  }) {
+    return deleteMedicineError(apiErrorModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? addMedicineLoading,
+    TResult? Function()? addMedicineSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult? Function()? deleteMedicineLoading,
+    TResult? Function()? deleteMedicineSuccess,
+    TResult? Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
+  }) {
+    return deleteMedicineError?.call(apiErrorModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? addMedicineLoading,
+    TResult Function()? addMedicineSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? addMedicineError,
+    TResult Function()? deleteMedicineLoading,
+    TResult Function()? deleteMedicineSuccess,
+    TResult Function(ApiErrorModel apiErrorModel)? deleteMedicineError,
+    required TResult orElse(),
+  }) {
+    if (deleteMedicineError != null) {
+      return deleteMedicineError(apiErrorModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(MedicineLoading value) loading,
+    required TResult Function(MedicineSuccess value) success,
+    required TResult Function(MedicineError value) error,
+    required TResult Function(AddMedicineLoading value) addMedicineLoading,
+    required TResult Function(AddMedicineSuccess value) addMedicineSuccess,
+    required TResult Function(AddMedicineError value) addMedicineError,
+    required TResult Function(DeleteMedicineLoading value)
+        deleteMedicineLoading,
+    required TResult Function(DeleteMedicineSuccess value)
+        deleteMedicineSuccess,
+    required TResult Function(DeleteMedicineError value) deleteMedicineError,
+  }) {
+    return deleteMedicineError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(MedicineLoading value)? loading,
+    TResult? Function(MedicineSuccess value)? success,
+    TResult? Function(MedicineError value)? error,
+    TResult? Function(AddMedicineLoading value)? addMedicineLoading,
+    TResult? Function(AddMedicineSuccess value)? addMedicineSuccess,
+    TResult? Function(AddMedicineError value)? addMedicineError,
+    TResult? Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult? Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult? Function(DeleteMedicineError value)? deleteMedicineError,
+  }) {
+    return deleteMedicineError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(MedicineLoading value)? loading,
+    TResult Function(MedicineSuccess value)? success,
+    TResult Function(MedicineError value)? error,
+    TResult Function(AddMedicineLoading value)? addMedicineLoading,
+    TResult Function(AddMedicineSuccess value)? addMedicineSuccess,
+    TResult Function(AddMedicineError value)? addMedicineError,
+    TResult Function(DeleteMedicineLoading value)? deleteMedicineLoading,
+    TResult Function(DeleteMedicineSuccess value)? deleteMedicineSuccess,
+    TResult Function(DeleteMedicineError value)? deleteMedicineError,
+    required TResult orElse(),
+  }) {
+    if (deleteMedicineError != null) {
+      return deleteMedicineError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteMedicineError implements MedicineState {
+  const factory DeleteMedicineError(final ApiErrorModel apiErrorModel) =
+      _$DeleteMedicineErrorImpl;
+
+  ApiErrorModel get apiErrorModel;
+
+  /// Create a copy of MedicineState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeleteMedicineErrorImplCopyWith<_$DeleteMedicineErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -68,20 +68,6 @@ class defineDoctor extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     const Icon(
-                      Icons.calendar_today,
-                      size: 15,
-                    ),
-                    horizontalSpace(5),
-                    Text(
-                      doctorResponseBody.endTime.toString(),
-                      style: TextStyles.font15DarkBlueMedium,
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    const Icon(
                       Icons.shopping_cart_checkout_sharp,
                       size: 15,
                     ),

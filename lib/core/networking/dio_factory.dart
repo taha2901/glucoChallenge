@@ -66,3 +66,76 @@ class DioFactory {
     );
   }
 }
+
+
+
+
+
+// import 'package:challenge/core/helpers/constants.dart';
+// import 'package:challenge/core/helpers/shared_pref_helper.dart';
+// import 'package:dio/dio.dart';
+// import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+
+// class DioFactory {
+//   DioFactory._();
+
+//   static Dio? dio;
+
+//   static Dio getDio({bool isMultipart = false}) {
+//     Duration timeOut = const Duration(seconds: 30);
+
+//     if (dio == null) {
+//       dio = Dio();
+//       dio!
+//         ..options.connectTimeout = timeOut
+//         ..options.receiveTimeout = timeOut;
+
+//       addDioHeaders(isMultipart: isMultipart);
+//       addDioInterceptor();
+//       return dio!;
+//     } else {
+//       // تحديث content-type عند كل استدعاء
+//       addDioHeaders(isMultipart: isMultipart);
+//       return dio!;
+//     }
+//   }
+
+//   static Future<void> addDioHeaders({bool isMultipart = false}) async {
+//     dio?.options.headers = {
+//       'Accept': 'application/json',
+//       'content-type': isMultipart ? 'multipart/form-data' : 'application/json',
+//       'Authorization':
+//           'Bearer ${await SharedPrefHelper.getString(SharedPrefKeys.userToken)}',
+//     };
+//   }
+
+//   static void setTokenIntoHeaderAfterLogin(String token) {
+//     dio?.options.headers = {
+//       'Accept': 'application/json',
+//       'content-type': 'application/json',
+//       'Authorization': 'Bearer $token',
+//     };
+//   }
+
+//   static void addDioInterceptor() {
+//     dio?.interceptors.add(
+//       PrettyDioLogger(
+//         requestBody: true,
+//         requestHeader: true,
+//         responseHeader: true,
+//         responseBody: true,
+//       ),
+//     );
+
+//     dio?.interceptors.add(
+//       LogInterceptor(
+//         request: true,
+//         requestBody: true,
+//         responseHeader: true,
+//         responseBody: true,
+//         error: true,
+//         logPrint: (log) => print(log),
+//       ),
+//     );
+//   }
+// }

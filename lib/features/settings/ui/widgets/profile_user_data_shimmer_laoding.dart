@@ -4,37 +4,70 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
-class ProfileUserDataShimmerLoading extends StatelessWidget {
-  const ProfileUserDataShimmerLoading({super.key});
+
+class ShimmerCardOfUserData extends StatelessWidget {
+  const ShimmerCardOfUserData({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+    return Card(
       child: Container(
-        width:  double.infinity,
-        child: Shimmer.fromColors(
-          baseColor: ColorsManager.lightGrey,
-          highlightColor: Colors.white,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8.0),
+          color: ColorsManager.kPrimaryLightColor,
+        ),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+          child: Row(
             children: [
-              Container(
-                height: 10.h,
-                width: 100.w,
-                color: Colors.grey,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Shimmer.fromColors(
+                    baseColor: Colors.grey[300]!,
+                    highlightColor: Colors.grey[100]!,
+                    child: Container(
+                      width: 120.w,
+                      height: 20.h,
+                      color: Colors.white,
+                    ),
+                  ),
+                  verticalSpace(8),
+                  Row(
+                    children: [
+                      Shimmer.fromColors(
+                        baseColor: Colors.grey[300]!,
+                        highlightColor: Colors.grey[100]!,
+                        child: Container(
+                          width: 150.w,
+                          height: 16.h,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  verticalSpace(8),
+                  Shimmer.fromColors(
+                    baseColor: Colors.grey[300]!,
+                    highlightColor: Colors.grey[100]!,
+                    child: Container(
+                      width: 100.w,
+                      height: 16.h,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
-              verticalSpace(8),
-              Container(
-                height: 10.h,
-                width: 200.w,
-                color: Colors.grey,
-              ),
-              verticalSpace(8),
-              Container(
-                height: 10.h,
-                width: 180.w,
-                color: Colors.grey,
+              const Spacer(),
+              Shimmer.fromColors(
+                baseColor: Colors.grey[300]!,
+                highlightColor: Colors.grey[100]!,
+                child: CircleAvatar(
+                  radius: 50.sp,
+                  backgroundColor: Colors.white,
+                ),
               ),
             ],
           ),

@@ -93,8 +93,6 @@ class PartScreenWeight extends StatelessWidget {
   }
 
   Widget _buildWeightChart() {
-
-
     return BlocConsumer<WeightCubit, WeightState>(
       listener: (context, state) {
         state.maybeWhen(
@@ -112,15 +110,48 @@ class PartScreenWeight extends StatelessWidget {
             if (state is GetWeightLoading) {
               return const CircularProgressIndicator();
             } else if (state is GetWeightSuccess) {
+              if (state.weightMeasurements.isEmpty) {
+                return _buildEmptyState(
+                    context); // هذا الجزء سيظهر عندما لا توجد بيانات.
+              }
               return _buildWeightLineChart(state.weightMeasurements);
             } else if (state is GetWeightError) {
               return Text('Error: ${state.error}');
             } else {
-              return const Text('No data available');
+              // إضافة حالة افتراضية لترجيع قيمة Widget
+              return _buildEmptyState(context);
             }
           },
         );
       },
+    );
+  }
+
+  Widget _buildEmptyState(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Icon(Icons.warning, size: 50, color: Colors.grey),
+        const SizedBox(height: 12),
+        Text(
+          "لا توجد بيانات حالياً لعرضها",
+          style: TextStyle(color: Colors.grey, fontSize: 16),
+        ),
+        const SizedBox(height: 24),
+        AppTextButton(
+          buttonText: 'حاول لاحقاً',
+          borderRadius: 5,
+          backgroundColor: ColorsManager.mainColor,
+          textStyle: const TextStyle(color: Colors.white),
+          onPressed: () {
+            // إعادة المحاولة أو إعادة تحميل البيانات
+            context
+                .read<WeightCubit>()
+                .fetchWeightData(DateHelper.getCurrentDate());
+          },
+        ),
+      ],
     );
   }
 

@@ -1,7 +1,5 @@
 class Routers {
-
   static const String onBaord = '/onBaord';
-
   static const String login = '/login';
   static const String register = '/register';
   static const String home = '/home';
@@ -14,7 +12,11 @@ class Routers {
   static const String measurement = '/measurement';
   static const String profile = '/profile';
   static const String updateProfile = '/updateProfile';
-
-
-
+  static const String thankYouView = '/thankYouView';
+  static const String myMedicalRecord = '/myMedicalRecord';
+  static const String exercise = '/exercise';
+  static const String favourite = '/favourite';
+  static const String splashScreen = '/splashScreen';
+  static const String chatbot = '/chatbot';
+  static const String addPerson = '/addPerson';
 }

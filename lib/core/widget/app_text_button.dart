@@ -1,3 +1,4 @@
+import 'package:challenge/core/helpers/spacing.dart';
 import 'package:challenge/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +15,8 @@ class AppTextButton extends StatelessWidget {
   final String buttonText;
   final TextStyle textStyle;
   final VoidCallback onPressed;
-  const AppTextButton( {
+  final IconData? icon;
+  const AppTextButton({
     super.key,
     this.borderRadius,
     this.backgroundColor,
@@ -25,6 +27,7 @@ class AppTextButton extends StatelessWidget {
     required this.buttonText,
     required this.textStyle,
     required this.onPressed,
+    this.icon,
   });
 
   @override
@@ -50,9 +53,19 @@ class AppTextButton extends StatelessWidget {
         ),
       ),
       onPressed: onPressed,
-      child: Text(
-        buttonText,
-        style: textStyle,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            icon,
+            color: Colors.white,
+          ),
+          horizontalSpace(8),
+          Text(
+            buttonText,
+            style: textStyle,
+          ),
+        ],
       ),
     );
   }
